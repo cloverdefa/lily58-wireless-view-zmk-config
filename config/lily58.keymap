@@ -134,7 +134,7 @@
             bindings = <&bt BT_CLR>;
             key-positions = <18 22>;
             timeout-ms = <20>;
-            layers = <3 7>;
+            layers = <3>;
         };
 
         combo_WIN_NEWDESKTOP {
@@ -192,7 +192,6 @@
         compatible = "zmk,keymap";
 
         windows_default_layer {
-
             display-name = "Windows";
             bindings = <
 &kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                           &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp BACKSPACE
@@ -201,10 +200,11 @@
 &kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B   &terminal_win           &screenshot_win  &kp N   &kp M     &kp COMMA  &kp DOT  &kp FSLH  &windowsmax_win
                                   &kp LALT  &kp LGUI  &mo 1   &sm LEFT_SHIFT SPACE    &kp RET          &mo 2   &kp BSPC  &kp RGUI
             >;
+
+            label = "Windows";
         };
 
         windows_code_layer {
-
             display-name = "WinCode";
             bindings = <
 &none   &kp F1           &kp F2       &kp F3    &kp F4          &kp F5                           &kp F6             &kp F7         &kp F8                &kp F9                 &kp F10               &none
@@ -216,19 +216,17 @@
         };
 
         windows_function_layer {
-
             display-name = "WinFunc";
             bindings = <
-&trans     &trans  &trans  &trans   &trans   &trans                     &trans       &trans          &trans        &trans     &trans     &trans
-&kp GRAVE  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5                     &kp N6       &kp N7          &kp N8        &kp N9     &kp N0     &trans
-&kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                     &kp LEFT     &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp RIGHT  &trans
-&kp F7     &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &kp KP_PLUS  &kp MINUS       &kp EQUAL     &kp LBKT   &kp RBKT   &kp BSLH
-                           &trans   &trans   &trans   &trans    &trans  &trans       &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans    &trans          &trans        &trans     &trans  &trans
+&none   &none   &none   &none   &none   &none                     &none     &none           &none         &none      &none   &trans
+&none   &none   &none   &none   &none   &none                     &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none   &trans
+&none   &none   &none   &none   &none   &none   &trans    &trans  &none     &none           &none         &none      &none   &none
+                        &trans  &trans  &trans  &trans    &trans  &trans    &trans          &trans
             >;
         };
 
         MAC_default_layer {
-            
             display-name = "MacOS";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
@@ -240,7 +238,6 @@
         };
 
         MAC_code_layer {
-            
             display-name = "MacCode";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
@@ -252,8 +249,7 @@
         };
 
         MAC_func_layer {
-
-            display-name = "MacFunc"
+            display-name = "MacFunc";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
