@@ -43,20 +43,6 @@
                 <&kp ENTER>;
         };
 
-        windowsmax_win: windowsmax_win {
-            label = "WINDOWSMAX_WIN";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_wait_time 50>,
-                <&macro_tap>,
-                <&kp UP_ARROW>,
-                <&macro_release>,
-                <&kp LGUI>;
-        };
-
         screenshot_win: screenshot_win {
             label = "SCREENSHOT_WIN";
             compatible = "zmk,behavior-macro";
