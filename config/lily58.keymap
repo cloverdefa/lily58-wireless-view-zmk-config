@@ -127,23 +127,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        combo_BT_CLR {
-            bindings = <&bt BT_CLR>;
-            key-positions = <18 22>;
-            timeout-ms = <20>;
-            layers = <3>;
-        };
-
-        combo_MAC_WINDOW {
-            bindings = <&kp LG(LEFT_ALT)>;
-            key-positions = <36 37>;
-            timeout-ms = <20>;
-            layers = <4>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     behaviors {
         td_win: tap_dance_multi_win {
