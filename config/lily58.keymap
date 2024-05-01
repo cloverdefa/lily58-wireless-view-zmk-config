@@ -246,6 +246,7 @@
         };
 
         Game_default_layer {
+            display-name = "Game";
             bindings = <
 &kp ESC           &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &none         &none                              &trans  &trans  &trans  &trans  &trans  &trans
 &kp TAB           &kp NUMBER_7  &kt Q         &kp W         &kp E         &kp R                              &trans  &trans  &trans  &trans  &trans  &trans
