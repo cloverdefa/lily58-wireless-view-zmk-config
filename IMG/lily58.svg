@@ -306,7 +306,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(560, 182)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap"><tspan style="font-size: 60%">&amp;windowsmax_win</tspan></text>
+<text x="0" y="0" class="key tap">MUTE</text>
 </g>
 <g transform="translate(616, 210)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -754,7 +754,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(616, 154)" class="key keypos-30">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">LEFT</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">LEFT</tspan><tspan x="0" dy="1.2em">ARROW</tspan>
+</text>
 </g>
 <g transform="translate(672, 147)" class="key keypos-31">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -770,7 +772,9 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(784, 147)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">RIGHT</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">RIGHT</tspan><tspan x="0" dy="1.2em">ARROW</tspan>
+</text>
 </g>
 <g transform="translate(840, 161)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -811,12 +815,12 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(364, 182)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap"><tspan style="font-size: 64%">MAC_default</tspan></text>
+<text x="0" y="0" class="key tap"><tspan style="font-size: 60%">Game_default</tspan></text>
 <text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(560, 182)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap"><tspan style="font-size: 60%">Game_default</tspan></text>
+<text x="0" y="0" class="key tap"><tspan style="font-size: 64%">MAC_default</tspan></text>
 <text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(616, 210)" class="key keypos-44">
@@ -1065,7 +1069,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(560, 182)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&amp;td_mac</text>
+<text x="0" y="0" class="key tap">MUTE</text>
 </g>
 <g transform="translate(616, 210)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1563,12 +1567,12 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(364, 182)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap"><tspan style="font-size: 60%">Windows_default</tspan></text>
+<text x="0" y="0" class="key tap"><tspan style="font-size: 60%">Game_default</tspan></text>
 <text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(560, 182)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap"><tspan style="font-size: 60%">Game_default</tspan></text>
+<text x="0" y="0" class="key tap"><tspan style="font-size: 60%">Windows_default</tspan></text>
 <text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(616, 210)" class="key keypos-44">
