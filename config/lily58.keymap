@@ -10,17 +10,172 @@
 
 / {
     macros {
-        win_terminal: win_terminal {
+        terminal_win: terminal_win {
+            label = "TERMINAL_WIN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LG(R)>,
-                <&macro_release>,
+                <&kp LGUI>,
                 <&macro_wait_time 50>,
-                <&kp W &kp T>;
+                <&macro_tap>,
+                <&kp R>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp BACKSPACE>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp W &kp T>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp ENTER>;
+        };
 
-            label = "WIN_TERMINAL";
+        windowsmax_win: windowsmax_win {
+            label = "WINDOWSMAX_WIN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp LGUI>;
+        };
+
+        screenshot_win: screenshot_win {
+            label = "SCREENSHOT_WIN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI &kp LEFT_SHIFT>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LGUI &kp LEFT_SHIFT>;
+        };
+
+        spotlight: spotlight {
+            label = "SPOTLIGHT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LGUI>;
+        };
+
+        screenshot_mac: screenshot_mac {
+            label = "SCREEMSHOT_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI &kp LEFT_SHIFT &kp LEFT_CONTROL>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp NUMBER_4>,
+                <&macro_release>,
+                <&kp LGUI &kp LEFT_SHIFT &kp LEFT_CONTROL>;
+        };
+
+        tmux_column: tmux_column {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LC(S)>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp PERCENT>,
+                <&macro_release>;
+
+            label = "TMUX_COLUMN";
+        };
+
+        tmux_row: tmux_row {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LC(S)>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp DOUBLE_QUOTES>,
+                <&macro_release>;
+
+            label = "TMUX_ROW";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_BT_CLR {
+            bindings = <&bt BT_CLR>;
+            key-positions = <18 22>;
+            timeout-ms = <20>;
+            layers = <3 7>;
+        };
+
+        combo_WIN_NEWDESKTOP {
+            bindings = <&kp LG(LC(D))>;
+            key-positions = <24 25>;
+            timeout-ms = <20>;
+            layers = <0>;
+        };
+
+        combo_MAC_WINDOW {
+            bindings = <&kp LG(LEFT_ALT)>;
+            key-positions = <36 37>;
+            timeout-ms = <20>;
+            layers = <4>;
+        };
+    };
+
+    behaviors {
+        td_win: tap_dance_multi_win {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MULTI_WIN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk LEFT_GUI>, <&terminal_win>, <&screenshot_win>;
+        };
+
+        td_mac: tap_dance_multi_mac {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MULTI_MAC";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_ALT>, <&spotlight>, <&screenshot_mac>;
+        };
+
+        sm: space_mod {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPACE_MOD";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+
+            mods = <(MOD_LSFT)>;
         };
     };
 
