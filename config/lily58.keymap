@@ -37,7 +37,9 @@
                 <&kp BACKSPACE>,
                 <&macro_wait_time 50>,
                 <&macro_tap>,
-                <&kp W &kp T>,
+                <&kp W>,
+                <&macro_wait_time 20>,
+                <&kp T>,
                 <&macro_wait_time 50>,
                 <&macro_tap>,
                 <&kp ENTER>;
@@ -53,8 +55,7 @@
                 <&macro_wait_time 50>,
                 <&macro_tap>,
                 <&kp S>,
-                <&macro_release>,
-                <&kp LGUI &kp LEFT_SHIFT>;
+                <&macro_release>;
         };
 
         spotlight: spotlight {
@@ -67,8 +68,7 @@
                 <&macro_wait_time 50>,
                 <&macro_tap>,
                 <&kp SPACE>,
-                <&macro_release>,
-                <&kp LGUI>;
+                <&macro_release>;
         };
 
         screenshot_mac: screenshot_mac {
@@ -81,8 +81,7 @@
                 <&macro_wait_time 50>,
                 <&macro_tap>,
                 <&kp NUMBER_4>,
-                <&macro_release>,
-                <&kp LGUI &kp LEFT_SHIFT &kp LEFT_CONTROL>;
+                <&macro_release>;
         };
 
         tmux_column: tmux_column {
