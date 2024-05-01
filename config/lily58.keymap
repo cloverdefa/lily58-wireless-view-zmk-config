@@ -218,11 +218,11 @@
         windows_function_layer {
             display-name = "WinFunc";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans    &trans          &trans        &trans     &trans  &trans
-&none   &none   &none   &none   &none   &none                     &none     &none           &none         &none      &none   &trans
-&none   &none   &none   &none   &none   &none                     &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none   &trans
-&none   &none   &none   &none   &none   &none   &to 3     &trans  &none     &none           &none         &none      &none   &none
-                        &trans  &trans  &trans  &trans    &trans  &trans    &trans          &trans
+&trans                &trans  &trans  &trans  &trans  &trans                      &trans          &trans          &trans        &trans      &trans         &trans
+&trans                &trans  &trans  &trans  &trans  &trans                      &trans          &trans          &trans        &trans      &trans         &kp LC(LA(DEL))
+&kp LC(LG(D))         &trans  &trans  &trans  &trans  &kp HOME                    &kp LEFT        &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT   &kp PAGE_UP    &kp LA(F4)
+&kp LG(LEFT_CONTROL)  &trans  &trans  &trans  &trans  &kp END   &to 3     &trans  &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT  &kp PAGE_DOWN  &trans
+                                      &trans  &trans  &trans    &trans    &trans  &trans          &trans          &trans
             >;
         };
 
