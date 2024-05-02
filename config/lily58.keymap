@@ -106,6 +106,34 @@
 
             label = "TMUX_ROW";
         };
+
+        win_maxwindow: win_maxwindow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "WIN_MAXWINDOW";
+        };
+
+        win_minwindow: win_minwindow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp DOWN_ARROW>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "WIN_MINWINDOW";
+        };
     };
 
     combos { compatible = "zmk,combos"; };
