@@ -129,6 +129,19 @@
 
             label = "WINDOWMIN_WIN";
         };
+        windowmax_mac: windowmax_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp F>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
+            label = "WINDOWMAX_MAC";
+        };
     };
 
     combos { compatible = "zmk,combos"; };
