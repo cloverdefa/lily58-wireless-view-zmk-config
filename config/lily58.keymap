@@ -192,7 +192,7 @@
             display-name = "WinFunc";
             bindings = <
 &bt BT_SEL 0          &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &bt BT_CLR                    &trans          &trans          &trans        &trans           &trans         &trans
-&trans                &trans        &trans        &trans        &trans             &trans                        &trans          &trans          &trans        &trans           &trans         &trans
+&kp LG(LC(F4))        &trans        &trans        &trans        &trans             &trans                        &trans          &trans          &trans        &trans           &trans         &trans
 &kp LC(LG(D))         &trans        &trans        &trans        &kp INS            &kp HOME                      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp PAGE_UP    &trans
 &kp LG(LEFT_CONTROL)  &trans        &trans        &trans        &kp K_SCREENSAVER  &kp END     &to 6     &to 3   &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT       &kp PAGE_DOWN  &trans
                                                   &trans        &trans             &trans      &trans    &trans  &trans          &trans          &trans
