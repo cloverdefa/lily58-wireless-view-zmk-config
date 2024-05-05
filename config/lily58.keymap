@@ -33,6 +33,8 @@
                 <&kp LGUI>,
                 <&macro_tap>,
                 <&kp W &kp T &kp ENTER>;
+
+            label = "TERMINAL_WIN";
         };
 
         screenshot_win: screenshot_win {
@@ -46,60 +48,8 @@
                 <&kp S>,
                 <&macro_release>,
                 <&kp LG(LEFT_SHIFT)>;
-        };
 
-        spotlight_mac: spotlight_mac {
-            label = "SPOTLIGHT_MAC";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_release>,
-                <&kp LGUI>;
-        };
-
-        screenshot_mac: screenshot_mac {
-            label = "SCREEMSHOT_MAC";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LS(LEFT_CONTROL))>,
-                <&macro_tap>,
-                <&kp NUMBER_4>,
-                <&macro_release>,
-                <&kp LG(LS(LEFT_CONTROL))>;
-        };
-
-        tmux_column: tmux_column {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LC(A)>,
-                <&macro_tap>,
-                <&kp PIPE>,
-                <&macro_release>,
-                <&kp LC(A)>;
-
-            label = "TMUX_COLUMN";
-        };
-
-        tmux_row: tmux_row {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LC(A)>,
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_release>,
-                <&kp LC(A)>;
-
-            label = "TMUX_ROW";
+            label = "SCREENSHOT_WIN";
         };
 
         windowmax_win: windowmax_win {
@@ -130,6 +80,51 @@
             label = "WINDOWMIN_WIN";
         };
 
+        spotlight_mac: spotlight_mac {
+            label = "SPOTLIGHT_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "SPOTLIGHT_MAC";
+        };
+
+        screenshot_mac: screenshot_mac {
+            label = "SCREEMSHOT_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LG(LS(LEFT_CONTROL))>,
+                <&macro_tap>,
+                <&kp NUMBER_4>,
+                <&macro_release>,
+                <&kp LG(LS(LEFT_CONTROL))>;
+
+            label = "SCREENSHOT_MAC";
+        };
+
+        recording_mac: recording_mac {
+            label = "SCREEMSHOT_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LG(LS(LEFT_CONTROL))>,
+                <&macro_tap>,
+                <&kp NUMBER_5>,
+                <&macro_release>,
+                <&kp LG(LS(LEFT_CONTROL))>;
+
+            label = "RECORDING_MAC";
+        };
+
         windowmax_mac: windowmax_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -142,6 +137,34 @@
                 <&kp GLOBE>;
 
             label = "WINDOWMAX_MAC";
+        };
+
+        tmux_column: tmux_column {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LC(A)>,
+                <&macro_tap>,
+                <&kp PIPE>,
+                <&macro_release>,
+                <&kp LC(A)>;
+
+            label = "TMUX_COLUMN";
+        };
+
+        tmux_row: tmux_row {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LC(A)>,
+                <&macro_tap>,
+                <&kp MINUS>,
+                <&macro_release>,
+                <&kp LC(A)>;
+
+            label = "TMUX_ROW";
         };
     };
 
