@@ -31,7 +31,7 @@
                 <&kp R>,
                 <&macro_release>,
                 <&kp LGUI>,
-                <&macro_wait_time 20>,
+                <&macro_wait_time 50>,
                 <&macro_tap>,
                 <&kp W &kp T>,
                 <&macro_wait_time 20>,
