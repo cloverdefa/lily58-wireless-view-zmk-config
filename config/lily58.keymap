@@ -198,8 +198,8 @@
             bindings = <
 &kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                              &kp N6        &kp N7         &kp N8              &kp N9   &kp N0    &kp BACKSPACE
 &kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                               &kp Y         &kp U          &kp I               &kp O    &kp P     &kp DELETE
-&kp LEFT_SHIFT    &kp A   &kp S   &kp D     &kp F     &kp G                                               &kp H         &kp J          &kp K               &kp L    &kp SEMI  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B         &tmux_list              &tmux_create  &kp N         &kp M          &kp COMMA           &kp DOT  &kp FSLH  &screenshot_win
+&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F     &kp G                                               &kp H         &kp J          &kp K               &kp L    &kp SEMI  &kp LC(TAB)
+&kp LEFT_SHIFT    &kp Z   &kp X   &kp C     &kp V     &kp B         &tmux_list              &tmux_create  &kp N         &kp M          &kp COMMA           &kp DOT  &kp FSLH  &screenshot_win
                                   &kp LALT  &kp LGUI  &mo WIN_CODE  &sm LEFT_SHIFT SPACE    &kp RET       &mo WIN_FUNC  &terminal_win  &kp LC(LEFT_SHIFT)
             >;
 
@@ -237,8 +237,8 @@
             bindings = <
 &kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                              &kp N6        &kp N7          &kp N8              &kp N9   &kp N0    &kp BACKSPACE
 &kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                               &kp Y         &kp U           &kp I               &kp O    &kp P     &kp DELETE
-&kp LEFT_SHIFT    &kp A   &kp S   &kp D     &kp F     &kp G                                               &kp H         &kp J           &kp K               &kp L    &kp SEMI  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B         &tmux_list              &tmux_create  &kp N         &kp M           &kp COMMA           &kp DOT  &kp FSLH  &screenshot_mac
+&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F     &kp G                                               &kp H         &kp J           &kp K               &kp L    &kp SEMI  &kp LC(TAB)
+&kp LEFT_SHIFT    &kp Z   &kp X   &kp C     &kp V     &kp B         &tmux_list              &tmux_create  &kp N         &kp M           &kp COMMA           &kp DOT  &kp FSLH  &screenshot_mac
                                   &kp LALT  &kp LGUI  &mo MAC_CODE  &sm LEFT_SHIFT SPACE    &kp RET       &mo MAC_FUNC  &spotlight_mac  &kp LC(LEFT_SHIFT)
             >;
 
