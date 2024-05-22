@@ -150,7 +150,11 @@
         tmux_column: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp PIPE>;
+            bindings =
+                <&macro_tap>,
+                <&kp LC(A)>,
+                <&macro_wait_time 10>,
+                <&kp PIPE>;
 
             label = "TMUX_COLUMN";
         };
@@ -158,9 +162,25 @@
         tmux_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp MINUS>;
+            bindings =
+                <&macro_tap>,
+                <&kp LC(A)>,
+                <&macro_wait_time 10>,
+                <&kp MINUS>;
 
             label = "TMUX_ROW";
+        };
+
+        tmux_list: tmux_list {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LC(A)>,
+                <&macro_wait_time 10>,
+                <&kp W>;
+
+            label = "TMUX_LIST";
         };
     };
 
@@ -187,7 +207,7 @@
 &kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                         &kp N6  &kp N7   &kp N8              &kp N9   &kp N0    &kp BACKSPACE
 &kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                          &kp Y   &kp U    &kp I               &kp O    &kp P     &kp DELETE
 &kp LEFT_SHIFT    &kp A   &kp S   &kp D     &kp F     &kp G                                          &kp H   &kp J    &kp K               &kp L    &kp SEMI  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B   &terminal_win           &terminal_win  &kp N   &kp M    &kp COMMA           &kp DOT  &kp FSLH  &screenshot_win
+&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B   &tmux_list              &terminal_win  &kp N   &kp M    &kp COMMA           &kp DOT  &kp FSLH  &screenshot_win
                                   &kp LALT  &kp LGUI  &mo 1   &sm LEFT_SHIFT SPACE    &kp RET        &mo 2   &kp DEL  &kp LC(LEFT_SHIFT)
             >;
 
@@ -197,11 +217,11 @@
         Windows_code_layer {
             display-name = "WinCode";
             bindings = <
-&trans  &kp F1           &kp F2          &kp F3             &kp F4          &kp F5                           &kp F6     &kp F7             &kp F8                &kp F9                 &kp F10               &trans
-&trans  &kp EXCLAMATION  &kp AT_SIGN     &kp HASH           &kp DOLLAR      &kp PERCENT                      &kp LCTRL  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK          &trans
-&trans  &tmux_column     &windowmax_win  &kp LS(LA(EQUAL))  &kp MINUS       &kp PLUS                         &kp GRAVE  &kp SQT            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LC(LA(DEL))
-&trans  &tmux_row        &windowmin_win  &kp LS(LA(MINUS))  &kp UNDERSCORE  &kp EQUAL    &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE              &kp LA(F4)
-                                         &trans             &trans          &trans       &trans     &trans   &trans     &trans             &trans
+&trans  &kp F1             &kp F2          &kp F3        &kp F4          &kp F5                           &kp F6     &kp F7             &kp F8                &kp F9                 &kp F10               &trans
+&trans  &kp EXCLAMATION    &kp AT_SIGN     &kp HASH      &kp DOLLAR      &kp PERCENT                      &kp LCTRL  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK          &trans
+&trans  &kp LA(LS(EQUAL))  &windowmax_win  &tmux_column  &kp MINUS       &kp PLUS                         &kp GRAVE  &kp SQT            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LC(LA(DEL))
+&trans  &kp LA(LS(MINUS))  &windowmin_win  &tmux_row     &kp UNDERSCORE  &kp EQUAL    &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE              &kp LA(F4)
+                                           &trans        &trans          &trans       &trans     &trans   &trans     &trans             &trans
             >;
 
             label = "WinCode";
@@ -226,7 +246,7 @@
 &kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                          &kp N6  &kp N7     &kp N8              &kp N9   &kp N0    &kp BACKSPACE
 &kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                           &kp Y   &kp U      &kp I               &kp O    &kp P     &kp DELETE
 &kp LEFT_SHIFT    &kp A   &kp S   &kp D     &kp F     &kp G                                           &kp H   &kp J      &kp K               &kp L    &kp SEMI  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B   &spotlight_mac          &recording_mac  &kp N   &kp M      &kp COMMA           &kp DOT  &kp FSLH  &screenshot_mac
+&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B   &tmux_list              &spotlight_mac  &kp N   &kp M      &kp COMMA           &kp DOT  &kp FSLH  &screenshot_mac
                                   &kp LALT  &kp LGUI  &mo 4   &sm LEFT_SHIFT SPACE    &kp RET         &mo 5   &kp GLOBE  &kp LC(LEFT_SHIFT)
             >;
 
@@ -236,11 +256,11 @@
         MAC_code_layer {
             display-name = "MacCode";
             bindings = <
-&trans  &kp F1           &kp F2          &kp F3         &kp F4          &kp F5                           &kp F6     &kp F7             &kp F8                &kp F9                 &kp F10               &trans
-&trans  &kp EXCLAMATION  &kp AT_SIGN     &kp HASH       &kp DOLLAR      &kp PERCENT                      &kp LCTRL  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK          &trans
-&trans  &tmux_column     &windowmax_mac  &kp LG(D)      &kp MINUS       &kp PLUS                         &kp GRAVE  &kp SQT            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LG(LA(ESC))
-&trans  &tmux_row        &kp LG(LS(M))   &kp LG(LS(D))  &kp UNDERSCORE  &kp EQUAL    &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE              &kp LG(LA(Q))
-                                         &trans         &trans          &trans       &trans     &trans   &trans     &trans             &trans
+&trans  &kp F1           &kp F2          &kp F3        &kp F4          &kp F5                           &kp F6     &kp F7             &kp F8                &kp F9                 &kp F10               &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN     &kp HASH      &kp DOLLAR      &kp PERCENT                      &kp LCTRL  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK          &trans
+&trans  &kp LG(D)        &windowmax_mac  &tmux_column  &kp MINUS       &kp PLUS                         &kp GRAVE  &kp SQT            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LG(LA(ESC))
+&trans  &kp LG(LS(D))    &kp LG(LS(M))   &tmux_row     &kp UNDERSCORE  &kp EQUAL    &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE              &kp LG(LA(Q))
+                                         &trans        &trans          &trans       &trans     &trans   &trans     &trans             &trans
             >;
         };
 
