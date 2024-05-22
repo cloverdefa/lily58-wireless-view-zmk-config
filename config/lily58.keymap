@@ -26,7 +26,6 @@
             bindings =
                 <&macro_press>,
                 <&kp LGUI>,
-                <&macro_wait_time 20>,
                 <&macro_tap>,
                 <&kp R>,
                 <&macro_release>,
