@@ -34,13 +34,9 @@
                 <&macro_wait_time 50>,
                 <&macro_tap>,
                 <&kp DELETE>,
-                <&macro_wait_time 20>,
+                <&macro_wait_time 10>,
                 <&macro_tap>,
-                <&kp W>,
-                <&macro_wait_time 20>,
-                <&kp T>,
-                <&macro_wait_time 20>,
-                <&kp ENTER>;
+                <&kp W &kp T &kp ENTER>;
 
             label = "TERMINAL_WIN";
         };
@@ -150,11 +146,7 @@
         tmux_column: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LC(A)>,
-                <&macro_wait_time 10>,
-                <&kp PIPE>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
 
             label = "TMUX_COLUMN";
         };
@@ -162,11 +154,7 @@
         tmux_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LC(A)>,
-                <&macro_wait_time 10>,
-                <&kp MINUS>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
 
             label = "TMUX_ROW";
         };
@@ -174,11 +162,7 @@
         tmux_list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LC(A)>,
-                <&macro_wait_time 10>,
-                <&kp W>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
 
             label = "TMUX_LIST";
         };
