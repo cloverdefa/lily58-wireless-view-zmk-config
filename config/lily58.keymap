@@ -254,6 +254,7 @@
 &kp LG(LS(D))  &tmux_create     &kp LG(LS(M))   &tmux_row     &kp PLUS    &kp UNDERSCORE  &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LG(LA(Q))
                                                 &trans        &trans      &trans          &trans     &trans   &trans     &trans             &trans
             >;
+            label = "MacCode";
         };
 
         MAC_function_layer {
