@@ -202,8 +202,6 @@
 &kp LEFT_SHIFT    &kp Z   &kp X   &kp C     &kp V     &kp B         &tmux_list              &tmux_create  &kp N         &kp M          &kp COMMA           &kp DOT  &kp FSLH  &screenshot_win
                                   &kp LALT  &kp LGUI  &mo WIN_CODE  &sm LEFT_SHIFT SPACE    &kp RET       &mo WIN_FUNC  &terminal_win  &kp LC(LEFT_SHIFT)
             >;
-
-            label = "Windows";
         };
 
         Windows_code_layer {
@@ -215,8 +213,6 @@
 &kp LA(LS(MINUS))  &tmux_create     &windowmin_win  &tmux_row     &kp PLUS    &kp UNDERSCORE  &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LA(F4)
                                                     &trans        &trans      &trans          &trans     &trans   &trans     &trans             &trans
             >;
-
-            label = "WinCode";
         };
 
         Windows_function_layer {
@@ -228,8 +224,6 @@
 &kp LG(LEFT_CONTROL)  &trans        &trans        &trans        &trans        &kp END     &to GAME_DEF    &to MAC_DEF  &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT       &kp PAGE_DOWN  &trans
                                                   &trans        &trans        &trans      &trans          &trans       &trans          &trans          &trans
             >;
-
-            label = "WinFunc";
         };
 
         MAC_default_layer {
@@ -241,8 +235,6 @@
 &kp LEFT_SHIFT    &kp Z   &kp X   &kp C     &kp V     &kp B         &tmux_list              &tmux_create  &kp N         &kp M           &kp COMMA           &kp DOT  &kp FSLH  &screenshot_mac
                                   &kp LALT  &kp LGUI  &mo MAC_CODE  &sm LEFT_SHIFT SPACE    &kp RET       &mo MAC_FUNC  &spotlight_mac  &kp LC(LEFT_SHIFT)
             >;
-
-            label = "MacOS";
         };
 
         MAC_code_layer {
@@ -254,7 +246,6 @@
 &kp LG(LS(D))  &tmux_create     &kp LG(LS(M))   &tmux_row     &kp PLUS    &kp UNDERSCORE  &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LG(LA(Q))
                                                 &trans        &trans      &trans          &trans     &trans   &trans     &trans             &trans
             >;
-            label = "MacCode";
         };
 
         MAC_function_layer {
@@ -266,8 +257,6 @@
 &trans        &trans        &trans        &trans        &trans        &kp END     &to GAME_DEF    &to WIN_DEF  &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT  &kp PAGE_DOWN  &trans
                                           &trans        &trans        &trans      &trans          &trans       &trans          &trans          &trans
             >;
-
-            label = "MacFunc";
         };
 
         Game_default_layer {
@@ -279,8 +268,6 @@
 &kp LEFT_CONTROL  &kp NUMBER_5  &kp NUMBER_4  &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp B        &to WIN_DEF  &trans  &trans  &trans  &trans  &trans  &trans
                                               &none         &kp G         &kp Z         &kp SPACE    &trans       &trans  &trans  &trans
             >;
-
-            label = "Game";
         };
     };
 };
