@@ -20,6 +20,76 @@
 #define GAME_DEF 6
 
 / {
+   combos {
+        compatible = "zmk,combos";
+
+        left_bracket {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <11 12>;
+            layers = <0>;
+        };
+
+        right_bracket {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <17 18>;
+            layers = <0>;
+        };
+
+        left_parenthesis {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <12 13>;
+            layers = <0>;
+        };
+
+        right_parenthesis {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <16 17>;
+            layers = <0>;
+        };
+
+        left_brace {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <13 14>;
+            layers = <0>;
+        };
+
+        right_barce {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <16 15>;
+            layers = <0>;
+        };
+
+        tilde {
+            bindings = <&kp TILDE>;
+            key-positions = <21 22>;
+            layers = <0>;
+        };
+
+        grave {
+            bindings = <&kp GRAVE>;
+            key-positions = <22 23>;
+            layers = <0>;
+        };
+
+        sqt {
+            bindings = <&kp SQT>;
+            key-positions = <6 7>;
+            layers = <0>;
+        };
+
+        backslash {
+            bindings = <&kp NON_US_BACKSLASH>;
+            key-positions = <26 27>;
+            layers = <0>;
+        };
+
+        pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <27 28>;
+            layers = <0>;
+        };
+    };
+
     macros {
         terminal_win: terminal_win {
             compatible = "zmk,behavior-macro";
@@ -82,65 +152,6 @@
                 <&kp LGUI>;
 
             label = "WINDOWMIN_WIN";
-        };
-
-        spotlight_mac: spotlight_mac {
-            label = "SPOTLIGHT_MAC";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_release>,
-                <&kp LGUI>;
-
-            label = "SPOTLIGHT_MAC";
-        };
-
-        screenshot_mac: screenshot_mac {
-            label = "SCREEMSHOT_MAC";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LS(LEFT_CONTROL))>,
-                <&macro_tap>,
-                <&kp NUMBER_4>,
-                <&macro_release>,
-                <&kp LG(LS(LEFT_CONTROL))>;
-
-            label = "SCREENSHOT_MAC";
-        };
-
-        recording_mac: recording_mac {
-            label = "SCREEMSHOT_MAC";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LEFT_SHIFT)>,
-                <&macro_tap>,
-                <&kp NUMBER_5>,
-                <&macro_release>,
-                <&kp LG(LEFT_SHIFT)>;
-
-            label = "RECORDING_MAC";
-        };
-
-        windowmax_mac: windowmax_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp GLOBE>,
-                <&macro_tap>,
-                <&kp F>,
-                <&macro_release>,
-                <&kp GLOBE>;
-
-            label = "WINDOWMAX_MAC";
         };
 
         tmux_column: tmux_column {
@@ -223,39 +234,6 @@
 &kp LC(LG(D))         &trans        &trans        &screenshot_win  &kp INS        &kp HOME                                 &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp PAGE_UP    &trans
 &kp LG(LEFT_CONTROL)  &trans        &trans        &trans           &terminal_win  &kp END     &to GAME_DEF    &to MAC_DEF  &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT       &kp PAGE_DOWN  &trans
                                                   &trans           &kp ESC        &trans      &trans          &trans       &trans          &kp TAB         &trans
-            >;
-        };
-
-        MAC_default_layer {
-            display-name = "MacOS";
-            bindings = <
-&kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                    &kp N6                  &kp N7   &kp N8              &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                                     &kp Y                   &kp U    &kp I               &kp O    &kp P     &kp DELETE
-&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F     &kp G                                                     &kp H                   &kp J    &kp K               &kp L    &kp SEMI  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B             &tmux_list              &spotlight_mac  &kp N                   &kp M    &kp COMMA           &kp DOT  &kp FSLH  &screenshot_mac
-                                  &kp LALT  &kp LGUI  &lt MAC_CODE ESC  &sm LEFT_SHIFT SPACE    &sm LCTRL RET   &lt MAC_FUNC BACKSPACE  &kp TAB  &kp LC(LEFT_SHIFT)
-            >;
-        };
-
-        MAC_code_layer {
-            display-name = "MacCode";
-            bindings = <
-&trans         &kp F1           &kp F2          &kp F3        &kp F4      &kp F5                              &kp F6     &kp F7             &kp F8                &kp F9                 &kp F10               &trans
-&trans         &kp EXCLAMATION  &kp AT_SIGN     &kp HASH      &kp DOLLAR  &kp PERCENT                         &kp LCTRL  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK          &trans
-&kp LG(D)      &tmux_list       &windowmax_mac  &tmux_column  &kp MINUS   &kp EQUAL                           &kp GRAVE  &kp SQT            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE              &kp LG(LA(ESC))
-&kp LG(LS(D))  &tmux_create     &kp LG(LS(M))   &tmux_row     &kp PLUS    &kp UNDERSCORE  &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LG(LA(Q))
-                                                &trans        &kp ESC     &trans          &trans     &trans   &trans     &kp TAB            &trans
-            >;
-        };
-
-        MAC_function_layer {
-            display-name = "MacFunc";
-            bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4    &bt BT_CLR                               &trans          &trans          &trans        &trans      &trans         &trans
-&trans        &trans        &trans        &trans           &trans          &trans                                   &trans          &trans          &trans        &trans      &trans         &trans
-&trans        &trans        &trans        &screenshot_mac  &kp INS         &kp HOME                                 &kp LEFT        &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT   &kp PAGE_UP    &trans
-&trans        &trans        &trans        &recording_mac   &spotlight_mac  &kp END     &to GAME_DEF    &to WIN_DEF  &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT  &kp PAGE_DOWN  &trans
-                                          &trans           &kp ESC         &trans      &trans          &trans       &trans          &kp TAB         &trans
             >;
         };
 
