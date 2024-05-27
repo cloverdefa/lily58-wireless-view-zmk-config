@@ -17,7 +17,7 @@
 #define GAME_DEF 3
 
 / {
-   combos {
+    combos {
         compatible = "zmk,combos";
 
         left_bracket {
@@ -204,33 +204,33 @@
         Windows_default_layer {
             display-name = "Windows";
             bindings = <
-&kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                   &kp N6                  &kp N7   &kp N8              &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                                    &kp Y                   &kp U    &kp I               &kp O    &kp P     &kp DELETE
-&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F     &kp G                                                    &kp H                   &kp J    &kp K               &kp L    &kp SEMI  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B             &tmux_list              &terminal_win  &kp N                   &kp M    &kp COMMA           &kp DOT  &kp FSLH  &screenshot_win
-                                  &kp LALT  &kp LGUI  &lt WIN_CODE ESC  &sm LEFT_SHIFT SPACE    &sm LCTRL RET  &lt WIN_FUNC BACKSPACE  &kp TAB  &kp LC(LEFT_SHIFT)
+&kp ESC           &kp N1       &kp N2          &kp N3          &kp N4            &kp N5                                              &kp N6                &kp N7            &kp N8              &kp N9          &kp N0               &kp MINUS
+&kp TAB           &kp Q        &kp W           &kp E           &kp R             &kp T                                               &kp Y                 &kp U             &kp I               &kp O           &kp P                &kp BACKSPACE
+&kp LEFT_CONTROL  &mt LCTRL A  &mt LEFT_GUI S  &mt LEFT_ALT D  &mt LEFT_SHIFT F  &kp G                                               &kp H                 &mt LEFT_SHIFT J  &mt LEFT_ALT K      &mt LEFT_GUI L  &mt LCTRL SEMICOLON  &kp LC(TAB)
+&kp LEFT_CONTROL  &kp Z        &kp X           &kp C           &kp V             &kp B             &tmux_list         &terminal_win  &kp N                 &kp M             &kp COMMA           &kp DOT         &kp FSLH             &screenshot_win
+                                               &kp LALT        &mt LEFT_GUI TAB  &lt WIN_CODE ESC  &lt 1 BACKSPACE    &lt 2 SPACE    &mt LEFT_SHIFT ENTER  &mt LEFT_ALT DEL  &kp LC(LEFT_SHIFT)
             >;
         };
 
         Windows_code_layer {
             display-name = "WinCode";
             bindings = <
-&trans             &kp F1           &kp F2          &kp F3        &kp F4      &kp F5                              &kp F6     &kp F7             &kp F8                &kp F9                 &kp F10               &trans
-&trans             &kp EXCLAMATION  &kp AT_SIGN     &kp HASH      &kp DOLLAR  &kp PERCENT                         &kp LCTRL  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK          &trans
-&kp LA(LS(EQUAL))  &tmux_list       &windowmax_win  &tmux_column  &kp MINUS   &kp EQUAL                           &kp GRAVE  &kp SQT            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE              &kp LC(LA(DEL))
-&kp LA(LS(MINUS))  &tmux_create     &windowmin_win  &tmux_row     &kp PLUS    &kp UNDERSCORE  &kp F11    &kp F12  &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH  &kp LA(F4)
-                                                    &trans        &kp ESC     &trans          &trans     &trans   &trans     &kp TAB            &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH        &kp DOLLAR    &kp PERCENT                             &trans          &trans        &trans  &trans  &trans  &trans
+&trans  &kp PLUS         &kp EQUAL    &kp UNDERSCORE  &kp MINUS     &kp CARET                               &trans          &trans        &trans  &trans  &trans  &trans
+&trans  &trans           &trans       &trans          &kp ASTERISK  &kp AMPERSAND                           &trans          &trans        &trans  &trans  &trans  &trans
+&trans  &trans           &trans       &tmux_row       &trans        &trans         &trans           &trans  &trans          &trans        &trans  &trans  &trans  &trans
+                                      &trans          &kp LEFT_GUI  &kp SPACE      &kp BACKSPACE    &trans  &kp LEFT_SHIFT  &kp LEFT_ALT  &trans
             >;
         };
 
         Windows_function_layer {
             display-name = "WinFunc";
             bindings = <
-&bt BT_SEL 0          &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4   &bt BT_CLR                               &trans          &trans          &trans        &trans           &trans         &trans
-&kp LG(LC(F4))        &trans        &trans        &trans           &trans         &trans                                   &trans          &trans          &trans        &trans           &trans         &trans
-&kp LC(LG(D))         &trans        &trans        &screenshot_win  &kp INS        &kp HOME                                 &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp PAGE_UP    &trans
-&kp LG(LEFT_CONTROL)  &trans        &trans        &trans           &terminal_win  &kp END     &to GAME_DEF    &to MAC_DEF  &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT       &kp PAGE_DOWN  &trans
-                                                  &trans           &kp ESC        &trans      &trans          &trans       &trans          &kp TAB         &trans
+&bt BT_SEL 0          &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4   &bt BT_CLR                       &trans          &trans          &trans        &trans           &trans  &trans
+&kp LG(LC(F4))        &trans        &trans        &trans           &trans         &trans                           &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans  &trans
+&kp LC(LG(D))         &trans        &trans        &screenshot_win  &trans         &trans                           &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
+&kp LG(LEFT_CONTROL)  &trans        &trans        &trans           &terminal_win  &trans      &trans    &trans     &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT       &trans  &trans
+                                                  &trans           &kp LEFT_GUI   &kp LCTRL   &trans    &kp SPACE  &kp LEFT_SHIFT  &kp LEFT_ALT    &trans
             >;
         };
 
