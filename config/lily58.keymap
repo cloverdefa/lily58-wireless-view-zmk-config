@@ -14,10 +14,7 @@
 #define WIN_DEF  0
 #define WIN_CODE 1
 #define WIN_FUNC 2
-#define MAC_DEF  3
-#define MAC_CODE 4
-#define MAC_FUNC 5
-#define GAME_DEF 6
+#define GAME_DEF 3
 
 / {
    combos {
