@@ -196,11 +196,11 @@
         Windows_default_layer {
             display-name = "Windows";
             bindings = <
-&kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                               &kp N6        &kp N7         &kp N8              &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                                &kp Y         &kp U          &kp I               &kp O    &kp P     &kp DELETE
-&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F     &kp G                                                &kp H         &kp J          &kp K               &kp L    &kp SEMI  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B         &tmux_list              &terminal_win  &kp N         &kp M          &kp COMMA           &kp DOT  &kp FSLH  &screenshot_win
-                                  &kp LALT  &kp LGUI  &mo WIN_CODE  &sm LEFT_SHIFT SPACE    &sm LCTRL RET  &mo WIN_FUNC  &kp BACKSPACE  &kp LC(LEFT_SHIFT)
+&kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                            &kp N6           &kp N7   &kp N8              &kp N9   &kp N0    &kp MINUS
+&kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                             &kp Y            &kp U    &kp I               &kp O    &kp P     &kp DELETE
+&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F     &kp G                                             &kp H            &kp J    &kp K               &kp L    &kp SEMI  &kp LC(TAB)
+&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B      &tmux_list              &terminal_win  &kp N            &kp M    &kp COMMA           &kp DOT  &kp FSLH  &screenshot_win
+                                  &kp LALT  &kp LGUI  &lt 1 ESC  &sm LEFT_SHIFT SPACE    &sm LCTRL RET  &lt 2 BACKSPACE  &kp TAB  &kp LC(LEFT_SHIFT)
             >;
         };
 
@@ -229,11 +229,11 @@
         MAC_default_layer {
             display-name = "MacOS";
             bindings = <
-&kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                &kp N6        &kp N7         &kp N8              &kp N9   &kp N0    &kp MINUS
-&kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                                 &kp Y         &kp U          &kp I               &kp O    &kp P     &kp DELETE
-&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F     &kp G                                                 &kp H         &kp J          &kp K               &kp L    &kp SEMI  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B         &tmux_list              &spotlight_mac  &kp N         &kp M          &kp COMMA           &kp DOT  &kp FSLH  &screenshot_mac
-                                  &kp LALT  &kp LGUI  &mo MAC_CODE  &sm LEFT_SHIFT SPACE    &sm LCTRL RET   &mo MAC_FUNC  &kp BACKSPACE  &kp LC(LEFT_SHIFT)
+&kp ESC           &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8              &kp N9   &kp N0    &kp MINUS
+&kp TAB           &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I               &kp O    &kp P     &kp DELETE
+&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K               &kp L    &kp SEMI  &kp LC(TAB)
+&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V     &kp B      &tmux_list              &spotlight_mac  &kp N            &kp M    &kp COMMA           &kp DOT  &kp FSLH  &screenshot_mac
+                                  &kp LALT  &kp LGUI  &lt 4 ESC  &sm LEFT_SHIFT SPACE    &sm LCTRL RET   &lt 5 BACKSPACE  &kp TAB  &kp LC(LEFT_SHIFT)
             >;
         };
 
