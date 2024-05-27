@@ -186,18 +186,6 @@
 
     combos { compatible = "zmk,combos"; };
 
-    behaviors {
-        sm: space_mod {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SPACE_MOD";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -215,22 +203,22 @@
         Windows_code_layer {
             display-name = "WinCode";
             bindings = <
-&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH        &kp DOLLAR    &kp PERCENT                             &trans          &trans        &trans  &trans  &trans  &trans
-&trans  &kp PLUS         &kp EQUAL    &kp UNDERSCORE  &kp MINUS     &kp CARET                               &trans          &trans        &trans  &trans  &trans  &trans
-&trans  &trans           &trans       &trans          &kp ASTERISK  &kp AMPERSAND                           &trans          &trans        &trans  &trans  &trans  &trans
-&trans  &trans           &trans       &tmux_row       &trans        &trans         &trans           &trans  &trans          &trans        &trans  &trans  &trans  &trans
-                                      &trans          &kp LEFT_GUI  &kp SPACE      &kp BACKSPACE    &trans  &kp LEFT_SHIFT  &kp LEFT_ALT  &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH        &kp DOLLAR    &kp PERCENT                         &trans          &trans        &trans     &trans  &trans  &trans
+&trans  &kp PLUS         &kp EQUAL    &kp UNDERSCORE  &kp MINUS     &kp CARET                           &windowmax_win  &tmux_create  &trans     &trans  &trans  &trans
+&trans  &trans           &trans       &trans          &kp ASTERISK  &kp AMPERSAND                       &windowmin_win  &tmux_column  &tmux_row  &trans  &trans  &trans
+&trans  &trans           &trans       &tmux_row       &trans        &trans         &trans    &to 3      &trans          &trans        &trans     &trans  &trans  &trans
+                                      &trans          &kp LEFT_GUI  &kp SPACE      &trans    &kp SPACE  &kp LEFT_SHIFT  &kp LEFT_ALT  &trans
             >;
         };
 
         Windows_function_layer {
             display-name = "WinFunc";
             bindings = <
-&bt BT_SEL 0          &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4   &bt BT_CLR                       &trans          &trans          &trans        &trans           &trans  &trans
-&kp LG(LC(F4))        &trans        &trans        &trans           &trans         &trans                           &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans  &trans
-&kp LC(LG(D))         &trans        &trans        &screenshot_win  &trans         &trans                           &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&kp LG(LEFT_CONTROL)  &trans        &trans        &trans           &terminal_win  &trans      &trans    &trans     &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT       &trans  &trans
-                                                  &trans           &kp LEFT_GUI   &kp LCTRL   &trans    &kp SPACE  &kp LEFT_SHIFT  &kp LEFT_ALT    &trans
+&trans  &kp F1   &kp F2   &kp F3           &kp F4         &kp F5                              &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4  &bt BT_CLR
+&trans  &kp F6   &kp F7   &kp F8           &kp F9         &kp F10                             &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans        &trans
+&trans  &kp F11  &kp F12  &screenshot_win  &trans         &trans                              &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans        &trans
+&trans  &trans   &trans   &trans           &terminal_win  &trans     &trans           &trans  &kp C_PREVIOUS  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_NEXT       &trans        &trans
+                          &trans           &kp LEFT_GUI   &kp LCTRL  &kp BACKSPACE    &trans  &kp LEFT_SHIFT  &kp LEFT_ALT    &trans
             >;
         };
 
