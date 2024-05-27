@@ -203,11 +203,11 @@
         Windows_code_layer {
             display-name = "Code";
             bindings = <
-&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH        &kp DOLLAR    &kp PERCENT                         &trans          &trans        &trans     &trans  &trans  &trans
-&trans  &kp PLUS         &kp EQUAL    &kp UNDERSCORE  &kp MINUS     &kp CARET                           &windowmax_win  &tmux_create  &trans     &trans  &trans  &trans
-&trans  &trans           &trans       &trans          &kp ASTERISK  &kp AMPERSAND                       &windowmin_win  &tmux_column  &tmux_row  &trans  &trans  &trans
-&trans  &trans           &trans       &tmux_row       &trans        &trans         &trans    &to Game   &trans          &trans        &trans     &trans  &trans  &trans
-                                      &trans          &kp LEFT_GUI  &kp SPACE      &trans    &kp SPACE  &kp LEFT_SHIFT  &kp LEFT_ALT  &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH        &kp DOLLAR    &kp PERCENT                            &trans          &trans        &trans     &trans  &trans  &trans
+&trans  &kp PLUS         &kp EQUAL    &kp UNDERSCORE  &kp MINUS     &kp CARET                              &windowmax_win  &tmux_create  &trans     &trans  &trans  &trans
+&trans  &trans           &trans       &trans          &kp ASTERISK  &kp AMPERSAND                          &windowmin_win  &tmux_column  &tmux_row  &trans  &trans  &trans
+&trans  &trans           &trans       &tmux_row       &trans        &trans         &trans    &to GAME_DEF  &trans          &trans        &trans     &trans  &trans  &trans
+                                      &trans          &kp LEFT_GUI  &kp SPACE      &trans    &kp SPACE     &kp LEFT_SHIFT  &kp LEFT_ALT  &trans
             >;
         };
 
