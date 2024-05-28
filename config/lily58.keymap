@@ -97,7 +97,7 @@
                 <&macro_tap>,
                 <&kp R>,
                 <&macro_release>,
-                <&kp LEFT_GUI>,
+                <&kp LGUI>,
                 <&macro_wait_time 50>,
                 <&macro_tap>,
                 <&kp W &kp T &kp ENTER>;
@@ -199,11 +199,11 @@
         WIN_DEF {
             display-name = "Windows";
             bindings = <
-&kp ESC           &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                                     &kp N6                  &kp N7   &kp N8              &kp N9   &kp N0         &kp MINUS
-&kp TAB           &kp Q   &kp W   &kp E     &kp R         &kp T                                                      &kp Y                   &kp U    &kp I               &kp O    &kp P          &kp DEL
-&kp LEFT_CONTROL  &kp A   &kp S   &kp D     &kp F         &kp G                                                      &kp H                   &kp J    &kp K               &kp L    &kp SEMICOLON  &kp LC(TAB)
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V         &kp B             &tmux_list              &terminal        &kp N                   &kp M    &kp COMMA           &kp DOT  &kp FSLH       &screenshot
-                                  &kp LALT  &kp LEFT_GUI  &lt WIN_CODE ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL ENTER  &lt WIN_FUNC BACKSPACE  &kp TAB  &kp LC(LEFT_SHIFT)
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                 &kp N6                  &kp N7   &kp N8              &kp N9   &kp N0         &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                                  &kp Y                   &kp U    &kp I               &kp O    &kp P          &kp DEL
+&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                                  &kp H                   &kp J    &kp K               &kp L    &kp SEMICOLON  &kp LC(TAB)
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B             &tmux_list          &terminal        &kp N                   &kp M    &kp COMMA           &kp DOT  &kp FSLH       &screenshot
+                           &kp LALT  &kp LGUI  &lt WIN_CODE ESC  &ht LSHIFT SPACE    &ht LCTRL ENTER  &lt WIN_FUNC BACKSPACE  &kp TAB  &kp LC(LSHIFT)
             >;
 
             label = "WIN_DEF";
@@ -212,11 +212,11 @@
         WIN_CODE {
             display-name = "Code";
             bindings = <
-&trans  &trans           &trans        &trans          &trans        &trans                                 &bt BT_SEL 0          &bt BT_SEL 1        &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH        &kp DOLLAR    &kp PERCENT                            &kp NON_US_BACKSLASH  &kp NUMBER_7        &kp NUMBER_8  &kp NUMBER_9  &kp COMMA     &trans
-&trans  &kp PLUS         &kp EQUAL     &kp UNDERSCORE  &kp MINUS     &kp LCTRL                              &kp NUMBER_0          &kp NUMBER_4        &kp NUMBER_5  &kp NUMBER_6  &kp PERIOD    &trans
-&trans  &tmux_row        &tmux_column  &kp TAB         &kp ASTERISK  &kp AMPERSAND  &trans    &to GAME_DEF  &kp SEMICOLON         &kp NUMBER_1        &kp NUMBER_2  &kp NUMBER_3  &kp SLASH     &trans
-                                       &trans          &trans        &trans         &trans    &trans        &trans                &kp LC(LEFT_SHIFT)  &trans
+&trans  &trans           &trans        &trans          &trans        &trans                                 &bt BT_SEL 0          &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH        &kp DOLLAR    &kp PERCENT                            &kp NON_US_BACKSLASH  &kp NUMBER_7    &kp NUMBER_8  &kp NUMBER_9  &kp COMMA     &trans
+&trans  &kp PLUS         &kp EQUAL     &kp UNDERSCORE  &kp MINUS     &kp LCTRL                              &kp NUMBER_0          &kp NUMBER_4    &kp NUMBER_5  &kp NUMBER_6  &kp PERIOD    &trans
+&trans  &tmux_row        &tmux_column  &kp TAB         &kp ASTERISK  &kp AMPERSAND  &trans    &to GAME_DEF  &kp SEMICOLON         &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp SLASH     &trans
+                                       &trans          &trans        &trans         &trans    &trans        &trans                &kp LC(LSHIFT)  &trans
             >;
 
             label = "WIN_CODE";
@@ -225,11 +225,11 @@
         WIN_FUNC {
             display-name = "Func";
             bindings = <
-&trans  &kp F1        &kp F2        &kp F3        &kp F4              &kp F5                               &kp F6          &kp F7          &kp F8        &kp F9           &kp F10      &kp F11
-&trans  &windowmin    &windowmax    &screenshot   &terminal           &kp C_VOLUME_UP                      &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans       &kp F12
-&trans  &kp LCTRL     &kp LEFT_GUI  &kp LEFT_ALT  &ht LEFT_SHIFT TAB  &kp C_VOLUME_DOWN                    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans       &trans
-&trans  &tmux_create  &tmux_list    &trans        &kp C_AC_PASTE      &kp C_PLAY_PAUSE   &trans    &trans  &kp INS         &kp DEL         &kp C_PREV    &kp C_NEXT       &screenshot  &trans
-                                    &trans        &trans              &trans             &trans    &trans  &trans          &trans          &trans
+&trans  &kp F1        &kp F2      &kp F3       &kp F4          &kp F5                               &kp F6     &kp F7       &kp F8       &kp F9      &kp F10      &kp F11
+&trans  &windowmin    &windowmax  &screenshot  &terminal       &kp C_VOLUME_UP                      &kp HOME   &kp PAGE_DN  &kp PAGE_UP  &kp END     &trans       &kp F12
+&trans  &kp LCTRL     &kp LGUI    &kp LALT     &ht LSHIFT TAB  &kp C_VOLUME_DOWN                    &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT   &trans       &trans
+&trans  &tmux_create  &tmux_list  &trans       &kp C_AC_PASTE  &kp C_PLAY_PAUSE   &trans    &trans  &kp INS    &kp DEL      &kp C_PREV   &kp C_NEXT  &screenshot  &trans
+                                  &trans       &trans          &trans             &trans    &trans  &trans     &trans       &trans
             >;
 
             label = "WIN_FUNC";
@@ -238,11 +238,11 @@
         GAME_DEF {
             display-name = "Game";
             bindings = <
-&kp ESC           &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &none         &none                                   &trans  &trans  &trans  &trans  &trans  &trans
-&kp TAB           &kp NUMBER_7  &kt Q         &kp W         &kp E         &kp R                                   &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT    &kp NUMBER_6  &kp A         &kp S         &kp D         &none                                   &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_CONTROL  &kp NUMBER_5  &kp NUMBER_4  &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp B        &to WIN_DEF  &trans  &trans  &trans  &trans  &trans  &trans
-                                              &none         &kp G         &kp Z         &kp SPACE    &trans       &trans  &trans  &trans
+&kp ESC     &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &none         &none                                   &trans  &trans  &trans  &trans  &trans  &trans
+&kp TAB     &kp NUMBER_7  &kt Q         &kp W         &kp E         &kp R                                   &trans  &trans  &trans  &trans  &trans  &trans
+&kp LSHIFT  &kp NUMBER_6  &kp A         &kp S         &kp D         &none                                   &trans  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL   &kp NUMBER_5  &kp NUMBER_4  &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp B        &to WIN_DEF  &trans  &trans  &trans  &trans  &trans  &trans
+                                        &none         &kp G         &kp Z         &kp SPACE    &trans       &trans  &trans  &trans
             >;
 
             label = "GAME_DEF";
