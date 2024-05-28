@@ -201,7 +201,7 @@
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                 &kp N6             &kp N7   &kp N8          &kp N9   &kp N0         &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                                  &kp Y              &kp U    &kp I           &kp O    &kp P          &kp DEL
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                                  &kp H              &kp J    &kp K           &kp L    &kp SEMICOLON  &kp LC(TAB)
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B             &tmux_list          &terminal        &kp N              &kp M    &kp COMMA       &kp DOT  &kp FSLH       &shot
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B             &t_list             &ter             &kp N              &kp M    &kp COMMA       &kp DOT  &kp FSLH       &shot
                            &kp LALT  &kp LGUI  &lt WIN_CODE ESC  &ht LSHIFT SPACE    &ht LCTRL ENTER  &lt WIN_FUNC BSPC  &kp TAB  &kp LC(LSHIFT)
             >;
 
