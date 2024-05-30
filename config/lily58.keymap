@@ -25,61 +25,61 @@
             layers = <0>;
         };
 
-        r_bracket {
+        combo_bracket_R {
             bindings = <&kp RIGHT_BRACKET>;
             key-positions = <33 32>;
             layers = <0>;
         };
 
-        l_parenthesis {
+        combo_parenthesis_L {
             bindings = <&kp LEFT_PARENTHESIS>;
             key-positions = <27 28>;
             layers = <0>;
         };
 
-        r_parenthesis {
+        combo_parenthesis_R {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <31 32>;
             layers = <0>;
         };
 
-        l_brace {
+        combo_brace_L {
             bindings = <&kp LEFT_BRACE>;
             key-positions = <28 29>;
             layers = <0>;
         };
 
-        r_barce {
+        combo_barce_R {
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <30 31>;
             layers = <0>;
         };
 
-        tilde {
+        combo_tilde {
             bindings = <&kp TILDE>;
             key-positions = <38 39>;
             layers = <0>;
         };
 
-        grave {
+        combo_grave {
             bindings = <&kp GRAVE>;
             key-positions = <39 40>;
             layers = <0>;
         };
 
-        sqt {
+        combo_sqt {
             bindings = <&kp SQT>;
             key-positions = <19 20>;
             layers = <0>;
         };
 
-        backslash {
+        combo_backslash {
             bindings = <&kp NON_US_BACKSLASH>;
             key-positions = <45 46>;
             layers = <0>;
         };
 
-        pipe {
+        combo_pipe {
             bindings = <&kp PIPE>;
             key-positions = <46 47>;
             layers = <0>;
@@ -91,15 +91,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp R>,
-                <&macro_release>,
-                <&kp LGUI>,
-                <&macro_wait_time 50>,
-                <&macro_tap>,
-                <&kp W &kp T &kp ENTER>;
+                <&macro_press &kp LGUI>,
+                <&macro_tap &kp R>,
+                <&macro_release &kp LGUI>,
+                <&macro_wait_time 150>,
+                <&macro_tap &kp W &kp T &kp ENTER>;
 
             label = "TERMINAL";
         };
@@ -109,12 +105,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LG(LEFT_SHIFT)>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_release>,
-                <&kp LG(LEFT_SHIFT)>;
+                <&macro_press &kp LG(LEFT_SHIFT)>,
+                <&macro_tap &kp S>,
+                <&macro_release &kp LG(LEFT_SHIFT)>;
 
             label = "SCREENSHOT";
         };
@@ -123,12 +116,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp UP_ARROW>,
-                <&macro_release>,
-                <&kp LGUI>;
+                <&macro_press &kp LGUI>,
+                <&macro_tap &kp UP_ARROW>,
+                <&macro_release &kp LGUI>;
 
             label = "WINDOWMAX";
         };
@@ -137,12 +127,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp DOWN_ARROW>,
-                <&macro_release>,
-                <&kp LGUI>;
+                <&macro_press &kp LGUI>,
+                <&macro_tap &kp DOWN_ARROW>,
+                <&macro_release &kp LGUI>;
 
             label = "WINDOWMIN";
         };
@@ -150,7 +137,7 @@
         t_col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
+            bindings = <&macro_tap &kp LC(A) &kp PIPE>;
 
             label = "TMUX_COLUMN";
         };
@@ -158,7 +145,7 @@
         t_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
 
             label = "TMUX_ROW";
         };
@@ -166,7 +153,7 @@
         t_list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
+            bindings = <&macro_tap &kp LC(A) &kp W>;
 
             label = "TMUX_LIST";
         };
@@ -174,7 +161,7 @@
         t_crt: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
+            bindings = <&macro_tap &kp LC(A) &kp C>;
 
             label = "TMUX_CREATE";
         };
@@ -237,7 +224,7 @@
         GAME_DEF_layer {
             display-name = "Game";
             bindings = <
-&kp ESC     &kp N8  &kp N9  &kp N0  &none   &none                             &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESC     &kp N8  &kp N9  &kp N0  &none   &none                             &trans  &trans  &trans  &trans  &trans  &bootloader
 &kp TAB     &kp N7  &kt Q   &kp W   &kp E   &kp R                             &trans  &trans  &trans  &trans  &trans  &trans
 &kp LSHIFT  &kp N6  &kp A   &kp S   &kp D   &none                             &trans  &trans  &trans  &trans  &trans  &trans
 &kp LCTRL   &kp N5  &kp N4  &kp N3  &kp N2  &kp N1  &kp B        &to WIN_DEF  &trans  &trans  &trans  &trans  &trans  &trans
