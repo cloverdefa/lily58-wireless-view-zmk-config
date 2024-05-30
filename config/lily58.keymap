@@ -214,7 +214,7 @@
 &trans  &kp F1     &kp F2    &kp F3       &kp F4         &kp F5                          &kp F6    &kp F7     &kp F8      &kp F9      &kp F10  &kp F11
 &trans  &min       &max      &shot        &ter           &kp C_VOL_UP                    &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &trans   &kp F12
 &trans  &kp LCTRL  &kp LWIN  &kp LALT     &ht LSHFT TAB  &kp C_VOL_DN                    &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &none    &none
-&trans  &t_crt     &t_list   &trans       &kp CLEAR      &kp C_PP      &trans    &trans  &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &none    &none
+&trans  &t_crt     &t_list   &kp DEL      &none          &kp C_PP      &trans    &trans  &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &none    &none
                              &trans       &trans         &trans        &trans    &trans  &trans    &trans     &trans
             >;
 
