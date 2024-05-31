@@ -189,7 +189,7 @@
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                          &kp N6         &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                           &kp Y          &kp U    &kp I          &kp O    &kp P     &kp DEL
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                           &kp H          &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B         &t_list            &ter           &kp N          &kp M    &kp COMMA      &kp DOT  &kp FSLH  &shot
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B         &t_list            &ter           &kp N          &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp LALT
                            &kp LALT  &kp LWIN  &lt CODE ESC  &ht LSHFT SPACE    &ht LCTRL RET  &lt FUNC BSPC  &kp TAB  &kp LC(LSHFT)
             >;
 
@@ -226,7 +226,7 @@
             display-name = "Game";
             bindings = <
 &kp ESC    &kp N8  &kp N9  &kp N0  &none   &none                         &none  &none  &none  &none  &none  &to SYS
-&kp TAB    &kp N7  &kt Q   &kp W   &kp E   &kp R                         &none  &none  &none  &none  &none  &none
+&kp TAB    &kp N7  &kp Q   &kp W   &kp E   &kp R                         &none  &none  &none  &none  &none  &none
 &kp LSHFT  &kp N6  &kp A   &kp S   &kp D   &none                         &none  &none  &none  &none  &none  &none
 &kp LCTRL  &kp N5  &kp N4  &kp N3  &kp N2  &kp N1  &kp B        &to DEF  &none  &none  &none  &none  &none  &none
                            &none   &kp G   &kp Z   &kp SPACE    &none    &none  &none  &none  
