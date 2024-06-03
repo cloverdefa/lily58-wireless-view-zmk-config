@@ -17,86 +17,21 @@
 #define SYS  4
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_bracket_L {
-            bindings = <&kp LEFT_BRACKET>;
-            key-positions = <26 27>;
-            layers = <0>;
-        };
-
-        combo_bracket_R {
-            bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <33 32>;
-            layers = <0>;
-        };
-
-        combo_parenthesis_L {
-            bindings = <&kp LEFT_PARENTHESIS>;
-            key-positions = <27 28>;
-            layers = <0>;
-        };
-
-        combo_parenthesis_R {
-            bindings = <&kp RIGHT_PARENTHESIS>;
-            key-positions = <31 32>;
-            layers = <0>;
-        };
-
-        combo_brace_L {
-            bindings = <&kp LEFT_BRACE>;
-            key-positions = <28 29>;
-            layers = <0>;
-        };
-
-        combo_barce_R {
-            bindings = <&kp RIGHT_BRACE>;
-            key-positions = <30 31>;
-            layers = <0>;
-        };
-
-        combo_tilde {
-            bindings = <&kp TILDE>;
-            key-positions = <38 39>;
-            layers = <0>;
-        };
-
-        combo_grave {
-            bindings = <&kp GRAVE>;
-            key-positions = <39 40>;
-            layers = <0>;
-        };
-
-        combo_sqt {
-            bindings = <&kp SQT>;
-            key-positions = <19 20>;
-            layers = <0>;
-        };
-
-        combo_backslash {
-            bindings = <&kp NON_US_BACKSLASH>;
-            key-positions = <45 46>;
-            layers = <0>;
-        };
-
-        combo_pipe {
-            bindings = <&kp PIPE>;
-            key-positions = <46 47>;
-            layers = <0>;
-        };
-    };
 
     macros {
         ter: terminal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp R>,
-                <&macro_release &kp LWIN>,
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp R>,
+                <&macro_release>,
+                <&kp LWIN>,
                 <&macro_wait_time 150>,
-                <&macro_tap &kp W &kp T &kp RET>;
+                <&macro_tap>,
+                <&kp W &kp T &kp RET>;
 
             label = "TERMINAL";
         };
@@ -106,9 +41,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LG(LSHFT)>,
-                <&macro_tap &kp S>,
-                <&macro_release &kp LG(LSHFT)>;
+                <&macro_press>,
+                <&kp LG(LSHFT)>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LG(LSHFT)>;
 
             label = "SCREENSHOT";
         };
@@ -117,9 +55,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp UP>,
-                <&macro_release &kp LWIN>;
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp UP>,
+                <&macro_release>,
+                <&kp LWIN>;
 
             label = "WINDOWMAX";
         };
@@ -128,9 +69,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp DOWN>,
-                <&macro_release &kp LWIN>;
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp DOWN>,
+                <&macro_release>,
+                <&kp LWIN>;
 
             label = "WINDOWMIN";
         };
@@ -138,7 +82,7 @@
         t_col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp PIPE>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
 
             label = "TMUX_COLUMN";
         };
@@ -146,7 +90,7 @@
         t_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
 
             label = "TMUX_ROW";
         };
@@ -154,7 +98,7 @@
         t_list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp W>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
 
             label = "TMUX_LIST";
         };
@@ -162,7 +106,7 @@
         t_crt: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp C>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
 
             label = "TMUX_CREATE";
         };
@@ -199,11 +143,11 @@
         CODE_layer {
             display-name = "Code";
             bindings = <
-&trans  &none     &none      &none      &none      &none                            &none         &none          &none    &none    &none      &none
-&trans  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT                        &kp NUBS      &kp N7         &kp N8   &kp N9   &kp COMMA  &none
-&trans  &kp PLUS  &kp EQUAL  &kp UNDER  &kp MINUS  &kp LCTRL                        &kp N0        &kp N4         &kp N5   &kp N6   &kp DOT    &none
-&trans  &t_row    &t_col     &none      &kp STAR   &kp AMPS     &none     &to GAME  &kp SEMI      &kp N1         &kp N2   &kp N3   &kp FSLH   &none
-                             &trans     &trans     &trans       &trans    &trans    &trans        &kp LC(LSHFT)  &trans
+&trans  &none     &none   &none      &none      &none                          &none      &none          &none     &none     &none     &none
+&trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                      &kp CARET  &kp AMPS       &kp STAR  &kp LPAR  &kp RPAR  &none
+&trans  &t_list   &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL                      &kp LBRC   &kp RBRC       &none     &kp BSLH  &kp SQT   &none
+&trans  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER  &none     &to GAME  &kp LBKT   &kp RBKT       &none     &kp PIPE  &kp DQT   &none
+                          &trans     &trans     &trans     &trans    &trans    &trans     &kp LC(LSHFT)  &trans
             >;
 
             label = "CODE";
@@ -212,11 +156,11 @@
         FUNC_layer {
             display-name = "Func";
             bindings = <
-&trans  &kp F1     &kp F2    &kp F3    &kp F4         &kp F5                          &kp F6    &kp F7     &kp F8      &kp F9      &kp F10  &kp F11
-&trans  &min       &max      &shot     &ter           &kp C_VOL_UP                    &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &none    &kp F12
-&trans  &kp LCTRL  &kp LWIN  &kp LALT  &ht LSHFT TAB  &kp C_VOL_DN                    &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &none    &none
-&trans  &t_crt     &t_list   &none     &none          &kp C_PP      &none     &none   &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &none    &none
-                             &trans    &trans         &trans        &trans    &trans  &trans    &trans     &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10  &kp F11
+&trans  &kp N1  &kp N2  &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0   &kp F12
+&trans  &shot   &none   &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &none    &none
+&trans  &ter    &none   &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &none    &none
+                        &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
 
             label = "FUNC";
@@ -229,19 +173,20 @@
 &kp TAB    &kp N7  &kp Q   &kp W   &kp E   &kp R                         &none  &none  &none  &none  &none  &none
 &kp LSHFT  &kp N6  &kp A   &kp S   &kp D   &none                         &none  &none  &none  &none  &none  &none
 &kp LCTRL  &kp N5  &kp N4  &kp N3  &kp N2  &kp N1  &kp B        &to DEF  &none  &none  &none  &none  &none  &none
-                           &none   &kp G   &kp Z   &kp SPACE    &none    &none  &none  &none  
+                           &none   &kp G   &kp Z   &kp SPACE    &none    &none  &none  &none
             >;
 
             label = "GAME";
         };
+
         SYS_layer {
             display-name = "System";
             bindings = <
-&none &none &none      &none       &none &bt BT_CLR                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
-&none &none &none      &none       &none &none                         &none         &none         &none         &none         &none         &none
-&none &none &none      &none       &none &none                         &none         &none         &none         &none         &none         &none
-&none &none &sys_reset &bootloader &none &none       &none    &to DEF  &none         &none         &bootloader   &sys_reset    &none         &none
-                       &none       &none &none       &none    &none    &none         &none         &none         
+&none  &none  &none  &none  &none  &bt BT_CLR                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+&none  &none  &none  &none  &none  &none                          &none         &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none  &bootloader                    &bootloader   &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none  &sys_reset   &none    &to DEF  &sys_reset    &none         &none         &none         &none         &none
+                     &none  &none  &none        &none    &none    &none         &none         &none         
             >;
 
             label = "SYS";
