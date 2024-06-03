@@ -199,11 +199,11 @@
         CODE_layer {
             display-name = "Code";
             bindings = <
-&trans  &none     &none      &none      &none      &none                            &none         &none          &none    &none    &none      &none
-&trans  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT                        &kp NUBS      &kp N7         &kp N8   &kp N9   &kp COMMA  &none
-&trans  &kp PLUS  &kp EQUAL  &kp UNDER  &kp MINUS  &kp LCTRL                        &kp N0        &kp N4         &kp N5   &kp N6   &kp DOT    &none
-&trans  &t_row    &t_col     &none      &kp STAR   &kp AMPS     &none     &to GAME  &kp SEMI      &kp N1         &kp N2   &kp N3   &kp FSLH   &none
-                             &trans     &trans     &trans       &trans    &trans    &trans        &kp LC(LSHFT)  &trans
+&trans  &none     &none   &none      &none      &none                          &none         &none          &none     &none     &none     &none
+&trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                      &kp CRAFT     &kp AMPS       &kp STAR  &kp LPAR  &kp RPAR  &none
+&trans  &t_list   &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL                      &kp LBRC      &kp RBRC       &none     &kp BSLH  &kp SQT   &none
+&trans  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER  &none     &to GAME  &kp LBKT      &kp RBKT       &none     &kp PIPE  &kp DQT   &none
+                          &trans     &trans     &trans     &trans    &trans    &trans        &kp LC(LSHFT)  &trans
             >;
 
             label = "CODE";
@@ -212,11 +212,11 @@
         FUNC_layer {
             display-name = "Func";
             bindings = <
-&trans  &kp F1     &kp F2    &kp F3    &kp F4         &kp F5                          &kp F6    &kp F7     &kp F8      &kp F9      &kp F10  &kp F11
-&trans  &min       &max      &shot     &ter           &kp C_VOL_UP                    &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &none    &kp F12
-&trans  &kp LCTRL  &kp LWIN  &kp LALT  &ht LSHFT TAB  &kp C_VOL_DN                    &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &none    &none
-&trans  &t_crt     &t_list   &none     &none          &kp C_PP      &none     &none   &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &none    &none
-                             &trans    &trans         &trans        &trans    &trans  &trans    &trans     &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10  &kp F11
+&trans  &kp N1  &kp N2  &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0   &kp F12
+&trans  &shot   &none   &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &none    &none
+&trans  &ter    &none   &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &none    &none
+                        &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
 
             label = "FUNC";
@@ -237,11 +237,11 @@
         SYS_layer {
             display-name = "System";
             bindings = <
-&none &none &none      &none       &none &bt BT_CLR                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
-&none &none &none      &none       &none &none                         &none         &none         &none         &none         &none         &none
-&none &none &none      &none       &none &none                         &none         &none         &none         &none         &none         &none
-&none &none &sys_reset &bootloader &none &none       &none    &to DEF  &none         &none         &bootloader   &sys_reset    &none         &none
-                       &none       &none &none       &none    &none    &none         &none         &none         
+&none  &none  &none  &none  &none  &bt BT_CLR                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+&none  &none  &none  &none  &none  &none                          &none         &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none  &bootloader                    &bootloader   &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none  &sys_reset   &none    &to DEF  &sys_reset    &none         &none         &none         &none         &none
+                     &none  &none  &none        &none    &none    &none         &none         &none         
             >;
 
             label = "SYS";
