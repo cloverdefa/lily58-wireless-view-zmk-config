@@ -23,12 +23,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp R>,
-                <&macro_release>,
-                <&kp LWIN>,
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp R>,
+                <&macro_release &kp LWIN>,
                 <&macro_tap>,
                 <&macro_wait_time 350>,
                 <&kp W &kp T &kp RET>;
@@ -41,12 +38,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LG(LSHFT)>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_release>,
-                <&kp LG(LSHFT)>;
+                <&macro_press &kp LG(LSHFT)>,
+                <&macro_tap &kp S>,
+                <&macro_release &kp LG(LSHFT)>;
 
             label = "SCREENSHOT";
         };
@@ -55,12 +49,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp UP>,
-                <&macro_release>,
-                <&kp LWIN>;
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp UP>,
+                <&macro_release &kp LWIN>;
 
             label = "WINDOWMAX";
         };
@@ -69,12 +60,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp DOWN>,
-                <&macro_release>,
-                <&kp LWIN>;
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp DOWN>,
+                <&macro_release &kp LWIN>;
 
             label = "WINDOWMIN";
         };
@@ -82,7 +70,7 @@
         t_col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
+            bindings = <&macro_tap &kp LC(A) &kp PIPE>;
 
             label = "TMUX_COLUMN";
         };
@@ -90,7 +78,7 @@
         t_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
 
             label = "TMUX_ROW";
         };
@@ -98,7 +86,7 @@
         t_list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
+            bindings = <&macro_tap &kp LC(A) &kp W>;
 
             label = "TMUX_LIST";
         };
@@ -106,7 +94,7 @@
         t_crt: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
+            bindings = <&macro_tap &kp LC(A) &kp C>;
 
             label = "TMUX_CREATE";
         };
