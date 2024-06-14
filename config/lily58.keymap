@@ -29,7 +29,8 @@
                 <&macro_release>,
                 <&kp LWIN>,
                 <&macro_tap>,
-                <&kp W &kp T &kp RET>;
+                <&kp W &kp T &kp RET>,
+                <&macro_wait_time 350>;
 
             label = "TERMINAL";
         };
@@ -183,10 +184,10 @@
         CODE_layer {
             display-name = "Code";
             bindings = <
-&trans  &none     &none     &none      &none      &none                          &none      &none     &none     &none     &none              &none
-&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT                      &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR           &none
-&trans  &t_list   &ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                      &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB  &none
-&trans  &t_crt    &ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &none     &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL            &none
+&trans  &none     &none     &none      &none      &none                          &none      &none     &none     &none     &none                  &none
+&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT                      &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR               &none
+&trans  &t_list   &ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                      &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) LC(TAB)  &none
+&trans  &t_crt    &ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &none     &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL                &none
                             &trans     &trans     &trans     &trans    &trans    &trans     &trans    &trans
             >;
 
@@ -196,10 +197,10 @@
         FUNC_layer {
             display-name = "Func";
             bindings = <
-&trans  &kp F1  &kp F2   &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10            &kp F11
-&trans  &kp N1  &kp N2   &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0             &kp F12
-&trans  &shot   &kp TAB  &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB  &none
-&trans  &ter    &none    &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)         &none
+&trans  &kp F1  &kp F2   &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10                &kp F11
+&trans  &kp N1  &kp N2   &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0                 &kp F12
+&trans  &shot   &kp TAB  &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) LC(TAB)  &none
+&trans  &ter    &none    &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)             &none
                          &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
 
