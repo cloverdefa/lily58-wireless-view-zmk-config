@@ -123,7 +123,7 @@
             label = "WIN_COL";
         };
 
-        win_cow: win_cow {
+        win_row: win_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -134,7 +134,7 @@
                 <&macro_release>,
                 <&kp LS(LALT)>;
 
-            label = "WIN_COW";
+            label = "WIN_ROW";
         };
     };
 
