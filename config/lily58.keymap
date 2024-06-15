@@ -29,8 +29,7 @@
                 <&macro_release>,
                 <&kp LWIN>,
                 <&macro_tap>,
-                <&kp W &kp T &kp RET>,
-                <&macro_wait_time 350>;
+                <&kp W &kp T &kp RET>;
 
             label = "TERMINAL";
         };
@@ -154,14 +153,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TER_COL";
             #binding-cells = <0>;
-            bindings = <&win_col>, <&t_col>;
+            bindings = <&t_col>, <&win_col>;
         };
 
         ter_cow: ter_cow {
             compatible = "zmk,behavior-tap-dance";
             label = "TER_COW";
             #binding-cells = <0>;
-            bindings = <&win_cow>, <&t_row>;
+            bindings = <&t_row>, <&win_row>;
         };
     };
 
