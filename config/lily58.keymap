@@ -123,7 +123,7 @@
             label = "WIN_COL";
         };
 
-        win_cow: win_cow {
+        win_row: win_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -134,7 +134,7 @@
                 <&macro_release>,
                 <&kp LS(LALT)>;
 
-            label = "WIN_COW";
+            label = "WIN_ROW";
         };
     };
 
@@ -196,10 +196,10 @@
         FUNC_layer {
             display-name = "Func";
             bindings = <
-&trans  &kp F1  &kp F2   &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10     &kp F11
-&trans  &kp N1  &kp N2   &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0      &kp F12
-&trans  &shot   &kp TAB  &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &none       &kp LC(LWIN)
-&trans  &ter    &none    &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)  &none
+&trans  &kp F1  &kp F2   &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10               &kp F11
+&trans  &kp N1  &kp N2   &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0                &kp F12
+&trans  &shot   &kp TAB  &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LS(LEFT)))  &kp LC(LG(RIGHT))
+&trans  &ter    &none    &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)            &none
                          &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
 
@@ -209,7 +209,7 @@
         GAME_layer {
             display-name = "Game";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                        &none  &none  &none  &none  &none  &none 
+&kp ESC    &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                        &none  &none  &none  &none  &none  &none
 &kp TAB    &none   &kp Q   &kp W   &kp E   &kp R                         &none  &none  &none  &none  &none  &none
 &kp LSHFT  &none   &kp A   &kp S   &kp D   &none                         &none  &none  &none  &none  &none  &none
 &kp LCTRL  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp B        &to DEF  &none  &none  &none  &none  &none  &none
