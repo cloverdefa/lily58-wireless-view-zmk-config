@@ -139,9 +139,9 @@
     };
 
     behaviors {
-        ht: ht {
+        th: th {
             compatible = "zmk,behavior-hold-tap";
-            label = "HT";
+            label = "TH";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -149,6 +149,15 @@
             tapping-term-ms = <200>;
         };
 
+        ht: ht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+        };
         ter_col: ter_col {
             compatible = "zmk,behavior-tap-dance";
             label = "TER_COL";
@@ -174,7 +183,7 @@
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                           &kp Y         &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                           &kp H         &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
 &kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B         &t_list            &ter           &kp N         &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
-                           &kp LALT  &kp LWIN  &lt CODE ESC  &ht LSHFT SPACE    &ht LCTRL RET  &lt NAV BSPC  &kp TAB  &kp LC(LSHFT)
+                           &kp LALT  &kp LWIN  &lt CODE ESC  &th LSHFT SPACE    &th LCTRL RET  &lt NAV BSPC  &kp TAB  &kp LC(LSHFT)
             >;
 
             label = "DEF";
