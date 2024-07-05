@@ -149,19 +149,19 @@
         compatible = "zmk,keymap";
 
         DEF_layer {
+            label = "DEF";
             display-name = "Windows";
             bindings = <
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                          &kp N6        &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                           &kp Y         &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                           &kp H         &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
 &kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B         &kp LC(LS(N2))     &ter           &kp N         &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
-                           &kp LALT  &kp LWIN  &ht CODE ESC  &th LSHFT SPACE    &th LCTRL RET  &lt NAV BSPC  &kp TAB  &kp LC(LSHFT)
+                           &kp LWIN  &kp LALT  &ht CODE ESC  &th LSHFT SPACE    &th LCTRL RET  &lt NAV BSPC  &kp TAB  &kp LC(LSHFT)
             >;
-
-            label = "DEF";
         };
 
         CODE_layer {
+            label = "CODE";
             display-name = "Code";
             bindings = <
 &trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5                         &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
@@ -170,11 +170,10 @@
 &trans  &t_list   &ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &none     &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LC(LG(F4))
                             &trans     &trans     &trans     &trans    &trans    &trans     &trans    &trans
             >;
-
-            label = "CODE";
         };
 
         NAV_layer {
+            label = "NAV";
             display-name = "NAV";
             bindings = <
 &trans  &none   &none    &none   &none     &none                        &none         &none         &none       &none       &none             &none
@@ -183,11 +182,10 @@
 &trans  &ter    &none    &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &none
                          &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
-
-            label = "NAV";
         };
 
         GAME_layer {
+            label = "GAME";
             display-name = "Game";
             bindings = <
 &kp ESC    &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                        &none  &none  &none  &none  &none  &none
@@ -196,11 +194,10 @@
 &none      &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp B        &to DEF  &none  &none  &none  &none  &none  &none
                               &none   &none   &kp Z   &kp SPACE    &to SYS  &none  &none  &none
             >;
-
-            label = "GAME";
         };
 
         SYS_layer {
+            label = "SYS";
             display-name = "System";
             bindings = <
 &none  &none  &none  &none  &none  &bt BT_CLR                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
@@ -209,8 +206,6 @@
 &none  &none  &none  &none  &none  &sys_reset   &none    &to DEF  &sys_reset    &none         &none         &none         &none         &none
                      &none  &none  &none        &none    &none    &none         &none         &none
             >;
-
-            label = "SYS";
         };
     };
 };
