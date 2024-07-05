@@ -123,8 +123,8 @@ text.trans { fill: #7e8184; }
 path.combo { stroke: #7f7f7f; }
 
 }</style>
-<g transform="translate(30, 0)" class="layer-DEF">
-<text x="0" y="28" class="label">DEF:</text>
+<g transform="translate(30, 0)" class="layer-Windows">
+<text x="0" y="28" class="label">Windows:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -334,16 +334,16 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(168, 259)" class="key keypos-50">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">LALT</text>
+<text x="0" y="0" class="key tap">LWIN</text>
 </g>
 <g transform="translate(224, 260)" class="key keypos-51">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">LWIN</text>
+<text x="0" y="0" class="key tap">LALT</text>
 </g>
 <g transform="translate(280, 266)" class="key keypos-52">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">ESC</text>
-<text x="0" y="24" class="key hold">CODE</text>
+<text x="0" y="24" class="key hold">Code</text>
 </g>
 <g transform="translate(350, 266) rotate(30.0)" class="key keypos-53">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
@@ -372,8 +372,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 372)" class="layer-CODE">
-<text x="0" y="28" class="label">CODE:</text>
+<g transform="translate(30, 372)" class="layer-Code">
+<text x="0" y="28" class="label">Code:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -549,7 +549,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(560, 182)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">GAME</text>
+<text x="0" y="0" class="key tap">Game</text>
 <text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(616, 210)" class="key keypos-44">
@@ -845,8 +845,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 1117)" class="layer-GAME">
-<text x="0" y="28" class="label">GAME:</text>
+<g transform="translate(30, 1117)" class="layer-Game">
+<text x="0" y="28" class="label">Game:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1002,7 +1002,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(560, 182)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">DEF</text>
+<text x="0" y="0" class="key tap">Windows</text>
 <text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(616, 210)" class="key keypos-44">
@@ -1039,7 +1039,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(574, 266) rotate(-30.0)" class="key keypos-54">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">SYS</text>
+<text x="0" y="0" class="key tap">System</text>
 <text x="0" y="38" class="key hold">toggle</text>
 </g>
 <g transform="translate(644, 266)" class="key keypos-55">
@@ -1053,8 +1053,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 1489)" class="layer-SYS">
-<text x="0" y="28" class="label">SYS:</text>
+<g transform="translate(30, 1489)" class="layer-System">
+<text x="0" y="28" class="label">System:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1203,7 +1203,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(560, 182)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">DEF</text>
+<text x="0" y="0" class="key tap">Windows</text>
 <text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(616, 210)" class="key keypos-44">
