@@ -10,11 +10,14 @@
 
 // Layers
 
-#define DEF  0
-#define CODE 1
-#define NAV  2
-#define GAME 3
-#define SYS  4
+#define WIN     0
+#define WinCode 1
+#define WinNAV  2
+#define MAC     3
+#define MacCode 4
+#define MacNav  5
+#define GAME    6
+#define SYS     7
 
 / {
     macros {
@@ -162,31 +165,67 @@
     keymap {
         compatible = "zmk,keymap";
 
-        DEF_layer {
+        WIN_layer {
             label = "DEF";
             display-name = "Windows";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                          &kp N6        &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
-&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                           &kp Y         &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                           &kp H         &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B         &kp LC(LS(N2))     &ter           &kp N         &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
-                           &kp LWIN  &kp LALT  &ht CODE ESC  &th LSHFT SPACE    &th LCTRL RET  &lt NAV BSPC  &kp TAB  &kp LC(LSHFT)
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
+&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LC(LS(N2))     &ter           &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
+                           &kp LWIN  &kp LALT  &ht WinCode ESC  &th LSHFT SPACE    &th LCTRL RET  &lt WinNAV BSPC  &kp TAB  &kp LC(LSHFT)
             >;
         };
 
-        CODE_layer {
+        WinCode_layer {
             label = "CODE";
             display-name = "Code";
             bindings = <
-&trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5                         &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT                      &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
-&trans  &t_crt    &ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                      &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LC(LG(D))
-&trans  &t_list   &ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &none     &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LC(LG(F4))
-                            &trans     &trans     &trans     &trans    &trans    &trans     &trans    &trans
+&trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5                          &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT                       &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
+&trans  &t_crt    &ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                       &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LC(LG(D))
+&trans  &t_list   &ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &to MAC    &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LC(LG(F4))
+                            &trans     &trans     &trans     &trans     &trans    &trans     &trans    &trans
             >;
         };
 
-        NAV_layer {
+        WinNAV_layer {
+            label = "NAV";
+            display-name = "NAV";
+            bindings = <
+&trans  &kp F1  &kp F2    &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+&trans  &kp N1  &kp N2    &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+&trans  &shot   &kp CAPS  &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+&trans  &ter    &none     &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &none
+                          &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
+            >;
+        };
+
+        MAC_layer {
+            label = "DEF";
+            display-name = "Windows";
+            bindings = <
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
+&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LC(LS(N2))     &ter           &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
+                           &kp LALT  &kp LCMD  &ht MacCode ESC  &th LSHFT SPACE    &th LCTRL RET  &lt MacNav BSPC  &kp TAB  &kp LC(LSHFT)
+            >;
+        };
+
+        MacCode_layer {
+            label = "CODE";
+            display-name = "Code";
+            bindings = <
+&trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5                          &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT                       &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
+&trans  &t_crt    &ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                       &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LG(LC(F))
+&trans  &t_list   &ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &to WIN    &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LG(RET)
+                            &trans     &trans     &trans     &trans     &trans    &trans     &trans    &trans
+            >;
+        };
+
+        MacNAV_layer {
             label = "NAV";
             display-name = "NAV";
             bindings = <
@@ -202,11 +241,11 @@
             label = "GAME";
             display-name = "Game";
             bindings = <
-&kp ESC    &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                        &none  &none  &none  &none  &none  &none
-&kp TAB    &kp Q      &none   &kp W   &kp E   &kp R                         &none  &none  &none  &none  &none  &none
-&kp LCTRL  &kp LSHFT  &kp A   &kp S   &kp D   &none                         &none  &none  &none  &none  &none  &none
-&none      &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp B        &to DEF  &none  &none  &none  &none  &none  &none
-                              &kp G   &none   &kp Z   &kp SPACE    &to SYS  &none  &none  &none
+&kp ESC    &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                        &none  &none    &none  &none  &none  &none
+&kp TAB    &kp Q      &none   &kp W   &kp E   &kp R                         &none  &none    &none  &none  &none  &none
+&kp LCTRL  &kp LSHFT  &kp A   &kp S   &kp D   &none                         &none  &none    &none  &none  &none  &none
+&none      &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp B        &to WIN  &none  &to WIN  &to MAC  &none  &none  &none
+                              &kp G   &none   &kp Z   &kp SPACE    &to SYS  &none  &none    &none
             >;
         };
 
