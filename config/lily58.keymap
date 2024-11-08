@@ -166,7 +166,7 @@
         compatible = "zmk,keymap";
 
         WIN_layer {
-            label = "DEF";
+            label = "WIN";
             display-name = "Windows";
             bindings = <
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
@@ -178,7 +178,7 @@
         };
 
         WinCode_layer {
-            label = "CODE";
+            label = "WinCode";
             display-name = "Code";
             bindings = <
 &trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5                          &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
@@ -190,7 +190,7 @@
         };
 
         WinNAV_layer {
-            label = "NAV";
+            label = "WinNAV";
             display-name = "NAV";
             bindings = <
 &trans  &kp F1  &kp F2    &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
@@ -202,8 +202,8 @@
         };
 
         MAC_layer {
-            label = "DEF";
-            display-name = "Windows";
+            label = "MAC";
+            display-name = "MacOS";
             bindings = <
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
@@ -214,7 +214,7 @@
         };
 
         MacCode_layer {
-            label = "CODE";
+            label = "MacCode";
             display-name = "Code";
             bindings = <
 &trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5                          &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
@@ -226,7 +226,7 @@
         };
 
         MacNAV_layer {
-            label = "NAV";
+            label = "MacNav";
             display-name = "NAV";
             bindings = <
 &trans  &kp F1  &kp F2    &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
@@ -256,7 +256,7 @@
 &none  &none  &none  &none  &none  &bt BT_CLR                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
 &none  &none  &none  &none  &none  &none                          &none         &none         &none         &none         &none         &none
 &none  &none  &none  &none  &none  &bootloader                    &bootloader   &none         &none         &none         &none         &none
-&none  &none  &none  &none  &none  &sys_reset   &none    &to DEF  &sys_reset    &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none  &sys_reset   &none    &to WIN  &sys_reset    &none         &none         &none         &none         &none
                      &none  &none  &none        &none    &none    &none         &none         &none
             >;
         };
