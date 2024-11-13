@@ -83,7 +83,7 @@
 
         ter_mac: terminal_macos {
             label = "TERMINAL_MACOS";
-            compatible = "zmk,behavior-macos";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macos_press>,
