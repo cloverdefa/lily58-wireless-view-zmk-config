@@ -293,9 +293,9 @@
             bindings = <
 &kp ESC    &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                        &none  &none    &none    &none  &none  &none
 &kp TAB    &kp Q      &none   &kp W   &kp E   &kp R                         &none  &none    &none    &none  &none  &none
-&kp LCTRL  &kp LSHFT  &kp A   &kp S   &kp D   &none                         &none  &none    &none    &none  &none  &none
-&none      &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp B        &to WIN  &none  &to WIN  &to MAC  &none  &none  &none
-                              &kp G   &none   &kp Z   &kp SPACE    &to SYS  &none  &none    &none
+&kp LCTRL  &kp LSHFT  &kp A   &kp S   &kp D   &none                         &none  &to WIN  &to MAC  &none  &none  &none
+&kp C      &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp B        &to WIN  &none  &none    &none    &none  &none  &none
+                              &kp G   &kp M   &kp X   &kp SPACE    &to SYS  &none  &none    &none
             >;
         };
 
