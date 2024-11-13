@@ -20,9 +20,51 @@
 #define SYS     7
 
 / {
+        behaviors {
+        th: tap_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_HOLD";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+
+        ht: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        alt_win: alt_win {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ALT_WIN";
+            #binding-cells = <0>;
+            bindings = <&kp LALT>, <&kp LWIN>;
+        };
+
+        win_ter_col: win_ter_col {
+            compatible = "zmk,behavior-tap-dance";
+            label = "WIN_TER_COL";
+            #binding-cells = <0>;
+            bindings = <&t_col>, <&w_col>;
+        };
+
+        win_ter_row: win_ter_row {
+            compatible = "zmk,behavior-tap-dance";
+            label = "WIN_TER_ROW";
+            #binding-cells = <0>;
+            bindings = <&t_row>, <&w_row>;
+        };
+    };
+
     macros {
-        ter: terminal {
-            label = "TERMINAL";
+        win_ter: windows_terminal {
+            label = "WINDOWS_TERMINAL";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -39,133 +81,124 @@
                 <&kp RET>;
         };
 
-        shot: screenshot {
+        w_col: win_column {
+            label = "WIN_COLUMN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LS(LALT)>,
+                <&macro_tap &kp EQUAL>,
+                <&macro_release &kp LS(LALT)>;
+        };
+
+        w_row: win_row {
+            label = "WIN_ROW";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LS(LALT)>,
+                <&macro_tap &kp MINUS>,
+                <&macro_release &kp LS(LALT)>;
+        };
+
+        shot_win: screenshot_win {
             label = "SCREENSHOT_WIN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LG(LSHFT)>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_release>,
-                <&kp LG(LSHFT)>;
+                <&macro_press &kp LG(LSHFT)>,
+                <&macro_tap &kp S>,
+                <&macro_release &kp LG(LSHFT)>;
         };
 
-        max: windowmax {
-            label = "WINDOWMAX";
+        max_win: windowmax_win {
+            label = "WINDOWMAX_WIN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp UP>,
-                <&macro_release>,
-                <&kp LWIN>;
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp UP>,
+                <&macro_release &kp LWIN>;
         };
 
-        min: windowmin {
-            label = "WINDOWMIN";
+        min_win: windowmin_win {
+            label = "WINDOWMIN_WIN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp DOWN>,
-                <&macro_release>,
-                <&kp LWIN>;
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp DOWN>,
+                <&macro_release &kp LWIN>;
+        };
+
+        spot: spotlight {
+            label = "SPOTLIGHT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCMD>,
+                <&macro_tap &kp SPACE>,
+                <&macro_release &kp LCMD>;
+        };
+
+        shot_mac: screenshot {
+            label = "SCREENSHOT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LG(LC(LSHFT))>,
+                <&macro_tap &kp N4>,
+                <&macro_release &kp LG(LC(LSHFT))>;
+        };
+
+        rec_mac: screenrecord {
+            label = "SCREENRECORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LG(LSHFT)>,
+                <&macro_tap &kp N5>,
+                <&macro_release &kp LG(LSHFT)>;
         };
 
         t_col: tmux_column {
             label = "TMUX_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp PIPE>;
+            bindings = 
+                <&macro_tap &kp LC(A)>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp PIPE>;
         };
 
         t_row: tmux_row {
             label = "TMUX_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp MINUS>;
+            bindings = 
+                <&macro_tap &kp LC(A)>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp MINUS>;
         };
 
         t_list: tmux_list {
             label = "TMUX_LIST";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp W>;
+            bindings = 
+                <&macro_tap &kp LC(A)>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp W>;
         };
 
         t_crt: tmux_create {
             label = "TMUX_CREATE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&macro_tap>, <&kp C>;
-        };
-
-        win_col: win_col {
-            label = "WIN_COL";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LS(LALT)>,
-                <&macro_tap>,
-                <&kp EQUAL>,
-                <&macro_release>,
-                <&kp LS(LALT)>;
-        };
-
-        win_row: win_row {
-            label = "WIN_ROW";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LS(LALT)>,
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_release>,
-                <&kp LS(LALT)>;
-        };
-    };
-
-    behaviors {
-        th: th {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TH";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-        };
-
-        ht: ht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HT";
-            bindings = <&mo>, <&kp>;
-
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-        };
-
-        ter_col: ter_col {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TER_COL";
-            #binding-cells = <0>;
-            bindings = <&t_col>, <&win_col>;
-        };
-
-        ter_cow: ter_cow {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TER_COW";
-            #binding-cells = <0>;
-            bindings = <&t_row>, <&win_row>;
+            bindings = 
+                <&macro_tap &kp LC(A)>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp C>;
         };
     };
 
@@ -179,7 +212,7 @@
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LC(LS(N2))     &ter           &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LC(LS(N2))     &win_ter       &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
                            &kp LWIN  &kp LALT  &ht WinCode ESC  &th LSHFT SPACE    &th LCTRL RET  &lt WinNAV BSPC  &kp TAB  &kp LC(LSHFT)
             >;
         };
@@ -188,11 +221,11 @@
             label = "WinCode";
             display-name = "Code";
             bindings = <
-&trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5                          &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT                       &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
-&trans  &t_crt    &ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                       &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LC(LG(D))
-&trans  &t_list   &ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &to MAC    &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LC(LG(F4))
-                            &trans     &trans     &trans     &trans     &trans    &trans     &trans    &trans
+&trans  &kp F1    &kp F2        &kp F3     &kp F4     &kp F5                          &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+&trans  &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                       &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
+&trans  &t_crt    &win_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                       &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LC(LG(D))
+&trans  &t_list   &win_ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &to MAC    &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LC(LG(F4))
+                                &trans     &trans     &trans     &trans     &trans    &trans     &trans    &trans
             >;
         };
 
@@ -200,11 +233,11 @@
             label = "WinNAV";
             display-name = "NAV";
             bindings = <
-&trans  &kp F1  &kp F2    &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
-&trans  &kp N1  &kp N2    &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
-&trans  &shot   &kp CAPS  &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter    &none     &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &none
-                          &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
+&trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+&trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+&trans  &shot_win  &kp CAPS  &max_win  &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+&trans  &ter       &none     &min_win  &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &none
+                             &trans    &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
         };
 
@@ -215,7 +248,7 @@
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &none              &none          &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &none              &spot          &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
                            &kp LALT  &kp LCMD  &ht MacCode ESC  &th LSHFT SPACE    &th LCTRL RET  &lt MacNav BSPC  &kp TAB  &kp LC(LSHFT)
             >;
         };
@@ -224,11 +257,11 @@
             label = "MacCode";
             display-name = "Code";
             bindings = <
-&trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5                        &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT                     &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
-&trans  &t_crt    &ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                     &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LG(LC(F))
-&trans  &t_list   &ter_cow  &kp TILDE  &kp PLUS   &kp UNDER  &to WIN    &to 6   &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LG(RET)
-                            &trans     &trans     &trans     &trans     &trans  &trans     &trans    &trans
+&trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                        &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+&trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                     &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
+&trans  &t_crt    &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL                     &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LG(LC(F))
+&trans  &t_list   &t_cow  &kp TILDE  &kp PLUS   &kp UNDER  &to WIN    &to 6   &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LG(RET)
+                          &trans     &trans     &trans     &trans     &trans  &trans     &trans    &trans
             >;
         };
 
@@ -236,11 +269,11 @@
             label = "MacNav";
             display-name = "NAV";
             bindings = <
-&trans  &kp F1  &kp F2    &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
-&trans  &kp N1  &kp N2    &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
-&trans  &shot   &kp CAPS  &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter    &none     &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &none
-                          &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
+&trans  &kp F1     &kp F2    &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+&trans  &kp N1     &kp N2    &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+&trans  &shot_mac  &kp CAPS  &max    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+&trans  &ter       &none     &min    &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac          &none
+                             &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
         };
 
