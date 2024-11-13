@@ -86,10 +86,10 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macos_press>,
+                <&macro_press>,
                 <&kp LCMD>,
                 <&macro_tap>,
-                <&kp SPAC>,
+                <&kp SPEAC>,
                 <&macro_release>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
