@@ -93,7 +93,7 @@
                 <&macro_release>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
-                <&kp A &kp L &kp A &kp C &kp R &kp I &kp T &kp Y>,
+                <&kp A &kp L &kp A &kp C &kp R &kp I &kp T $kp T &kp Y>,
                 <&macro_tap>,
                 <&kp RET>;
         };
