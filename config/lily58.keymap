@@ -81,6 +81,23 @@
                 <&kp RET>;
         };
 
+        mac_ter: macos_terminal {
+            label = "MACOS_TERMINAL";
+            compatible = "zmk,behavior=macos";
+            #binding-cells = <0>;
+            bindings =
+                <&macos_press>,
+                <&kp LCMD>,
+                <&macro_tap>,
+                <&kp SPAC>,
+                <&macro_release>,
+                <&macro_pause_for_release>,
+                <&macro_tap>,
+                <&kp A &kp L &kp A &kp C &kp R &kp I &kp T &kp Y>,
+                <&macro_tap>,
+                <&kp RET>;
+        };
+
         w_col: win_column {
             label = "WIN_COLUMN";
             compatible = "zmk,behavior-macro";
@@ -272,7 +289,7 @@
 &trans  &kp F1     &kp F2    &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
 &trans  &kp N1     &kp N2    &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
 &trans  &shot_mac  &kp CAPS  &none   &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter       &none     &none   &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac          &none
+&trans  &mac_ter   &none     &none   &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac          &none
                              &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
         };
