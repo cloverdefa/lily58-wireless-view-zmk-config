@@ -39,20 +39,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
-
-        win_ter_col: win_ter_col {
-            compatible = "zmk,behavior-tap-dance";
-            label = "WIN_TER_COL";
-            #binding-cells = <0>;
-            bindings = <&col_tmux>, <&col_win>;
-        };
-
-        win_ter_row: win_ter_row {
-            compatible = "zmk,behavior-tap-dance";
-            label = "WIN_TER_ROW";
-            #binding-cells = <0>;
-            bindings = <&rot_tmux>, <&row_win>;
-        };
     };
 
     macros {
@@ -93,31 +79,11 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LCTRL &kp LSHFIT>,
+                <&kp LCTRL &kp LSHFT>,
                 <&macro_tap>,
                 <&kp P &kp RET>,
                 <&macro_release>,
-                <&kp LWIN>;
-        };
-
-        col_win: win_column {
-            label = "WIN_COLUMN";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LS(LALT)>,
-                <&macro_tap &kp EQUAL>,
-                <&macro_release &kp LS(LALT)>;
-        };
-
-        row_win: win_row {
-            label = "WIN_ROW";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LS(LALT)>,
-                <&macro_tap &kp MINUS>,
-                <&macro_release &kp LS(LALT)>;
+                <&kp LCTRL &kp LSHFT>;
         };
 
         shot_win: screenshot_win {
@@ -240,11 +206,11 @@
             label = "WinCode";
             display-name = "Code";
             bindings = <
-&trans  &kp F1      &kp F2        &kp F3     &kp F4     &kp F5                          &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
-&trans  &kp EXCL    &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                       &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
-&trans  &crt_tmux   &win_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL                       &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LC(TAB)
-&trans  &list_tmux  &win_ter_row  &kp TILDE  &kp PLUS   &kp UNDER  &to MAC    &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LC(LG(F4))
-                                  &trans     &trans     &trans     &trans     &trans    &trans     &trans    &trans
+&trans  &kp F1      &kp F2     &kp F3     &kp F4     &kp F5                          &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+&trans  &kp EXCL    &kp AT     &kp HASH   &kp DLLR   &kp PRCNT                       &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp F12
+&trans  &crt_tmux   &col_tmux  &kp GRAVE  &kp MINUS  &kp EQUAL                       &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none     &kp LC(TAB)
+&trans  &list_tmux  &rot_tmux  &kp TILDE  &kp PLUS   &kp UNDER  &to MAC    &to GAME  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL   &kp LC(LG(F4))
+                               &trans     &trans     &trans     &trans     &trans    &trans     &trans    &trans
             >;
         };
 
