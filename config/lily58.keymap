@@ -139,6 +139,26 @@
                 <&macro_release &kp LG(LC(LSHFT))>;
         };
 
+        max_mac: windowmax_mac {
+            label = "WINDOWMAX_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp GLOBE>,
+                <&macro_tap &kp F>,
+                <&macro_release &kp GLOBE>;
+        };
+
+        min_mac: windowmin_mac {
+            label = "WINDOWMIN_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp GLOBE>,
+                <&macro_tap &kp F>,
+                <&macro_release &kp GLOBE>;
+        };
+
         rec_mac: screenrecord {
             label = "SCREENRECORD";
             compatible = "zmk,behavior-macro";
@@ -257,11 +277,11 @@
             label = "MacNav";
             display-name = "NAV";
             bindings = <
-&trans  &kp F1     &kp F2    &kp F3  &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10       &kp F11
-&trans  &kp N1     &kp N2    &kp N3  &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0        &kp F12
-&trans  &shot_mac  &kp CAPS  &none   &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)  &kp LC(RIGHT)
-&trans  &ter_mac   &spot     &none   &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac      &none
-                             &trans  &trans    &trans     &trans    &trans  &trans        &trans        &trans
+&trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10       &kp F11
+&trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0        &kp F12
+&trans  &shot_mac  &kp CAPS  &max_mac  &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)  &kp LC(RIGHT)
+&trans  &ter_mac   &spot     &min_mac  &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac      &none
+                             &trans    &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
         };
 
