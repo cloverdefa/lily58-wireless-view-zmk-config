@@ -83,7 +83,7 @@
                 <&macro_tap>,
                 <&kp P &kp RET>,
                 <&macro_release>,
-                <&kp LWIN>;
+                <&kp LCTRL &kp LSHFT>;
         };
 
         shot_win: screenshot_win {
