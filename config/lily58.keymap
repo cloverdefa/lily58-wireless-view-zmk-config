@@ -79,7 +79,7 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LCTRL &kp LSHFIT>,
+                <&kp LCTRL &kp LSHFT>,
                 <&macro_tap>,
                 <&kp P &kp RET>,
                 <&macro_release>,
