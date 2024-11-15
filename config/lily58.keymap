@@ -68,6 +68,7 @@
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
+                <&kp LCMD>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
                 <&kp W &kp E &kp Z &kp T &kp E &kp R &kp M &kp RET>;
