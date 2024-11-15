@@ -146,7 +146,7 @@
             bindings =
                 <&macro_press &kp GLOBE>,
                 <&macro_tap &kp F>,
-                <$macro_release &kp GLOBE>;
+                <&macro_release &kp GLOBE>;
         };
 
         min_mac: windowmin_mac {
@@ -156,7 +156,7 @@
             bindings =
                 <&macro_press &kp GLOBE>,
                 <&macro_tap &kp F>,
-                <$macro_release &kp GLOBE>;
+                <&macro_release &kp GLOBE>;
         };
 
         rec_mac: screenrecord {
