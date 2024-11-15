@@ -99,6 +99,16 @@
                 <&macro_release &kp LG(LSHFT)>;
         };
 
+        shot_mac: screenshot {
+            label = "SCREENSHOT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LG(LC(LSHFT))>,
+                <&macro_tap &kp N4>,
+                <&macro_release &kp LG(LC(LSHFT))>;
+        };
+
         max_win: windowmax_win {
             label = "WINDOWMAX_WIN";
             compatible = "zmk,behavior-macro";
@@ -119,26 +129,6 @@
                 <&macro_release &kp LWIN>;
         };
 
-        spot: spotlight {
-            label = "SPOTLIGHT";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LCMD>,
-                <&macro_tap &kp SPACE>,
-                <&macro_release &kp LCMD>;
-        };
-
-        shot_mac: screenshot {
-            label = "SCREENSHOT";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LG(LC(LSHFT))>,
-                <&macro_tap &kp N4>,
-                <&macro_release &kp LG(LC(LSHFT))>;
-        };
-
         max_mac: windowmax_mac {
             label = "WINDOWMAX_MAC";
             compatible = "zmk,behavior-macro";
@@ -157,6 +147,16 @@
                 <&macro_press &kp GLOBE>,
                 <&macro_tap &kp F>,
                 <&macro_release &kp GLOBE>;
+        };
+
+        spot: spotlight {
+            label = "SPOTLIGHT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCMD>,
+                <&macro_tap &kp SPACE>,
+                <&macro_release &kp LCMD>;
         };
 
         rec_mac: screenrecord {
