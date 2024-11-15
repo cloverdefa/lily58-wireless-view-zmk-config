@@ -81,9 +81,10 @@
                 <&macro_press>,
                 <&kp LCTRL &kp LSHFT>,
                 <&macro_tap>,
-                <&kp P &kp RET>,
+                <&kp P>,
                 <&macro_release>,
-                <&kp LCTRL &kp LSHFT>;
+                <&kp LCTRL &kp LSHFT>,
+                <&kp RET>;
         };
 
         shot_win: screenshot_win {
