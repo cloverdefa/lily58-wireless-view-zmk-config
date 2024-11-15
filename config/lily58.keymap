@@ -144,9 +144,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp Global>,
+                <&macro_press &kp Globe>,
                 <&macro_tap &kp F>,
-                <$macro_release &kp Global>;
+                <$macro_release &kp Globe>;
         };
 
         min_mac: windowmin_mac {
@@ -154,9 +154,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp Global>,
+                <&macro_press &kp Globe>,
                 <&macro_tap &kp F>,
-                <$macro_release &kp Global>;
+                <$macro_release &kp Globe>;
         };
 
         rec_mac: screenrecord {
