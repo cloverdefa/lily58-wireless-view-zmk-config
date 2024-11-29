@@ -49,7 +49,7 @@
     };
 
     macros {
-        ter_win: terminal_windows {
+        ter_wsl: terminal_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -192,7 +192,7 @@
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LS(LC(D))      &ter_win       &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LS(LC(S))      &ter_wsl       &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
                            &kp LWIN  &kp LALT  &em WinCode ESC  &hm LSHFT SPACE    &hm LCTRL RET  &bm WinNAV BSPC  &kp TAB  &kp LC(LSHFT)
             >;
         };
@@ -216,7 +216,7 @@
 &trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
 &trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
 &trans  &shot_win  &kp CAPS  &max_win  &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter_win   &none     &min_win  &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
+&trans  &ter_wsl   &none     &min_win  &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
                              &trans    &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
         };
