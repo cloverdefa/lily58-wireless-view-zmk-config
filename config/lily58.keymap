@@ -24,11 +24,14 @@
         hm: hold_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
+
+            require-prior-idle-ms = <125>;
         };
+
         em: esc_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -36,6 +39,8 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             bindings = <&mo>, <&kp>;
+
+            require-prior-idle-ms = <125>;
         };
     };
 
@@ -74,45 +79,60 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LG(LSHFT)>,
-                <&macro_tap &kp S>,
-                <&macro_release &kp LG(LSHFT)>;
+                <&macro_press>,
+                <&kp LG(LSHFT)>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LG(LSHFT)>;
         };
 
         shot_mac: screenshot_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LG(LC(LSHFT))>,
-                <&macro_tap &kp N4>,
-                <&macro_release &kp LG(LC(LSHFT))>;
+                <&macro_press>,
+                <&kp LG(LC(LSHFT))>,
+                <&macro_tap>,
+                <&kp N4>,
+                <&macro_release>,
+                <&kp LG(LC(LSHFT))>;
         };
 
         max_win: windowmax_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp UP>,
-                <&macro_release &kp LWIN>;
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp UP>,
+                <&macro_release>,
+                <&kp LWIN>;
         };
 
         min_win: windowmin_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp DOWN>,
-                <&macro_release &kp LWIN>;
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp DOWN>,
+                <&macro_release>,
+                <&kp LWIN>;
         };
 
         max_mac: windowmax_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp GLOBE>,
-                <&macro_tap &kp F>,
-                <&macro_release &kp GLOBE>;
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp F>,
+                <&macro_release>,
+                <&kp GLOBE>;
         };
 
         min_mac: windowmin_mac {
@@ -121,7 +141,8 @@
             bindings =
                 <&macro_press>,
                 <&kp GLOBE &kp LCTRL>,
-                <&macro_tap &kp F>,
+                <&macro_tap>,
+                <&kp F>,
                 <&macro_release>,
                 <&kp GLOBE &kp LCTRL>;
         };
@@ -130,46 +151,48 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LCMD>,
-                <&macro_tap &kp SPACE>,
-                <&macro_release &kp LCMD>;
+                <&macro_press>,
+                <&kp LCMD>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LCMD>;
         };
 
         rec_mac: screenrecord_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LG(LSHFT)>,
-                <&macro_tap &kp N5>,
-                <&macro_release &kp LG(LSHFT)>;
+                <&macro_press>,
+                <&kp LG(LSHFT)>,
+                <&macro_tap>,
+                <&kp N5>,
+                <&macro_release>,
+                <&kp LG(LSHFT)>;
         };
 
         col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
-                <&macro_tap &kp LC(A) &kp PIPE>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
         };
 
         row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
-                <&macro_tap &kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
         };
 
         list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
-                <&macro_tap &kp LC(A) &kp W>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
         };
 
         tabs: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
-                <&macro_tap &kp LC(A) &kp C>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
         };
     };
 
