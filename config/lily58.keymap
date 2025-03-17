@@ -213,11 +213,11 @@
             label = "WinCode";
             display-name = "WinCode";
             bindings = <
-&trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                         &kp F6     &kp F7    &kp F8    &kp F9    &kp F10      &kp F11
-&trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                      &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR     &kp F12
-&trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                      &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)  &kp LC(LG(D))
-&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &to Game  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL      &kp LC(LG(F4))
-                          &trans     &trans     &trans     &trans    &trans    &trans     &trans    &trans
+&trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                             &kp F6     &kp F7    &kp F8    &kp F9    &kp F10      &kp F11
+&trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                          &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR     &kp F12
+&trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                          &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)  &kp LC(LG(D))
+&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &to MacDef    &to Game  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL      &kp LC(LG(F4))
+                          &trans     &trans     &trans     &trans        &trans    &trans     &trans    &trans
             >;
         };
 
@@ -225,11 +225,11 @@
             label = "WinNAV";
             display-name = "WinNAV";
             bindings = <
-&trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
-&trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
-&trans  &shot_win  &kp CAPS  &max_win  &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter_wsl   &none     &min_win  &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
-                             &trans    &trans    &trans     &trans    &trans  &trans        &trans        &trans
+&trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+&trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+&trans  &shot_win  &kp CAPS  &max_win  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+&trans  &ter_wsl   &none     &min_win  &kp END   &kp PG_DN  &to MacDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
+                             &trans    &trans    &trans     &trans        &trans    &trans        &trans        &trans
             >;
         };
 
@@ -261,11 +261,11 @@
             label = "MacNav";
             display-name = "MacNAV";
             bindings = <
-&trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10       &kp F11
-&trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0        &kp F12
-&trans  &shot_mac  &kp CAPS  &max_mac  &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)  &kp LC(RIGHT)
-&trans  &ter_mac   &spot     &min_mac  &kp END   &kp PG_DN  &none     &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac      &none
-                             &trans    &trans    &trans     &trans    &trans  &trans        &trans        &trans
+&trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10       &kp F11
+&trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0        &kp F12
+&trans  &shot_mac  &kp CAPS  &max_mac  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)  &kp LC(RIGHT)
+&trans  &ter_mac   &spot     &min_mac  &kp END   &kp PG_DN  &to WinDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac      &none
+                             &trans    &trans    &trans     &trans        &trans    &trans        &trans        &trans
             >;
         };
 
@@ -287,9 +287,9 @@
             bindings = <
 &none  &none  &none  &none  &none  &bt BT_CLR                        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
 &none  &none  &none  &none  &none  &none                             &none         &none         &none         &none         &none         &none
-&none  &none  &none  &none  &none  &bootloader                       &bootloader   &to WinDef    &to MacDef    &none         &none         &none
+&none  &none  &none  &none  &none  &bootloader                       &bootloader   &none         &none         &none         &none         &none
 &none  &none  &none  &none  &none  &sys_reset   &none    &to WinDef  &sys_reset    &none         &none         &none         &none         &none
-                     &none  &none  &none        &none    &none       &none         &none         &none
+                     &none  &none  &none        &none    &to MacDef  &none         &none         &none
             >;
         };
     };
