@@ -39,6 +39,15 @@
             quick-tap-ms = <200>;
             bindings = <&mo>, <&kp>;
         };
+
+        pht: positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     macros {
