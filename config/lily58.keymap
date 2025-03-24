@@ -168,11 +168,11 @@
             label = "WinNAV";
             display-name = "WinNAV";
             bindings = <
-&trans  &kp F1              &kp F2    &kp F3      &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
-&trans  &kp N1              &kp N2    &kp N3      &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
-&trans  &kp LG(LC(LS(N4)))  &kp CAPS  &kp LG(UP)  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter_wsl            &none     &kp LG(DN)  &kp END   &kp PG_DN  &to MacDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
-                                      &trans      &trans    &trans     &trans        &trans    &trans        &trans        &trans
+&trans  &kp F1              &kp F2    &kp F3        &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+&trans  &kp N1              &kp N2    &kp N3        &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+&trans  &kp LG(LC(LS(N4)))  &kp CAPS  &kp LG(UP)    &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+&trans  &ter_wsl            &none     &kp LG(DOWN)  &kp END   &kp PG_DN  &to MacDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
+                                      &trans        &trans    &trans     &trans        &trans    &trans        &trans        &trans
             >;
         };
 
