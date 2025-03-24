@@ -26,7 +26,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
             require-prior-idle-ms = <125>;
         };
@@ -76,62 +76,6 @@
                 <&kp G &kp H &kp O &kp S &kp T &kp T &kp Y &kp RET>;
         };
 
-        shot_win: screenshot_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LSHFT)>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_release>,
-                <&kp LG(LSHFT)>;
-        };
-
-        shot_mac: screenshot_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LC(LSHFT))>,
-                <&macro_tap>,
-                <&kp N4>,
-                <&macro_release>,
-                <&kp LG(LC(LSHFT))>;
-        };
-
-        max_win: windowmax_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp UP>,
-                <&macro_release>,
-                <&kp LWIN>;
-        };
-
-        min_win: windowmin_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp DOWN>,
-                <&macro_release>,
-                <&kp LWIN>;
-        };
-
         max_mac: windowmax_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -158,34 +102,6 @@
                 <&kp F>,
                 <&macro_release>,
                 <&kp GLOBE &kp LCTRL>;
-        };
-
-        spot: spotlight_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCMD>,
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_release>,
-                <&kp LCMD>;
-        };
-
-        rec_mac: screenrecord_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LSHFT)>,
-                <&macro_tap>,
-                <&kp N5>,
-                <&macro_release>,
-                <&kp LG(LSHFT)>;
         };
 
         col: tmux_column {
@@ -252,11 +168,11 @@
             label = "WinNAV";
             display-name = "WinNAV";
             bindings = <
-&trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
-&trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
-&trans  &shot_win  &kp CAPS  &max_win  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter_wsl   &none     &min_win  &kp END   &kp PG_DN  &to MacDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
-                             &trans    &trans    &trans     &trans        &trans    &trans        &trans        &trans
+&trans  &kp F1              &kp F2    &kp F3        &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+&trans  &kp N1              &kp N2    &kp N3        &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+&trans  &kp LG(LC(LS(N4)))  &kp CAPS  &kp LG(UP)    &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+&trans  &ter_wsl            &none     &kp LG(DOWN)  &kp END   &kp PG_DN  &to MacDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
+                                      &trans        &trans    &trans     &trans        &trans    &trans        &trans        &trans
             >;
         };
 
@@ -267,7 +183,7 @@
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &spot              &ter_mac       &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LG(SPACE)      &ter_mac       &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
                            &kp LALT  &kp LCMD  &lm MacCode ESC  &rm LSHFT SPACE    &rm LCTRL RET  &lm MacNav BSPC  &kp TAB  &kp LC(LSHFT)
             >;
         };
@@ -288,11 +204,11 @@
             label = "MacNav";
             display-name = "MacNAV";
             bindings = <
-&trans  &kp F1     &kp F2    &kp F3    &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10       &kp F11
-&trans  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0        &kp F12
-&trans  &shot_mac  &kp CAPS  &max_mac  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)  &kp LC(RIGHT)
-&trans  &ter_mac   &spot     &min_mac  &kp END   &kp PG_DN  &to Game    &to WinDef  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac      &none
-                             &trans    &trans    &trans     &trans      &trans      &trans        &trans        &trans
+&trans  &kp F1         &kp F2         &kp F3    &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
+&trans  &kp N1         &kp N2         &kp N3    &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
+&trans  &kp LG(LS(4))  &kp CAPS       &max_mac  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
+&trans  &ter_mac       &kp LG(SPACE)  &min_mac  &kp END   &kp PG_DN  &to Game    &to WinDef  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
+                                      &trans    &trans    &trans     &trans      &trans      &trans        &trans        &trans
             >;
         };
 
