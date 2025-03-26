@@ -146,7 +146,7 @@
             bindings = <
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
+&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LG(D)
 &kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LC(LS(N2))     &ter_wsl       &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
                            &kp LWIN  &kp LALT  &lm WinCode ESC  &rm LSHFT SPACE    &rm LCTRL RET  &lm WinNav BSPC  &kp TAB  &kp LC(LSHFT)
             >;
