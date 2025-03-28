@@ -195,8 +195,8 @@
 &trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                             &kp F6     &kp F7    &kp F8    &kp F9    &kp F10      &kp F11
 &trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                          &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR     &kp F12
 &trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                          &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)  &kp LG(LC(F))
-&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &to Game    &to WinDef  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL      &kp LG(RET)
-                          &trans     &trans     &trans     &trans      &trans      &trans     &trans    &trans
+&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &to WinDef    &to Game  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL      &kp LG(RET)
+                          &trans     &trans     &trans     &trans        &trans    &trans     &trans    &trans
             >;
         };
 
@@ -207,8 +207,8 @@
 &trans  &kp F1              &kp F2         &kp F3    &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
 &trans  &kp N1              &kp N2         &kp N3    &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
 &trans  &kp LG(LC(LS(N4)))  &kp CAPS       &max_mac  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
-&trans  &ter_mac            &kp LG(SPACE)  &min_mac  &kp END   &kp PG_DN  &to Game    &to WinDef  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
-                                           &trans    &trans    &trans     &trans      &trans      &trans        &trans        &trans
+&trans  &ter_mac            &kp LG(SPACE)  &min_mac  &kp END   &kp PG_DN  &to WinDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
+                                           &trans    &trans    &trans     &trans        &trans    &trans        &trans        &trans
             >;
         };
 
@@ -216,11 +216,11 @@
             label = "Game";
             display-name = "Game";
             bindings = <
-&kp ESC    &kp N1     &kp N2  &kp N3   &kp N4  &kp N5                           &none  &none  &none  &none  &none  &none
-&none      &kp Q      &none   &kp W    &kp E   &kp R                            &none  &none  &none  &none  &none  &none
-&kp LCTRL  &kp LSHFT  &kp A   &kp S    &kp D   &none                            &none  &none  &none  &none  &none  &none
-&kp G      &kp N6     &kp N7  &kp N8   &kp N9  &kp N0  &kp B        &to WinDef  &none  &none  &none  &none  &none  &none
-                              &kp TAB  &kp M   &kp Z   &kp SPACE    &to SYS     &none  &none  &none
+&kp ESC    &kp N1     &kp N2  &kp N3   &kp N4  &kp N5                      &none    &none       &none       &none  &none  &none
+&none      &kp Q      &none   &kp W    &kp E   &kp R                       &none    &none       &none       &none  &none  &none
+&kp LCTRL  &kp LSHFT  &kp A   &kp S    &kp D   &none                       &to SYS  &to WinDef  &to MacDef  &none  &none  &none
+&kp G      &kp N6     &kp N7  &kp N8   &kp N9  &kp N0  &kp B        &none  &none    &none       &none       &none  &none  &none
+                              &kp TAB  &kp M   &kp Z   &kp SPACE    &none  &none    &none       &none
             >;
         };
 
@@ -228,11 +228,11 @@
             label = "SYS";
             display-name = "System";
             bindings = <
-&none  &none  &none  &none  &none  &bt BT_CLR                   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
-&none  &none  &none  &none  &none  &none                        &none         &none         &none         &none         &none         &none
-&none  &none  &none  &none  &none  &bootloader                  &bootloader   &to WinDef    &to MacDef    &none         &none         &none
-&none  &none  &none  &none  &none  &sys_reset   &none    &none  &sys_reset    &none         &none         &none         &none         &none
-                     &none  &none  &none        &none    &none  &none         &none         &none
+&none  &none  &none  &none  &none  &bt BT_CLR                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+&none  &none  &none  &none  &none  &none                                &none         &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none  &bootloader                          &bootloader   &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none  &sys_reset   &to WinDef    &to Game  &sys_reset    &none         &none         &none         &none         &none
+                     &none  &none  &none        &to MacDef    &none     &none         &none         &none
             >;
         };
     };
