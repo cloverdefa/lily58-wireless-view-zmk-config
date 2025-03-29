@@ -125,7 +125,7 @@
             bindings = <
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LG(D)
+&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp C_PP
 &kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LC(LS(N2))     &ter_wsl       &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
                            &kp LWIN  &kp LALT  &lt WinCode ESC  &mt LSHFT SPACE    &mt LCTRL RET  &lt WinNav BSPC  &kp TAB  &kp LC(LSHFT)
             >;
@@ -147,11 +147,11 @@
             label = "WinNAV";
             display-name = "WinNAV";
             bindings = <
-&trans  &kp F1         &kp F2    &kp F3        &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
-&trans  &kp N1         &kp N2    &kp N3        &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
-&trans  &kp LG(LS(S))  &kp CAPS  &kp LG(UP)    &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter_wsl       &kp C_PP  &kp LG(DOWN)  &kp END   &kp PG_DN  &to MacDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
-                                 &trans        &trans    &trans     &trans        &trans    &trans        &trans        &trans
+&trans  &kp F1         &kp F2     &kp F3        &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+&trans  &kp N1         &kp N2     &kp N3        &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+&trans  &kp LG(LS(S))  &kp CAPS   &kp LG(UP)    &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+&trans  &ter_wsl       &kp LG(D)  &kp LG(DOWN)  &kp END   &kp PG_DN  &to MacDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)        &kp DEL
+                                  &trans        &trans    &trans     &trans        &trans    &trans        &trans        &trans
             >;
         };
 
@@ -161,7 +161,7 @@
             bindings = <
 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                             &kp N6           &kp N7   &kp N8         &kp N9   &kp N0    &kp MINUS
 &kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                              &kp Y            &kp U    &kp I          &kp O    &kp P     &kp LC(TAB)
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp LC(TAB)
+&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                              &kp H            &kp J    &kp K          &kp L    &kp SEMI  &kp C_PP
 &kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LG(SPACE)      &ter_mac       &kp N            &kp M    &kp COMMA      &kp DOT  &kp FSLH  &kp DEL
                            &kp LALT  &kp LCMD  &lt MacCode ESC  &mt LSHFT SPACE    &mt LCTRL RET  &lt MacNav BSPC  &kp TAB  &kp LC(LSHFT)
             >;
@@ -183,11 +183,11 @@
             label = "MacNav";
             display-name = "MacNAV";
             bindings = <
-&trans  &kp F1              &kp F2    &kp F3    &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
-&trans  &kp N1              &kp N2    &kp N3    &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
-&trans  &kp LG(LC(LS(N4)))  &kp CAPS  &max_mac  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
-&trans  &ter_mac            &kp C_PP  &min_mac  &kp END   &kp PG_DN  &to WinDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
-                                      &trans    &trans    &trans     &trans        &trans    &trans        &trans        &trans
+&trans  &kp F1              &kp F2         &kp F3    &kp F4    &kp F5                             &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
+&trans  &kp N1              &kp N2         &kp N3    &kp N4    &kp N5                             &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
+&trans  &kp LG(LC(LS(N4)))  &kp CAPS       &max_mac  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
+&trans  &ter_mac            &kp LG(SPACE)  &min_mac  &kp END   &kp PG_DN  &to WinDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
+                                           &trans    &trans    &trans     &trans        &trans    &trans        &trans        &trans
             >;
         };
 
