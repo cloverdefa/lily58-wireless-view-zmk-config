@@ -41,4 +41,4 @@
 歡迎提交 Issue 或 Pull Request 來改進此專案。
 
 授權
-此專案基於 MIT 授權條款，詳見檔案內註解。
+此專案基於 MIT 授權條款，詳見 [LICENSE](https://github.com/cloverdefa/lily58-wireless-view-zmk-config/blob/main/LICENSE.md) 文件。
