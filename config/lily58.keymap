@@ -105,7 +105,7 @@
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp D>;
         };
 
         row: tmux_row {
@@ -113,7 +113,7 @@
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp LS(D)>;
         };
 
         list: tmux_list {
