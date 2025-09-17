@@ -13,6 +13,7 @@
 
 <div style="width: 80%; margin: auto;">
   <img src="https://github.com/cloverdefa/lily58-wireless-view-zmk-config/blob/main/IMG/lily58.jpg" style="width: 100%; height: auto;" alt="Lily58 Keyboard">
+  <img src="IMG/lily58.svg" style="width: 100%; height: auto;" alt="Lily58 Keyboard SVG">
 </div>
 
 ## 功能特色
@@ -48,4 +49,3 @@
 
 授權
 此專案基於 MIT 授權條款，詳見[MIT License](https://github.com/cloverdefa/lily58-wireless-view-zmk-config/blob/main/LICENSE.md) 授權條款。
-
