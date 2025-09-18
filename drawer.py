@@ -23,7 +23,7 @@ def main():
     if yaml_file.exists():
         yaml_file.unlink()
 
-    print(f"✅ 已生成 SVG: {svg_file} 並已刪除中間 YAML 檔案")
+    print(f"✅ 已生成 SVG: {svg_file} 並已刪除產生 YAML 檔案")
 
 
 if __name__ == "__main__":
