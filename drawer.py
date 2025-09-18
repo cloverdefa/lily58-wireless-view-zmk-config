@@ -8,14 +8,14 @@ def main():
     svg_file = base_dir / "IMG/lily58.svg"
     svg_file.parent.mkdir(parents=True, exist_ok=True)
 
-    subprocess.run(
-        "keymap parse -c 10 -z ./config/lily58.keymap > lily58_keymap.yaml",
-        shell=True,
-        check=True,
-    )
-    subprocess.run(
-        "keymap draw lily58_keymap.yaml > IMG/lily58.svg", shell=True, check=True
-    )
+    # parse -> YAML
+    parse_cmd = f'keymap parse -c 10 -z ./config/lily58.keymap > "{yaml_file}"'
+    subprocess.run(parse_cmd, shell=True, check=True)
+
+    # draw -> SVG
+    draw_cmd = f'keymap draw "{yaml_file}" > "{svg_file}"'
+    subprocess.run(draw_cmd, shell=True, check=True)
+
     print(f"✅ 已生成 SVG: {svg_file}")
 
 
