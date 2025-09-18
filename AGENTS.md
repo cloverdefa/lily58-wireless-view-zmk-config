@@ -59,3 +59,10 @@ west build -p=auto -d build/right -b nice_nano_v2 -- -DSHIELD=lily58_right
 - 請勿提交產物與私密資料（`build/`、`.uf2`、序號/金鑰）。
 - 變更 `west.yml` 或 `build.yaml` 前，確認 CI 矩陣仍涵蓋左右半部與顯示模組。
 
+## 代理（AI 助理）補充
+
+- 修改檔案時維持最小變更，遵循本檔案之縮排與命名規範。
+- 讀取專案時以 `rg` 搜尋並分段閱讀，避免過長輸出。
+- 需要新增/調整建置流程時，先於本機驗證左右半部能產出 `zmk.uf2`。
+- 僅在必要時調整 `build.yaml` 或 `west.yml`，並說明影響範圍。
+- 不提交產物、金鑰或序號等敏感資訊；避免將 `build/` 目錄納入版本控制。
