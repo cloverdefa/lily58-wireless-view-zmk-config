@@ -1,0 +1,341 @@
+layout: {zmk_keyboard: lily58}
+layers:
+  Windows:
+  - [ESC, '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  - ['0', '-', TAB, Q, W, E, R, T, Y, U]
+  - [I, O, P, Ctl+TAB, LCTRL, A, S, D, F, G]
+  - [H, J, K, L, ;, PP, LCTRL, Z, X, C]
+  - [V, B, Ctl+Sft+2, '&ter_wsl', N, M, ',', ., /, DEL]
+  - - LWIN
+    - {t: ESC, h: LALT}
+    - WinCode
+    - {t: SPACE, h: LSHFT}
+    - {t: RET, h: LCTRL}
+    - {t: BSPC, h: WinNAV}
+    - Ctl+Sft+DOWN
+    - Ctl+Sft+UP
+  WinCode:
+  - - {t: ▽, type: trans}
+    - F1
+    - F2
+    - F3
+    - F4
+    - F5
+    - F6
+    - F7
+    - F8
+    - F9
+  - - F10
+    - F11
+    - {t: ▽, type: trans}
+    - '!'
+    - '@'
+    - '#'
+    - $
+    - '%'
+    - ^
+    - '&'
+  - - '*'
+    - (
+    - )
+    - F12
+    - {t: ▽, type: trans}
+    - '&list'
+    - '&col'
+    - '`'
+    - '-'
+    - '='
+  - - '{'
+    - '}'
+    - ''''
+    - '"'
+    - Alt+F4
+    - Ctl+Gui+D
+    - {t: ▽, type: trans}
+    - '&tabs'
+    - '&row'
+    - '~'
+  - - +
+    - _
+    - {t: MacOS, h: toggle}
+    - {t: Game, h: toggle}
+    - '['
+    - ']'
+    - '|'
+    - \
+    - DEL
+    - Ctl+Gui+F4
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  WinNAV:
+  - - {t: ▽, type: trans}
+    - F1
+    - F2
+    - F3
+    - F4
+    - F5
+    - F6
+    - F7
+    - F8
+    - F9
+  - - F10
+    - F11
+    - {t: ▽, type: trans}
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+  - - '8'
+    - '9'
+    - '0'
+    - F12
+    - {t: ▽, type: trans}
+    - Gui+Sft+S
+    - CAPS
+    - Gui+UP
+    - HOME
+    - PG UP
+  - - LEFT
+    - DOWN
+    - UP
+    - RIGHT
+    - Ctl+Gui+LEFT
+    - Ctl+Gui+RIGHT
+    - {t: ▽, type: trans}
+    - '&ter_wsl'
+    - '&edge'
+    - Gui+DOWN
+  - - END
+    - PG DN
+    - {t: MacOS, h: toggle}
+    - {t: Game, h: toggle}
+    - VOL DN
+    - VOL UP
+    - PREV
+    - NEXT
+    - Ctl+Alt+DEL
+    - DEL
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  MacOS:
+  - [ESC, '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  - ['0', '-', TAB, Q, W, E, R, T, Y, U]
+  - [I, O, P, Ctl+TAB, LCTRL, A, S, D, F, G]
+  - [H, J, K, L, ;, PP, LCTRL, Z, X, C]
+  - [V, B, Gui+SPACE, '&ter_mac', N, M, ',', ., /, DEL]
+  - - LALT
+    - {t: ESC, h: LCMD}
+    - MacCode
+    - {t: SPACE, h: LSHFT}
+    - {t: RET, h: LCTRL}
+    - {t: BSPC, h: MacNAV}
+    - TAB
+    - Ctl+LSHFT
+  MacCode:
+  - - {t: ▽, type: trans}
+    - F1
+    - F2
+    - F3
+    - F4
+    - F5
+    - F6
+    - F7
+    - F8
+    - F9
+  - - F10
+    - F11
+    - {t: ▽, type: trans}
+    - '!'
+    - '@'
+    - '#'
+    - $
+    - '%'
+    - ^
+    - '&'
+  - - '*'
+    - (
+    - )
+    - F12
+    - {t: ▽, type: trans}
+    - '&list'
+    - '&col'
+    - '`'
+    - '-'
+    - '='
+  - - '{'
+    - '}'
+    - ''''
+    - '"'
+    - Ctl+TAB
+    - Gui+Ctl+F
+    - {t: ▽, type: trans}
+    - '&tabs'
+    - '&row'
+    - '~'
+  - - +
+    - _
+    - {t: Windows, h: toggle}
+    - {t: Game, h: toggle}
+    - '['
+    - ']'
+    - '|'
+    - \
+    - DEL
+    - Gui+RET
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  MacNAV:
+  - - {t: ▽, type: trans}
+    - F1
+    - F2
+    - F3
+    - F4
+    - F5
+    - F6
+    - F7
+    - F8
+    - F9
+  - - F10
+    - F11
+    - {t: ▽, type: trans}
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+  - - '8'
+    - '9'
+    - '0'
+    - F12
+    - {t: ▽, type: trans}
+    - Gui+Ctl+Sft+4
+    - CAPS
+    - '&max_mac'
+    - HOME
+    - PG UP
+  - - LEFT
+    - DOWN
+    - UP
+    - RIGHT
+    - Ctl+LEFT
+    - Ctl+RIGHT
+    - {t: ▽, type: trans}
+    - '&ter_mac'
+    - Gui+SPACE
+    - '&min_mac'
+  - - END
+    - PG DN
+    - {t: Windows, h: toggle}
+    - {t: Game, h: toggle}
+    - VOL DN
+    - VOL UP
+    - PREV
+    - NEXT
+    - Gui+Ctl+Sft+5
+    - ''
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  Game:
+  - [ESC, '1', '2', '3', '4', '5', '', '', '', '']
+  - ['', '', '', Q, '', W, E, R, '', '']
+  - ['', '', '', '', LCTRL, LSHFT, A, S, D, '']
+  - - ''
+    - {t: Windows, h: toggle}
+    - {t: MacOS, h: toggle}
+    - ''
+    - ''
+    - ''
+    - G
+    - '6'
+    - '7'
+    - '8'
+  - - '9'
+    - '0'
+    - B
+    - {t: Windows, h: toggle}
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - TAB
+    - M
+    - Z
+    - SPACE
+    - {t: System, h: toggle}
+    - ''
+    - ''
+    - ''
+  System:
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - BT CLR
+    - {t: BT, h: '0'}
+    - {t: BT, h: '1'}
+    - {t: BT, h: '2'}
+    - {t: BT, h: '3'}
+  - - {t: BT, h: '4'}
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - ['', '', '', '', '', '', '', '', '', '&bootloader']
+  - - '&bootloader'
+    - {t: Windows, h: toggle}
+    - {t: MacOS, h: toggle}
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - - ''
+    - '&sys_reset'
+    - ''
+    - {t: Game, h: toggle}
+    - '&sys_reset'
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - ['', '', '', '', '', '', '', '']
