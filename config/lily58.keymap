@@ -7,18 +7,18 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
 
 // Layers
 
-#define WinDef  0
-#define WinCode 1
-#define WinNav  2
-#define MacDef  3
-#define MacCode 4
-#define MacNav  5
-#define Game    6
-#define SYS     7
+#define WinDef   0
+#define WinCode  1
+#define WinNav   2
+#define MacDef   3
+#define MacCode  4
+#define MacNav   5
+#define Mouse    6
+#define Game     7
+#define SYS      8
 
 / {
    macros {
@@ -178,6 +178,18 @@
 &trans  &kp LG(LC(LS(N4)))  &kp CAPS       &kp LC(LG(F))  &kp HOME  &kp PG_UP                          &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
 &trans  &ter_mac            &kp LG(SPACE)  &kp LG(M)      &kp END   &kp PG_DN  &to WinDef    &to Game  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
                                            &trans         &trans    &trans     &trans        &trans    &trans        &trans        &trans
+            >;
+        };
+
+        Mouse_layer {
+            label = "Mouse";
+            display-name = "Mouse";
+            bindings = <
+&none  &none           &none           &none            &none  &none                            &none           &none           &none         &none            &none  &none
+&none  &none           &none           &mmv MOVE_UP     &none  &none                            &none           &none           &none         &none            &none  &none
+&none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none                            &none           &none           &none         &none            &none  &none
+&none  &mkp MB1        &mkp MB2        &mkp MB3         &none  &none  &to WinDef    &to MacDef  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none  &none
+                                       &none            &none  &none  &none         &none       &none           &none           &none
             >;
         };
 
