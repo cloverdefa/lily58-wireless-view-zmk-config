@@ -43,6 +43,17 @@ west build -d build/right -b nice_nano_v2 -- -DSHIELD=lily58_right
 - CI 會依 `build.yaml` 定義的矩陣建置左右半部與顯示模組。
 - 請勿提交產物與私密資料（`build/`、`.uf2`、序號/金鑰）。
 
+## AGENTS 指南摘要
+
+- 結構與資產：`config/` 放置主要設定；`IMG/` 放置圖片；建置矩陣由 `build.yaml` 管理。
+- 建置指令：初始化 `west init -l config && west update`；左右半部分別以 `west build -d build/<side> -b nice_nano_v2 -- -DSHIELD=lily58_<side>` 建置；常用 `-p=auto` 進行乾淨重建。
+- 風格規範：YAML 與 `.keymap`/`.conf` 皆採 2 空白縮排；層名稱全大寫（如 `BASE`、`NAV`）；`.conf` 僅使用既有 `CONFIG_` 開關。
+- 測試要求：左右半部皆需成功建置產生 `zmk.uf2`；重大變更提供新舊層級對照或 keymap 差異。
+- 提交規範：建議使用 Conventional Commits；PR 需附變更摘要、影響層級、截圖/`IMG/` 圖片（如有）、本機建置結果與重現指令。
+- 安全注意：勿提交產物與私密資料；變更 `west.yml` 或 `build.yaml` 前，確認 CI 矩陣仍涵蓋左右半部與顯示模組。
+
+完整細節請參見 `AGENTS.md`。
+
 ## 鍵盤圖片
 
 <div style="width: 80%; margin: auto;">
