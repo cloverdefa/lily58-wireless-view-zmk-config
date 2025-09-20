@@ -55,6 +55,20 @@
                 <&kp G &kp H &kp RET>;
         };
 
+        spot_mac: spotlight_macos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCMD>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LCMD>;
+        }; 
+
         edge: start_edge {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -152,7 +166,7 @@
 &kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U           &kp I      &kp O    &kp P     &kp LC(TAB)
 &kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J           &kp K      &kp L    &kp SEMI  &kp C_PP
 &kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &kp LG(SPACE)      &ter_mac       &kp N            &kp M           &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                           &kp LALT  &mt LCMD ESC  &mo MacCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt MacNav BSPC  &kp LG(LS(T))   &none
+                           &kp LALT  &mt LCMD ESC  &mo MacCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt MacNav BSPC  &kp LG(LS(T))   &spot_mac
             >;
         };
 
