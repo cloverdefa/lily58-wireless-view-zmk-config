@@ -37,6 +37,17 @@ west build -p=auto -d build/left  -b nice_nano_v2 -- -DSHIELD=lily58_left
 west build -p=auto -d build/right -b nice_nano_v2 -- -DSHIELD=lily58_right
 ```
 
+含 Nice!View 與 ZMK Studio（與 `build.yaml` 一致）：
+
+```bash
+west build -p=auto -d build/left  -b nice_nano_v2 -- \
+  -DSHIELD="lily58_left nice_view_adapter nice_view" \
+  -DSNIPPET=studio-rpc-usb-uart
+
+west build -p=auto -d build/right -b nice_nano_v2 -- \
+  -DSHIELD="lily58_right nice_view_adapter nice_view"
+```
+
 ## 程式風格與命名規範
 
 - 縮排：YAML 2 空白；`.keymap`/`.conf` 以 2 空白對齊區塊。
@@ -63,6 +74,7 @@ west build -p=auto -d build/right -b nice_nano_v2 -- -DSHIELD=lily58_right
 
 - 請勿提交產物與私密資料（`build/`、`.uf2`、序號/金鑰）。
 - 變更 `west.yml` 或 `build.yaml` 前，確認 CI 矩陣仍涵蓋左右半部與顯示模組。
+- Studio Snippet 僅需在左半部啟用（USB-UART），與現行 `build.yaml` 一致。
 
 ## 代理（AI 助理）補充
 
