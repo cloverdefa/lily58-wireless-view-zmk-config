@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/pointing.h>
 
 // Layers
 
@@ -16,8 +17,14 @@
 #define MacDef   3
 #define MacCode  4
 #define MacNav   5
-#define Game     6
-#define SYS      7
+#define Mouse    6
+#define Game     7
+#define SYS      8
+
+// Mouse settings
+
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 / {
    macros {
@@ -143,7 +150,7 @@
 &trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7    &kp F8    &kp F9    &kp F10     &kp F11
 &trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR    &kp F12
 &trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LA(F4)  &kp LC(LG(D))
-&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &trans  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &none       &kp LC(LG(F4))
+&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &trans  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &to Mouse   &kp LC(LG(F4))
                           &trans     &trans     &trans     &trans    &trans  &trans     &to Game  &trans
             >;
         };
@@ -179,7 +186,7 @@
 &trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7         &kp F8    &kp F9    &kp F10      &kp F11
 &trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS       &kp STAR  &kp LPAR  &kp RPAR     &kp F12
 &trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                    &kp LBRC   &kp RBRC       &kp SQT   &kp DQT   &kp LC(TAB)  &none
-&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &trans  &kp LBKT   &kp RBKT       &kp PIPE  &kp BSLH  &none        &none
+&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &trans  &kp LBKT   &kp RBKT       &kp PIPE  &kp BSLH  &to Mouse    &none
                           &trans     &trans     &trans     &trans    &trans  &trans     &kp LG(SPACE)  &kp LG(LS(T))
             >;
         };
@@ -193,6 +200,19 @@
 &trans  &kp LG(LC(LS(N4)))  &kp CAPS       &kp LC(LG(F))  &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
 &trans  &ter_mac            &kp LG(SPACE)  &kp LG(M)      &kp END   &kp PG_DN  &trans    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
                                            &trans         &trans    &trans     &trans    &trans  &trans        &trans        &trans
+            >;
+        };
+
+        Mouse_layer {
+            label = "Mouse";
+            display-name = "Mouse";
+            bindings = <
+&none  &none  &none  &none  &none  &none                       &none           &none           &none         &none            &none  &none
+&none  &none  &none  &none  &none  &none                       &none           &none           &none         &none            &none  &none
+&none  &none  &none  &none  &none  &none                       &none           &none           &none         &none            &none  &none
+&none  &none  &none  &none  &none  &none                       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
+&none  &none  &none  &none  &none  &none  &none    &to WinDef  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGJT  &none  &none
+                     &none  &none  &none  &none    &mkp LCLK   &mkp RCLK       &mkp MCLK       &none
             >;
         };
 
