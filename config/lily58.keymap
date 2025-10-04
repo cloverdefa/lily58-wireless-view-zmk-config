@@ -27,7 +27,7 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 / {
-   macros {
+    macros {
         ter_wsl: terminal_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -45,8 +45,6 @@
         ter_mac: terminal_macos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
             bindings =
                 <&macro_press>, <&kp LCMD>,
                 <&macro_tap>, <&kp SPACE>,
@@ -125,11 +123,11 @@
             label = "WinDef";
             display-name = "Windows";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                         &kp N6           &kp N7   &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U    &kp I      &kp O    &kp P     &kp LC(TAB)
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J    &kp K      &kp L    &kp SEMI  &kp C_PP
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &kp LC(LS(N2))     &ter_wsl       &kp N            &kp M    &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                           &kp LWIN  &mt LALT ESC  &mo WinCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt WinNav BSPC  &to SYS  &to MacDef
+            &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                         &kp N6           &kp N7   &kp N8     &kp N9   &kp N0    &kp MINUS
+            &kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U    &kp I      &kp O    &kp P     &kp LC(TAB)
+            &kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J    &kp K      &kp L    &kp SEMI  &kp C_PP
+            &kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &kp LC(LS(N2))     &ter_wsl       &kp N            &kp M    &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+                                       &kp LWIN  &mt LALT ESC  &mo WinCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt WinNav BSPC  &to SYS  &to MacDef
             >;
         };
 
@@ -137,11 +135,11 @@
             label = "WinCode";
             display-name = "WinCode";
             bindings = <
-&trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7    &kp F8    &kp F9    &kp F10     &kp F11
-&trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR    &kp F12
-&trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LA(F4)  &kp LC(LG(D))
-&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &trans  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &to Mouse   &kp LC(LG(F4))
-                          &trans     &trans     &trans     &trans    &trans  &trans     &to Game  &trans
+            &trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7    &kp F8    &kp F9    &kp F10     &kp F11
+            &trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR    &kp F12
+            &trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LA(F4)  &kp LC(LG(D))
+            &trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &trans  &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &to Mouse   &kp LC(LG(F4))
+                                      &trans     &trans     &trans     &trans    &trans  &trans     &to Game  &trans
             >;
         };
 
@@ -149,11 +147,11 @@
             label = "WinNAV";
             display-name = "WinNAV";
             bindings = <
-&trans  &kp F1         &kp F2    &kp F3        &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
-&trans  &kp N1         &kp N2    &kp N3        &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
-&trans  &kp LG(LS(S))  &kp CAPS  &kp LG(UP)    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-&trans  &ter_wsl       &edge     &kp LG(DOWN)  &kp END   &kp PG_DN  &trans    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LC(LA(DEL))   &kp DEL
-                                 &trans        &trans    &trans     &trans    &trans  &trans        &trans        &trans
+            &trans  &kp F1         &kp F2    &kp F3        &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+            &trans  &kp N1         &kp N2    &kp N3        &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+            &trans  &kp LG(LS(S))  &kp CAPS  &kp LG(UP)    &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+            &trans  &ter_wsl       &edge     &kp LG(DOWN)  &kp END   &kp PG_DN  &trans    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LC(LA(DEL))   &kp DEL
+                                             &trans        &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
         };
 
@@ -161,11 +159,11 @@
             label = "MacDef";
             display-name = "MacOS";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                         &kp N6           &kp N7   &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U    &kp I      &kp O    &kp P     &kp LC(TAB)
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J    &kp K      &kp L    &kp SEMI  &kp C_PP
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &spot_mac          &ter_mac       &kp N            &kp M    &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                           &kp LALT  &mt LCMD ESC  &mo MacCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt MacNav BSPC  &to SYS  &to WinDef
+            &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                         &kp N6           &kp N7   &kp N8     &kp N9   &kp N0    &kp MINUS
+            &kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U    &kp I      &kp O    &kp P     &kp LC(TAB)
+            &kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J    &kp K      &kp L    &kp SEMI  &kp C_PP
+            &kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &spot_mac          &ter_mac       &kp N            &kp M    &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+                                       &kp LALT  &mt LCMD ESC  &mo MacCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt MacNav BSPC  &to SYS  &to WinDef
             >;
         };
 
@@ -173,11 +171,11 @@
             label = "MacCode";
             display-name = "MacCode";
             bindings = <
-&trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7         &kp F8    &kp F9    &kp F10      &kp F11
-&trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS       &kp STAR  &kp LPAR  &kp RPAR     &kp F12
-&trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                    &kp LBRC   &kp RBRC       &kp SQT   &kp DQT   &kp LC(TAB)  &none
-&trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &trans  &kp LBKT   &kp RBKT       &kp PIPE  &kp BSLH  &to Mouse    &none
-                          &trans     &trans     &trans     &trans    &trans  &trans     &kp LG(SPACE)  &kp LG(LS(T))
+            &trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7         &kp F8    &kp F9    &kp F10      &kp F11
+            &trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS       &kp STAR  &kp LPAR  &kp RPAR     &kp F12
+            &trans  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL                    &kp LBRC   &kp RBRC       &kp SQT   &kp DQT   &kp LC(TAB)  &none
+            &trans  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER  &trans    &trans  &kp LBKT   &kp RBKT       &kp PIPE  &kp BSLH  &to Mouse    &none
+                                      &trans     &trans     &trans     &trans    &trans  &trans     &kp LG(SPACE)  &kp LG(LS(T))
             >;
         };
 
@@ -185,11 +183,11 @@
             label = "MacNav";
             display-name = "MacNAV";
             bindings = <
-&trans  &kp F1              &kp F2         &kp F3         &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
-&trans  &kp N1              &kp N2         &kp N3         &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
-&trans  &kp LG(LC(LS(N4)))  &kp CAPS       &kp LC(LG(F))  &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
-&trans  &ter_mac            &kp LG(SPACE)  &kp LG(M)      &kp END   &kp PG_DN  &trans    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
-                                           &trans         &trans    &trans     &trans    &trans  &trans        &trans        &trans
+            &trans  &kp F1              &kp F2         &kp F3         &kp F4    &kp F5                       &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
+            &trans  &kp N1              &kp N2         &kp N3         &kp N4    &kp N5                       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
+            &trans  &kp LG(LC(LS(N4)))  &kp CAPS       &kp LC(LG(F))  &kp HOME  &kp PG_UP                    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
+            &trans  &ter_mac            &kp LG(SPACE)  &kp LG(M)      &kp END   &kp PG_DN  &trans    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
+                                                       &trans         &trans    &trans     &trans    &trans  &trans        &trans        &trans
             >;
         };
 
@@ -197,11 +195,11 @@
             label = "Mouse";
             display-name = "Mouse";
             bindings = <
-&kp ESC  &none  &none  &none  &none       &none                             &none           &none           &none         &none            &none  &none
-&none    &none  &none  &none  &none       &none                             &none           &none           &none         &none            &none  &none
-&none    &none  &none  &none  &none       &none                             &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
-&none    &none  &none  &none  &none       &none    &none         &none      &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none  &none
-                       &none  &to MacDef  &to SYS  &to WinDef    &mkp LCLK  &mkp RCLK       &mkp MCLK       &none
+            &kp ESC  &none  &none  &none  &none       &none                             &none           &none           &none         &none            &none  &none
+            &none    &none  &none  &none  &none       &none                             &none           &none           &none         &none            &none  &none
+            &none    &none  &none  &none  &none       &none                             &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
+            &none    &none  &none  &none  &none       &none    &none         &none      &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none  &none
+                                   &none  &to MacDef  &to SYS  &to WinDef    &mkp LCLK  &mkp RCLK       &mkp MCLK       &none
             >;
         };
 
@@ -209,11 +207,11 @@
             label = "Game";
             display-name = "Game";
             bindings = <
-&kp ESC    &kp N1     &kp N2  &kp N3   &kp N4  &kp N5                      &none    &none       &none       &none  &none  &none
-&none      &kp Q      &none   &kp W    &kp E   &kp R                       &none    &none       &none       &none  &none  &none
-&kp LCTRL  &kp LSHFT  &kp A   &kp S    &kp D   &none                       &none    &none       &none       &none  &none  &none
-&kp G      &kp N6     &kp N7  &kp N8   &kp N9  &kp N0  &kp B        &none  &none    &none       &none       &none  &none  &none
-                              &kp TAB  &kp M   &kp Z   &kp SPACE    &none  &to SYS  &to MacDef  &to WinDef
+            &kp ESC    &kp N1     &kp N2  &kp N3   &kp N4  &kp N5                      &none    &none       &none       &none  &none  &none
+            &none      &kp Q      &none   &kp W    &kp E   &kp R                       &none    &none       &none       &none  &none  &none
+            &kp LCTRL  &kp LSHFT  &kp A   &kp S    &kp D   &none                       &none    &none       &none       &none  &none  &none
+            &kp G      &kp N6     &kp N7  &kp N8   &kp N9  &kp N0  &kp B        &none  &none    &none       &none       &none  &none  &none
+                                          &kp TAB  &kp M   &kp Z   &kp SPACE    &none  &to SYS  &to MacDef  &to WinDef
             >;
         };
 
@@ -221,11 +219,11 @@
             label = "SYS";
             display-name = "System";
             bindings = <
-&none  &none  &none  &none  &none  &bt BT_CLR                   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
-&none  &none  &none  &none  &none  &none                        &none         &none         &none         &none         &none         &none
-&none  &none  &none  &none  &none  &bootloader                  &bootloader   &none         &none         &none         &none         &none
-&none  &none  &none  &none  &none  &sys_reset   &none    &none  &sys_reset    &none         &none         &none         &none         &none
-                     &none  &none  &none        &none    &none  &to Game      &to MacDef    &to WinDef
+            &none  &none  &none  &none  &none  &bt BT_CLR                   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+            &none  &none  &none  &none  &none  &none                        &none         &none         &none         &none         &none         &none
+            &none  &none  &none  &none  &none  &bootloader                  &bootloader   &none         &none         &none         &none         &none
+            &none  &none  &none  &none  &none  &sys_reset   &none    &none  &sys_reset    &none         &none         &none         &none         &none
+                                 &none  &none  &none        &none    &none  &to Game      &to MacDef    &to WinDef
             >;
         };
     };
