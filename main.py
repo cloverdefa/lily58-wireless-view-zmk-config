@@ -47,7 +47,7 @@ def generate_svg(keymap_path: Path, svg_path: Path, yaml_path: Path, columns: in
 
 def main():
     base_dir = Path(".")
-    keymap_file = base_dir / "config/corne.keymap"
+    keymap_file = base_dir / "config/lily58.keymap"
     yaml_file = base_dir / "corne_keymap.yaml"
     svg_file = base_dir / "IMG/corne.svg"
 
