@@ -123,6 +123,19 @@
                 <&macro_release>, <&kp LCMD>;
         }; 
 
+        spotlight_win: spotlight_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+
+                // 開啟 Spotlight
+                <&macro_press>, <&kp LWIN>, <&kp LALT>,
+                <&macro_tap>, <&kp SPACE>,
+                <&macro_release>, <&kp LWIN>, <&kp LALT;
+        }; 
+
         col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -170,7 +183,7 @@
             &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                         &kp N6           &kp N7     &kp N8     &kp N9   &kp N0    &kp MINUS
             &kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U      &kp I      &kp O    &kp P     &kp LC(TAB)
             &kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J      &kp K      &kp L    &kp SEMI  &kp C_PP
-            &kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &kp LC(LS(N2))     &ter_win       &kp N            &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+            &kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &spotlight_win     &ter_win       &kp N            &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
                                        &kp LWIN  &mt LALT ESC  &mo WinCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt WinNav BSPC  &none      &none
             >;
         };
