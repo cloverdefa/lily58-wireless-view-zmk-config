@@ -35,11 +35,11 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LALT>,
+                <&kp LWIN &kp LALT>,
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LALT>,
+                <&kp LWIN &kp LALT>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
                 <&kp E &kp D &kp G &kp E>,
@@ -54,11 +54,11 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LALT>,
+                <&kp LWIN &kp LALT>,
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LALT>,
+                <&kp LWIN &kp LALT>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
                 <&kp W>, <&kp T>,
@@ -108,11 +108,11 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LALT>,
+                <&kp LWIN &kp LALT>,
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LALT>;
+                <&kp LWIN &kp LALT>;
         };
 
         col: tmux_column {
