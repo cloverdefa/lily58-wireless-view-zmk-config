@@ -42,7 +42,7 @@
                 <&kp LALT>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
-                <&kp BSPC &kp E &kp D &kp G &kp E &kp RET>;
+                <&kp LS(M) &kp I &kp C &kp R &kp O &kp S &kp O &kp F &kp T &kp SPACE &kp LS(E) &kp D &kp G &kp E &kp RET>;
         };
 
         ter_win: terminal_windows {
@@ -59,7 +59,7 @@
                 <&kp LALT>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
-                <&kp BSPC &kp W &kp T &kp RET>;
+                <&kp W &kp T &kp DOT &kp E &kp X &kp E &kp RET>;
         };
 
         ter_mac: terminal_macos {
