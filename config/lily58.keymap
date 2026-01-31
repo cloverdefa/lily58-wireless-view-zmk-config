@@ -41,6 +41,7 @@
                 <&macro_release>,
                 <&kp LALT>,
                 <&macro_pause_for_release>,
+                <&macro_wait_time 500>,
                 <&macro_tap>,
                 <&kp LS(M) &kp I &kp C &kp R &kp O &kp S &kp O &kp F &kp T &kp SPACE &kp LS(E) &kp D &kp G &kp E &kp RET>;
         };
@@ -58,6 +59,7 @@
                 <&macro_release>,
                 <&kp LALT>,
                 <&macro_pause_for_release>,
+                <&macro_wait_time 500>,
                 <&macro_tap>,
                 <&kp W &kp T &kp DOT &kp E &kp X &kp E &kp RET>;
         };
