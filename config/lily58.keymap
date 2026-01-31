@@ -61,7 +61,7 @@
                 <&macro_pause_for_release>,
                 <&macro_wait_time 250>,
                 <&macro_tap>,
-                <&kp W &kp T &kp RET>;
+                <&kp W &kp T &kp DOT &kp E &kp X &kp E &kp RET>;
         };
 
         ter_mac: terminal_macos {
