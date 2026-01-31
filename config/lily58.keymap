@@ -108,11 +108,11 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LWIN &kp LALT>,
+                <&kp LALT>,
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LWIN &kp LALT>;
+                <&kp LALT>;
         };
 
         col: tmux_column {
