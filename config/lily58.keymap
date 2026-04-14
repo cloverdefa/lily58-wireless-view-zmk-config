@@ -35,7 +35,7 @@
             tap-ms = <0>;
             bindings =
                 <&macro_tap>,
-                <&kp LC(LS(E))>;
+                <&kp LC(LS(X))>;
         };
 
         ter_win: terminal_windows {
