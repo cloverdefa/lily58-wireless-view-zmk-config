@@ -44,22 +44,8 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
                 <&macro_tap>,
-                <&kp T>,
-                <&macro_release>,
-                <&kp LWIN>;
-        };
-
-        cal_win: calculator_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LG(LC(C))>;
+                <&kp LC(T)>;
         };
 
         ptrun: powertoy_run {
@@ -74,6 +60,16 @@
                 <&kp SPACE>,
                 <&macro_release>,
                 <&kp LG(LALT)>;
+        };
+
+        cal_win: calculator_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LG(LC(C))>;
         };
 
         ter_mac: terminal_macos {
