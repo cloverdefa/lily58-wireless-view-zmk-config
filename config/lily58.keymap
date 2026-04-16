@@ -21,11 +21,6 @@
 #define Game     7
 #define SYS      8
 
-// Mouse settings
-
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
-
 / {
     macros {
         edge: start_edge {
@@ -72,7 +67,7 @@
 
                 <&macro_wait_time 300>,
                 <&macro_tap>,
-                <&kp W &kp T &kp SPACE &kp D &kp ENTER>;
+                <&kp W &kp ENTER &kp D &kp ENTER>;
         };
 
         pt_run: powertoy_run {
