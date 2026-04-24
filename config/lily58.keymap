@@ -65,7 +65,7 @@
                 <&macro_release>,
                 <&kp LWIN>,
                 <&kp LCTRL>,
-                <&kp LSHFT>,
+                <&kp LSHFT>;
         };
 
         pt_run: powertoy_run {
