@@ -40,9 +40,10 @@
                 <&kp LWIN>,
                 <&kp LALT>,
 
-                <&macro_pause_for_release>,
+                <&macro_wait_time 300>,
                 <&macro_tap>,
                 <&kp E &kp D &kp G &kp E>,
+                <&macro_wait_time 50>,
                 <&macro_tap>,
                 <&kp ENTER>;
         };
@@ -64,11 +65,15 @@
                 <&kp LWIN>,
                 <&kp LALT>,
 
-                <&macro_pause_for_release>,
+                <&macro_wait_time 300>,
                 <&macro_tap>,
                 <&kp W>,
+                <&macro_wait_time 50>,
                 <&macro_tap>,
-                <&kp ENTER &kp ENTER>;
+                <&kp ENTER>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp ENTER>;
         };
 
         pt_run: powertoy_run {
