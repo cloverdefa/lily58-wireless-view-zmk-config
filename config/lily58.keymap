@@ -43,7 +43,7 @@
                 <&macro_wait_time 300>,
                 <&macro_tap>,
                 <&kp E &kp D &kp G &kp E>,
-                <&macro_wait_time 50>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
                 <&kp ENTER>;
         };
@@ -68,10 +68,10 @@
                 <&macro_wait_time 300>,
                 <&macro_tap>,
                 <&kp W>,
-                <&macro_wait_time 50>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
                 <&kp ENTER>,
-                <&macro_wait_time 50>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
                 <&kp ENTER>;
         };
