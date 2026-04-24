@@ -84,6 +84,7 @@ west build -p=auto -d build/right -b nice_nano_v2 -- \
 
 <div style="width: 80%; margin: auto;">
   <img src="IMG/lily58.jpg" style="width: 100%; height: auto;" alt="Lily58 Keyboard">
+  <img src="IMG/lily58.svg" style="width: 100%; height: auto;" alt="Lily58 Keyboard">
   
 </div>
 
