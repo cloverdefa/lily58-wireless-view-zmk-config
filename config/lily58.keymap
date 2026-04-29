@@ -65,8 +65,10 @@
                 <&kp LWIN>,
                 <&kp LCTRL>,
 
+                <&macro_pause_for_release>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
-                <&kp ENTER>;
+                <&kp D &kp ENTER>;
         };
 
         pt_run: powertoy_run {
