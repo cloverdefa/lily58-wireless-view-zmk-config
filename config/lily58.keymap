@@ -55,22 +55,17 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
+                <&kp LCTRL>,
                 <&kp LWIN>,
                 <&kp LALT>,
 
                 <&macro_tap>,
-                <&kp SPACE>,
+                <&kp T>,
 
                 <&macro_release>,
+                <&kp LCTRL>,
                 <&kp LWIN>,
-                <&kp LALT>,
-
-                <&macro_pause_for_release>,
-                <&macro_wait_time 150>,
-                <&macro_tap>,
-                <&kp W &kp T>,
-                <&macro_tap>,
-                <&kp ENTER &kp ENTER>;
+                <&kp LALT>;
         };
 
         pt_run: powertoy_run {
