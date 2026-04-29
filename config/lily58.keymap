@@ -55,12 +55,35 @@
             tap-ms = <0>;
             bindings =
                 <&macro_tap>,
-                <&kp LC(LG(T))>,
+                <&kp LWIN>,
+                <&kp LALT>,
+                <&kp T>,
 
                 <&macro_wait_time 100>,
                 <&macro_tap>,
-                <&kp D &kp ENTER>;
+                <&kp D>,
+                <&kp ENTER>;
         };
+
+        ter_win_quake: terminal_windows_quake {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&kp LWIN>,
+                <&kp LALT>,
+
+                <&macro_tap>,
+                <&kp T>,
+
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&kp LWIN>,
+                <&kp LALT>;
+        }
 
         pt_run: powertoy_run {
             compatible = "zmk,behavior-macro";
@@ -78,16 +101,6 @@
                 <&macro_release>,
                 <&kp LWIN>,
                 <&kp LALT>;
-        };
-
-        cal_win: calculator_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LG(LC(C))>;
         };
 
         ter_mac: terminal_macos {
@@ -166,7 +179,7 @@
                 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                         &kp N6           &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
                 &kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U   &kp I      &kp O    &kp P     &kp LC(TAB)
                 &kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J   &kp K      &kp L    &kp SEMI  &kp C_PP
-                &kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &cal_win           &pt_run        &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+                &kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &ter_win_quake     &pt_run        &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
                                            &kp LWIN  &mt LALT ESC  &mo WinCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt WinNav BSPC  &none   &none
             >;
         };
