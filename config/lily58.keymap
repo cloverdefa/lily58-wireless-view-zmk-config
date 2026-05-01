@@ -118,15 +118,16 @@
             bindings =
                 <&macro_press>,
                 <&kp LCMD>,
+                <&kp LCTRL>,
+                <&kp LSHFT>,
+
                 <&macro_tap>,
-                <&kp SPACE>,
+                <&kp T>,
+
                 <&macro_release>,
                 <&kp LCMD>,
-                <&macro_pause_for_release>,
-                <&macro_tap>,
-                <&kp G &kp H>,
-                <&macro_wait_time 200>,
-                <&kp ENTER>;
+                <&kp LCTRL>,
+                <&kp LSHFT>;
         };
 
         spotlight: spotlight {
