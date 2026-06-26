@@ -146,6 +146,7 @@
 
                 <&macro_tap>,
                 <&kp SPACE>,
+                <&macro_wait_time 150>,
                 <&kp N1>,
 
                 <&macro_release>,
