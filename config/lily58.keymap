@@ -273,7 +273,7 @@
                 &kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U   &kp I      &kp O    &kp P     &kp LC(TAB)
                 &kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J   &kp K      &kp L    &kp SEMI  &kp C_PP
                 &kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &ter_win           &pt_run        &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                                           &kp LWIN  &mt LALT ESC  &mo WinCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt WinNav BSPC  &none   &none
+                                           &kp LALT  &mt LWIN ESC  &mo WinCode  &mt LSHFT SPACE    &mt LCTRL RET  &lt WinNav BSPC  &none   &none
             >;
         };
 
