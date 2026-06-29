@@ -231,6 +231,34 @@
                 <&kp GLOBE &kp LCTRL>;
         };
 
+        move_up: move_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp K>,
+                <&macro_release>,
+                <&kp LALT>;
+        };
+
+        move_down: move_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp J>,
+                <&macro_release>,
+                <&kp LALT>;
+        };
+
         col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -283,11 +311,11 @@
             label = "WinNAV";
             display-name = "WinNAV";
             bindings = <
-                &trans  &kp F1          &kp F2         &kp F3        &kp F4    &kp F5                           &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
-                &trans  &kp N1          &kp N2         &kp N3        &kp N4    &kp N5                           &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
-                &trans  &kp LG(LS(S))   &kp LG(SPACE)  &kp LG(UP)    &kp HOME  &kp PG_UP                        &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
-                &trans  &ter_win_quake  &zen           &kp LG(DOWN)  &kp END   &kp PG_DN  &to SYS    &to Mouse  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LC(LA(DEL))   &kp DEL
-                                                       &trans        &trans    &trans     &trans     &trans     &trans        &trans        &trans
+                &trans  &kp F1          &kp F2         &kp F3        &kp F4    &kp F5                          &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
+                &trans  &kp N1          &kp N2         &kp N3        &kp N4    &kp N5                          &kp N6        &kp N7        &kp N8      &kp N9      &kp N0            &kp F12
+                &trans  &kp LG(LS(S))   &kp LG(SPACE)  &kp LG(UP)    &kp HOME  &kp PG_UP                       &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
+                &trans  &ter_win_quake  &zen           &kp LG(DOWN)  &kp END   &kp PG_DN  &to Mouse    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LC(LA(DEL))   &kp DEL
+                                                       &trans        &trans    &trans     &trans       &trans  &trans        &trans        &trans
             >;
         };
 
@@ -307,11 +335,11 @@
             label = "WinFunc";
             display-name = "WinFunc";
             bindings = <
-                &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-                &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans   &kp F12
-                &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans   &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans   &trans
-                                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+                &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                       &kp F6   &kp F7      &kp F8    &kp F9  &kp F10  &kp F11
+                &trans  &trans  &trans  &trans  &trans  &trans                       &trans   &trans      &trans    &trans  &trans   &kp F12
+                &trans  &trans  &trans  &trans  &trans  &trans                       &trans   &move_down  &move_up  &trans  &trans   &trans
+                &trans  &trans  &trans  &trans  &trans  &to Mouse  &trans    &trans  &to SYS  &trans      &trans    &trans  &trans   &trans
+                                        &trans  &trans  &trans     &trans    &trans  &trans   &trans      &trans
             >;
         };
 
@@ -331,11 +359,11 @@
             label = "MacNav";
             display-name = "MacNAV";
             bindings = <
-                &trans  &kp F1              &kp F2         &kp F3     &kp F4    &kp F5                           &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
-                &trans  &kp N1              &kp N2         &kp N3     &kp N4    &kp N5                           &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
-                &trans  &kp LG(LC(LS(N4)))  &kp CAPS       &max_mac   &kp HOME  &kp PG_UP                        &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
-                &trans  &ter_mac            &kp LG(SPACE)  &kp LG(M)  &kp END   &kp PG_DN  &to SYS    &to Mouse  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
-                                                           &trans     &trans    &trans     &trans     &trans     &trans        &trans        &trans
+                &trans  &kp F1              &kp F2         &kp F3     &kp F4    &kp F5                          &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
+                &trans  &kp N1              &kp N2         &kp N3     &kp N4    &kp N5                          &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
+                &trans  &kp LG(LC(LS(N4)))  &kp CAPS       &max_mac   &kp HOME  &kp PG_UP                       &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
+                &trans  &ter_mac            &kp LG(SPACE)  &kp LG(M)  &kp END   &kp PG_DN  &to Mouse    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &none
+                                                           &trans     &trans    &trans     &trans       &trans  &trans        &trans        &trans
             >;
         };
 
@@ -355,11 +383,11 @@
             label = "MacFunc";
             display-name = "MacFunc";
             bindings = <
-                &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-                &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans   &kp F12
-                &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans   &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans   &trans
-                                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+                &trans  &kp F1  &kp F2  &kp F3        &kp F4  &kp F5                       &kp F6   &kp F7      &kp F8    &kp F9  &kp F10  &kp F11
+                &trans  &trans  &trans  &trans        &trans  &trans                       &trans   &trans      &trans    &trans  &trans   &kp F12
+                &trans  &trans  &trans  &winup_mac    &trans  &trans                       &trans   &move_down  &move_up  &trans  &trans   &trans
+                &trans  &trans  &trans  &windown_mac  &trans  &to Mouse  &trans    &trans  &to SYS  &trans      &trans    &trans  &trans   &trans
+                                        &trans        &trans  &trans     &trans    &trans  &trans   &trans      &trans
             >;
         };
 
