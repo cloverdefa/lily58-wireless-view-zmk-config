@@ -28,8 +28,8 @@
         zen: zen_browser {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
@@ -53,8 +53,8 @@
         edge: edge_browser {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
@@ -78,8 +78,8 @@
         ter_win: terminal_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
@@ -102,8 +102,8 @@
         ter_win_quake: terminal_windows_quake {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
@@ -122,8 +122,8 @@
         pt_win: powertoy_run {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
@@ -140,8 +140,8 @@
         ter_mac: terminal_macos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LCMD>,
@@ -164,8 +164,8 @@
         spotlight: spotlight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LCMD>,
@@ -178,8 +178,8 @@
         max_mac: windowmax_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LG(LCTRL)>,
@@ -192,8 +192,8 @@
         rec_mac: screenrecord_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LG(LSHFT)>,
@@ -206,8 +206,8 @@
         winup_mac: windowup_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp GLOBE &kp LCTRL>,
@@ -220,8 +220,8 @@
         windown_mac: windowdown_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp GLOBE &kp LCTRL>,
@@ -234,8 +234,8 @@
         move_up: move_up {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LALT>,
@@ -248,8 +248,8 @@
         move_down: move_down {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings =
                 <&macro_press>,
                 <&kp LALT>,
@@ -262,32 +262,32 @@
         col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
         };
 
         row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
         };
 
         list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings = <&macro_tap>, <&kp LC(A) &kp W>;
         };
 
         tabs: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
             bindings = <&macro_tap>, <&kp LC(A) &kp C>;
         };
     };
@@ -308,7 +308,6 @@
         };
 
         WindowsNAV_layer {
-            label = "WinNAV";
             display-name = "WinNAV";
             bindings = <
                 &trans  &kp F1          &kp F2         &kp F3        &kp F4    &kp F5                          &kp F6        &kp F7        &kp F8      &kp F9      &kp F10           &kp F11
@@ -320,7 +319,6 @@
         };
 
         WindowsCode_layer {
-            label = "WinCode";
             display-name = "WinCode";
             bindings = <
                 &trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7    &kp F8    &kp F9    &kp F10     &kp F11
@@ -332,7 +330,6 @@
         };
 
         WindowsFunc_layer {
-            label = "WinFunc";
             display-name = "WinFunc";
             bindings = <
                 &trans  &kp F1     &kp F2  &kp F3  &kp F4  &kp F5                       &kp F6   &kp F7         &kp F8          &kp F9            &kp F10            &kp F11
@@ -344,7 +341,6 @@
         };
 
         MacbookDef_layer {
-            label = "MacDef";
             display-name = "MacOS";
             bindings = <
                 &kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                         &kp N6           &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
@@ -356,7 +352,6 @@
         };
 
         MacbookNAV_layer {
-            label = "MacNav";
             display-name = "MacNAV";
             bindings = <
                 &trans  &kp F1              &kp F2         &kp F3     &kp F4    &kp F5                          &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
@@ -368,7 +363,6 @@
         };
 
         MacbookCode_layer {
-            label = "MacCode";
             display-name = "MacCode";
             bindings = <
                 &trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                                 &kp F6     &kp F7    &kp F8    &kp F9    &kp F10        &kp F11
@@ -380,7 +374,6 @@
         };
 
         MacbookFunc_layer {
-            label = "MacFunc";
             display-name = "MacFunc";
             bindings = <
                 &trans  &kp F1           &kp F2   &kp F3        &kp F4  &kp F5                       &kp F6   &kp F7      &kp F8    &kp F9  &kp F10  &kp F11
@@ -392,7 +385,6 @@
         };
 
         Mouse_layer {
-            label = "Mouse";
             display-name = "Mouse";
             bindings = <
                 &kp ESC  &none  &none  &none  &none     &none                                &none           &none           &none         &none            &none  &none
@@ -404,7 +396,6 @@
         };
 
         Game_layer {
-            label = "Game";
             display-name = "Game";
             bindings = <
                 &kp ESC    &kp N1     &kp N2  &kp N3   &kp N4  &kp N5                           &none         &none         &none  &none  &none  &none
@@ -416,7 +407,6 @@
         };
 
         System_layer {
-            label = "SYS";
             display-name = "System";
             bindings = <
                 &none  &none  &none  &none  &none     &bt BT_CLR                            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
