@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Corne 鍵盤 keymap SVG 生成腳本
+Lily58 鍵盤 keymap SVG 生成腳本
 
 功能：
-1. 從 Corne 鍵盤的 keymap 檔案（.keymap）解析成 YAML。
+1. 從 Lily58 鍵盤的 keymap 檔案（.keymap）解析成 YAML。
 2. 使用 YAML 生成對應的鍵盤布局 SVG 圖片。
 3. 自動建立必要的輸出資料夾。
 4. 生成完成後清理中間 YAML 檔案。
@@ -19,7 +19,7 @@ from pathlib import Path
 
 def generate_svg(keymap_path: Path, svg_path: Path, yaml_path: Path, columns: int = 10):
     """
-    將 Corne keymap 轉換為 SVG。
+    將 Lily58 keymap 轉換為 SVG。
 
     參數：
     - keymap_path: 原始 keymap 檔案 (.keymap)
