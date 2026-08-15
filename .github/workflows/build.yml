@@ -4,6 +4,11 @@ on:
     branches:
       - main
       - test
+
+  pull_request:
+    branches:
+      - main
+      
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
