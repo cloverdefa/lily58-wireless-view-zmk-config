@@ -92,7 +92,6 @@ west build -p=auto -d build/right -b nice_nano_v2 -- \
 
 - 安全注意：勿提交產物與私密資料；變更 west.yml 或 build.yaml 前，確認 CI 矩陣仍涵蓋左右半部與顯示模組。
 
-- 完整細節請參見 AGENTS.md。
 ## 貢獻
 
 - 建議採用 Conventional Commits（如 ci:、build:、refactor:）。
