@@ -33,4 +33,3 @@ jobs:
             --repo "${{ github.repository }}" \
             --auto \
             --squash
-
