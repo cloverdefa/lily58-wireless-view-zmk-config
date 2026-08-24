@@ -2,9 +2,6 @@
 name: Release
 
 on:
-  # ================================================================
-  # Automatic release
-  # ================================================================
   workflow_run:
     workflows:
       - Build
@@ -13,9 +10,6 @@ on:
     branches:
       - main
 
-  # ================================================================
-  # Manual release
-  # ================================================================
   workflow_dispatch:
     inputs:
       release_type:
@@ -23,15 +17,11 @@ on:
         required: true
         type: choice
         options:
+          - auto
           - patch
           - minor
           - major
-        default: patch
-
-      run_id:
-        description: Build workflow run ID for firmware artifact
-        required: true
-        type: string
+        default: auto
 
 permissions:
   contents: write
@@ -41,7 +31,7 @@ jobs:
   release:
     # ==============================================================
     # workflow_run:
-    #   Only release when Build succeeds.
+    #   Only release when Build completed successfully.
     #
     # workflow_dispatch:
     #   Always allow manual release.
@@ -63,7 +53,6 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-          token: ${{ secrets.RELEASE_TOKEN }}
 
       # ==============================================================
       # Get next version
@@ -80,67 +69,146 @@ jobs:
           # ----------------------------------------------------------
           # Find latest semantic version tag
           #
-          # Examples:
-          #   v0.1.0
-          #   v0.1.1
-          #   v1.0.0
-          #   v1.1.5
+          # Supported:
+          #   v1.0.1
+          #   v1.1.0
+          #   v2.0.0
           # ----------------------------------------------------------
 
           latest_tag="$(
-            git tag --list 'v*' |
+            git tag --list 'v*.*.*' |
             grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' |
             sort -V |
             tail -n 1 || true
           )"
 
           # ----------------------------------------------------------
-          # Determine release type
-          # ----------------------------------------------------------
-
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            release_type="${{ inputs.release_type }}"
-          else
-            release_type="patch"
-          fi
-
-          echo "Latest tag: ${latest_tag:-none}"
-          echo "Release type: $release_type"
-
-          # ----------------------------------------------------------
           # First release
           # ----------------------------------------------------------
 
           if [ -z "$latest_tag" ]; then
-            case "$release_type" in
-              patch)
-                major=0
-                minor=1
-                patch=1
-                ;;
+            major=1
+            minor=0
+            patch=1
 
-              minor)
-                major=0
-                minor=2
-                patch=0
-                ;;
-
-              major)
-                major=1
-                minor=0
-                patch=0
-                ;;
-
-              *)
-                echo "::error::Invalid release type: $release_type"
-                exit 1
-                ;;
-            esac
+            echo "No existing release tag found."
 
           else
             version="${latest_tag#v}"
 
             IFS='.' read -r major minor patch <<< "$version"
+
+            echo "Latest tag: $latest_tag"
+
+            # --------------------------------------------------------
+            # Determine release type
+            #
+            # Manual:
+            #   auto
+            #   patch
+            #   minor
+            #   major
+            #
+            # Automatic:
+            #   fix:                patch
+            #   feat:               minor
+            #   feat!:              major
+            #   BREAKING CHANGE:    major
+            #   docs/chore/etc.     no release
+            # --------------------------------------------------------
+
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              release_type="${{ inputs.release_type }}"
+
+              echo "Manual release type: $release_type"
+
+            else
+              release_type="none"
+
+              # ------------------------------------------------------
+              # Find commits since latest release
+              # ------------------------------------------------------
+
+              echo "Analyzing commits since $latest_tag..."
+
+              while IFS= read -r commit; do
+                echo "Commit:"
+                echo "$commit"
+
+                # ----------------------------------------------------
+                # MAJOR
+                #
+                # Examples:
+                #   feat!: ...
+                #   fix!: ...
+                #   refactor!: ...
+                #
+                # Also:
+                #   BREAKING CHANGE:
+                # ----------------------------------------------------
+
+                if printf '%s\n' "$commit" |
+                  grep -Eq '^[a-zA-Z0-9_-]+(\([^)]*\))?!:' ||
+                  printf '%s\n' "$commit" |
+                  grep -Eq 'BREAKING CHANGE:'; then
+
+                  release_type="major"
+                  continue
+                fi
+
+                # ----------------------------------------------------
+                # MINOR
+                #
+                # Examples:
+                #   feat: ...
+                #   feat(scope): ...
+                # ----------------------------------------------------
+
+                if printf '%s\n' "$commit" |
+                  grep -Eq '^feat(\([^)]*\))?:'; then
+
+                  if [ "$release_type" != "major" ]; then
+                    release_type="minor"
+                  fi
+
+                  continue
+                fi
+
+                # ----------------------------------------------------
+                # PATCH
+                #
+                # Examples:
+                #   fix: ...
+                #   fix(scope): ...
+                # ----------------------------------------------------
+
+                if printf '%s\n' "$commit" |
+                  grep -Eq '^fix(\([^)]*\))?:'; then
+
+                  if [ "$release_type" = "none" ]; then
+                    release_type="patch"
+                  fi
+
+                  continue
+                fi
+
+              done < <(
+                git log "$latest_tag..HEAD" \
+                  --pretty=format:'%s%n%b%n---'
+              )
+
+              echo "Automatically detected release type: $release_type"
+            fi
+
+            # --------------------------------------------------------
+            # No release required
+            # --------------------------------------------------------
+
+            if [ "$release_type" = "none" ]; then
+              echo "No release required."
+              echo "should_release=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
 
             # --------------------------------------------------------
             # Calculate next version
@@ -162,6 +230,11 @@ jobs:
                 patch=0
                 ;;
 
+              auto)
+                echo "::error::'auto' is only valid for automatic release."
+                exit 1
+                ;;
+
               *)
                 echo "::error::Invalid release type: $release_type"
                 exit 1
@@ -181,46 +254,34 @@ jobs:
             exit 1
           fi
 
+          echo "Release type: ${release_type:-initial}"
           echo "Next version: $version"
           echo "Next tag: $tag"
 
+          echo "should_release=true" >> "$GITHUB_OUTPUT"
+          echo "release_type=${release_type:-initial}" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
-
-      # ==============================================================
-      # Determine Build workflow run ID
-      # ==============================================================
-
-      - name: Get Build run ID
-        id: build
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            run_id="${{ inputs.run_id }}"
-          else
-            run_id="${{ github.event.workflow_run.id }}"
-          fi
-
-          echo "Using Build run ID: $run_id"
-          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
 
       # ==============================================================
       # Download firmware artifact from Build workflow
       # ==============================================================
 
       - name: Download firmware
+        if: steps.version.outputs.should_release == 'true'
         uses: actions/download-artifact@v4
         with:
           name: firmware
           path: firmware
-          github-token: ${{ secrets.RELEASE_TOKEN }}
-          run-id: ${{ steps.build.outputs.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
 
       # ==============================================================
       # Show firmware files
       # ==============================================================
 
       - name: Show firmware files
+        if: steps.version.outputs.should_release == 'true'
         shell: bash
         run: |
           echo "Firmware files:"
@@ -231,6 +292,7 @@ jobs:
       # ==============================================================
 
       - name: Create firmware ZIP
+        if: steps.version.outputs.should_release == 'true'
         shell: bash
         run: |
           cd firmware
@@ -245,9 +307,9 @@ jobs:
       # ==============================================================
 
       - name: Create Release
+        if: steps.version.outputs.should_release == 'true'
         uses: softprops/action-gh-release@v2
         with:
-          token: ${{ secrets.RELEASE_TOKEN }}
           tag_name: ${{ steps.version.outputs.tag }}
           target_commitish: main
           name: ${{ steps.version.outputs.tag }}
