@@ -29,16 +29,16 @@ permissions:
 jobs:
   release:
     # ==============================================================
-    # 限制條件：
-    # 1. 手動觸發 (workflow_dispatch) 時一律允許。
-    # 2. 自動觸發時：Build Workflow 必須成功，且觸發該 Build 的 PR
-    #    來源分支 (head.ref) 必須為 'test'。
+    # 僅允許：
+    # 1. 手動觸發 (workflow_dispatch)
+    # 2. PR 被成功合併，且來源分支為 'test'、目標分支為 'main'
     # ==============================================================
     if: >
       github.event_name == 'workflow_dispatch' ||
       (
-        github.event.workflow_run.conclusion == 'success' &&
-        github.event.workflow_run.pull_requests[0].head.ref == 'test'
+        github.event.pull_request.merged == true &&
+        github.event.pull_request.base.ref == 'main' &&
+        github.event.pull_request.head.ref == 'test'
       )
 
     runs-on: ubuntu-latest
