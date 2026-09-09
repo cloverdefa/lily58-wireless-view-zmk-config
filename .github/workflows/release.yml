@@ -30,7 +30,11 @@ permissions:
 
 
 jobs:
-  release:
+  # ==================================================================
+  # Job 1: 判斷下一個版本
+  # ==================================================================
+  version:
+    name: Determine Version
 
     # ==============================================================
     # 僅允許：
@@ -45,6 +49,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    outputs:
+      release_type: ${{ steps.version.outputs.release_type }}
+      version: ${{ steps.version.outputs.version }}
+      tag: ${{ steps.version.outputs.tag }}
+      target_sha: ${{ steps.version.outputs.target_sha }}
 
     steps:
 
@@ -646,6 +655,17 @@ jobs:
             echo "target_sha=$TARGET_SHA"
           } >> "$GITHUB_OUTPUT"
 
+  # ==================================================================
+  # Job 2: 打包 firmware 並建立 GitHub Release
+  # ==================================================================
+  release:
+    name: Create Release
+
+    needs: version
+
+    runs-on: ubuntu-latest
+
+    steps:
 
       # ============================================================
       # Download firmware artifact
@@ -710,8 +730,8 @@ jobs:
       - name: Create Release and Push Tag
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.version.outputs.tag }}
-          name: ${{ steps.version.outputs.tag }}
+          tag: ${{ needs.version.outputs.tag }}
+          name: ${{ needs.version.outputs.tag }}
 
           # --------------------------------------------------------
           # Release 綁定實際 Build 的 commit。
@@ -723,7 +743,7 @@ jobs:
           # 避免 main 在 Build 完成後又往前移動。
           # --------------------------------------------------------
 
-          commit: ${{ steps.version.outputs.target_sha }}
+          commit: ${{ needs.version.outputs.target_sha }}
 
           # --------------------------------------------------------
           # workflow_run 才有 firmware.zip
