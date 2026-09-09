@@ -1,6 +1,10 @@
 name: Release
 
 on:
+  # ==============================================================
+  # Build workflow 成功完成後，自動建立 Release
+  # ==============================================================
+
   workflow_run:
     workflows:
       - Build
@@ -9,37 +13,72 @@ on:
     branches:
       - main
 
+  # ==============================================================
+  # 手動觸發
+  # ==============================================================
+
   workflow_dispatch: {}
+
+
+# ================================================================
+# Workflow permissions
+# ================================================================
 
 permissions:
   contents: write
   actions: read
 
+
 jobs:
   release:
+
     # ==============================================================
     # 僅允許：
-    # 1. 手動觸發 (workflow_dispatch)
+    #
+    # 1. 手動觸發
     # 2. main 分支的 Build workflow 成功完成
     # ==============================================================
+
     if: >
       github.event_name == 'workflow_dispatch' ||
       github.event.workflow_run.conclusion == 'success'
 
     runs-on: ubuntu-latest
 
-    steps:
-      # ==============================================================
-      # Checkout main
-      # ==============================================================
 
-      - name: Checkout main
+    steps:
+
+      # ============================================================
+      # Checkout
+      #
+      # workflow_run：
+      #   使用 Build workflow 實際建立的 commit SHA
+      #
+      # workflow_dispatch：
+      #   使用目前 main
+      #
+      # 這樣可以避免：
+      #
+      #   Build 完成
+      #       ↓
+      #   main 又有新的 commit
+      #       ↓
+      #   Release 分析到錯誤的 commit
+      # ============================================================
+
+      - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: main
+          ref: >-
+            ${{
+              github.event_name == 'workflow_run'
+              && github.event.workflow_run.head_sha
+              || 'main'
+            }}
           fetch-depth: 0
 
-      # ==============================================================
+
+      # ============================================================
       # Fetch tags
       # ==============================================================
 
@@ -47,26 +86,46 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
           git fetch --tags --force
 
-      # ==============================================================
+
+      # ============================================================
       # Determine next version
       #
-      # 規則（精簡版，無手動選擇，優先序 major > minor > patch）：
-      #   - 沒有任何 tag                -> 第一版 v0.1.0
-      #   - commit 含 "MAJOR CHANGE:"   -> major + 1, minor/patch 歸零
-      #   - commit 含 feat: / !: /
-      #     BREAKING CHANGE:            -> minor + 1, patch 歸零
-      #   - 其他情況（含 fix、chore 等）-> patch + 1
+      # Release 規則：
       #
-      # 注意：
-      #   - "MAJOR CHANGE:" 是刻意獨立於 Conventional Commits 規範的
-      #     "BREAKING CHANGE:" 之外的自訂標記，因為這裡 "!:" 與
-      #     "BREAKING CHANGE:" 已經被指定對應到 minor，需要另一個
-      #     不衝突的標記來觸發 major。
-      #   - 每次符合觸發條件都會發版（即使只是 chore/docs），
-      #     這是刻意簡化後的行為。
-      # ==============================================================
+      #   沒有任何 release tag
+      #       → v0.1.0
+      #
+      #   MAJOR CHANGE:
+      #       → major
+      #
+      #   <type>!:
+      #   <type>(scope)!:
+      #   BREAKING CHANGE:
+      #   feat:
+      #   feat(scope):
+      #       → minor
+      #
+      #   其他所有 commit
+      #       → patch
+      #
+      # 優先序：
+      #
+      #   major > minor > patch
+      #
+      # 重要：
+      #
+      #   一個 Commit = 一個分析單位
+      #
+      # 每個 Commit 會分別取得：
+      #
+      #   Subject
+      #   Body
+      #
+      # 而不是把整個 git log 當成一個文字區塊解析。
+      # ============================================================
 
       - name: Determine next version
         id: version
@@ -74,77 +133,534 @@ jobs:
         run: |
           set -euo pipefail
 
-          LATEST_VERSION="$(
+
+          # ==========================================================
+          # Functions
+          # ==========================================================
+
+
+          # ----------------------------------------------------------
+          # 取得最新正式 Release tag
+          #
+          # 只接受：
+          #
+          #   v1.0.0
+          #   v1.2.3
+          #   v10.20.30
+          #
+          # 不接受：
+          #
+          #   v1.0.0-test
+          #   v1.0.0-rc1
+          # ----------------------------------------------------------
+
+          get_latest_tag() {
             git tag --list 'v*.*.*' |
-            grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' |
-            sort -V |
-            tail -n 1 || true
-          )"
+              grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' |
+              sort -V |
+              tail -n 1 ||
+              true
+          }
 
-          if [[ -z "$LATEST_VERSION" ]]; then
-            echo "No existing release tag found."
-            NEXT_VERSION="v0.1.0"
 
-          else
-            echo "Latest tag: $LATEST_VERSION"
+          # ----------------------------------------------------------
+          # 分析單一 Commit
+          #
+          # 回傳：
+          #
+          #   major
+          #   minor
+          #   patch
+          #
+          # 注意：
+          #
+          #   這裡一定是一個 SHA 對應一個 Commit。
+          # ----------------------------------------------------------
 
-            VERSION_WITHOUT_V="${LATEST_VERSION#v}"
-            IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION_WITHOUT_V"
+          get_commit_bump() {
+            local sha="$1"
 
-            # ----------------------------------------------------------
-            # 讀取完整 commit 訊息（含 body/footer），而非只有標題行，
-            # 並用嚴格的格式比對，避免 "feature: ..." 這類非規範訊息
-            # 被誤判成 "feat:"
-            # ----------------------------------------------------------
+            local subject
+            local body
 
-            BUMP="patch"
 
-            while IFS= read -r line; do
-              if printf '%s\n' "$line" | grep -Eq '^MAJOR CHANGE:'; then
-                BUMP="major"
+            # --------------------------------------------------------
+            # 分別取得 Subject 與 Body
+            # --------------------------------------------------------
+
+            subject="$(git show -s --format='%s' "$sha")"
+            body="$(git show -s --format='%b' "$sha")"
+
+
+            echo ""
+            echo "----------------------------------------"
+            echo "Commit : $sha"
+            echo "Subject: $subject"
+
+
+            # ========================================================
+            # MAJOR
+            #
+            # 自訂標記：
+            #
+            #   MAJOR CHANGE:
+            #
+            # 此標記優先於所有其他類型。
+            # ========================================================
+
+            if printf '%s\n' "$subject" |
+              grep -Eq '^MAJOR CHANGE:'; then
+
+              echo "Detected: MAJOR"
+              echo "major"
+
+              return
+            fi
+
+
+            if printf '%s\n' "$body" |
+              grep -Eq '^MAJOR CHANGE:'; then
+
+              echo "Detected: MAJOR"
+              echo "major"
+
+              return
+            fi
+
+
+            # ========================================================
+            # MINOR
+            #
+            # 1. Conventional Commit breaking marker：
+            #
+            #      feat!: something
+            #      fix!: something
+            #      refactor!: something
+            #
+            #      feat(scope)!: something
+            #
+            # 2. BREAKING CHANGE:
+            #
+            #      BREAKING CHANGE: something
+            #
+            # 3. feat:
+            #
+            #      feat: something
+            #      feat(scope): something
+            #
+            # 注意：
+            #
+            # 此 workflow 的設計是：
+            #
+            #   !: / BREAKING CHANGE:
+            #       → minor
+            #
+            # 而不是 major。
+            #
+            # major 必須使用：
+            #
+            #   MAJOR CHANGE:
+            # ========================================================
+
+            if printf '%s\n' "$subject" |
+              grep -Eq '^[a-zA-Z0-9_-]+(\([^)]*\))?!:'; then
+
+              echo "Detected: MINOR"
+              echo "minor"
+
+              return
+            fi
+
+
+            # --------------------------------------------------------
+            # BREAKING CHANGE 必須出現在 Commit Body 的行首
+            # --------------------------------------------------------
+
+            if printf '%s\n' "$body" |
+              grep -Eq '^BREAKING CHANGE:'; then
+
+              echo "Detected: MINOR"
+              echo "minor"
+
+              return
+            fi
+
+
+            # --------------------------------------------------------
+            # feat:
+            #
+            # 僅接受真正的 Conventional Commit feat type。
+            #
+            # 不會把：
+            #
+            #   feature:
+            #
+            # 誤判成 feat:
+            # --------------------------------------------------------
+
+            if printf '%s\n' "$subject" |
+              grep -Eq '^feat(\([^)]*\))?:'; then
+
+              echo "Detected: MINOR"
+              echo "minor"
+
+              return
+            fi
+
+
+            # ========================================================
+            # PATCH
+            #
+            # 所有其他 Commit 都會觸發 patch。
+            #
+            # 例如：
+            #
+            #   fix:
+            #   chore:
+            #   docs:
+            #   refactor:
+            #   style:
+            #   test:
+            #   ci:
+            #   build:
+            #   perf:
+            #
+            # 這是目前 workflow 刻意採用的簡化規則。
+            # ========================================================
+
+            echo "Detected: PATCH"
+            echo "patch"
+          }
+
+
+          # ----------------------------------------------------------
+          # 分析 Release 範圍內所有 Commit
+          #
+          # 回傳：
+          #
+          #   major
+          #   minor
+          #   patch
+          #
+          # 優先序：
+          #
+          #   major > minor > patch
+          # ----------------------------------------------------------
+
+          get_release_bump() {
+            local commit_range="$1"
+
+            local release_type="patch"
+            local commit_bump
+            local sha
+
+
+            # --------------------------------------------------------
+            # git rev-list：
+            #
+            # 一行一個 Commit SHA。
+            #
+            # 因此不需要處理：
+            #
+            #   commit message 分隔符
+            #   多行 body
+            #   特殊字元
+            # --------------------------------------------------------
+
+            while IFS= read -r sha; do
+
+              [[ -z "$sha" ]] && continue
+
+
+              commit_bump="$(get_commit_bump "$sha" | tail -n 1)"
+
+
+              # ------------------------------------------------------
+              # 套用優先序
+              #
+              # major > minor > patch
+              # ------------------------------------------------------
+
+              case "$commit_bump" in
+
+                major)
+                  release_type="major"
+                  ;;
+
+                minor)
+                  if [[ "$release_type" != "major" ]]; then
+                    release_type="minor"
+                  fi
+                  ;;
+
+                patch)
+                  # patch 是預設值，因此不需要降低已經判定的
+                  # minor / major。
+                  ;;
+
+                *)
+                  echo "::error::Unknown bump type: $commit_bump"
+                  exit 1
+                  ;;
+
+              esac
+
+
+              # ------------------------------------------------------
+              # major 已經是最高等級，可以停止分析。
+              # ------------------------------------------------------
+
+              if [[ "$release_type" == "major" ]]; then
+                echo "Highest release level reached: MAJOR"
                 break
               fi
 
-              if printf '%s\n' "$line" | grep -Eq '^[a-zA-Z0-9_-]+(\([^)]*\))?!:' \
-                || printf '%s\n' "$line" | grep -Eq '^BREAKING CHANGE:' \
-                || printf '%s\n' "$line" | grep -Eq '^feat(\([^)]*\))?:'; then
-                BUMP="minor"
-              fi
-            done < <(git log "${LATEST_VERSION}..HEAD" --pretty=format:'%s%n%b%n---')
+            done < <(git rev-list "$commit_range")
 
-            case "$BUMP" in
+
+            echo ""
+            echo "Detected release type: $release_type"
+
+            echo "$release_type"
+          }
+
+
+          # ----------------------------------------------------------
+          # 計算下一個版本
+          # ----------------------------------------------------------
+
+          calculate_next_version() {
+            local latest_tag="$1"
+            local release_type="$2"
+
+
+            # --------------------------------------------------------
+            # 第一個 Release
+            # --------------------------------------------------------
+
+            if [[ -z "$latest_tag" ]]; then
+              echo "v0.1.0"
+              return
+            fi
+
+
+            # --------------------------------------------------------
+            # 解析目前版本
+            # --------------------------------------------------------
+
+            local version="${latest_tag#v}"
+
+            local major
+            local minor
+            local patch
+
+
+            IFS='.' read -r major minor patch <<< "$version"
+
+
+            # --------------------------------------------------------
+            # 套用版本升級
+            # --------------------------------------------------------
+
+            case "$release_type" in
+
               major)
-                echo "Found MAJOR CHANGE commit -> bumping major."
-                NEXT_VERSION="v$((MAJOR + 1)).0.0"
+                major=$((major + 1))
+                minor=0
+                patch=0
                 ;;
+
               minor)
-                echo "Found feat / breaking change commit -> bumping minor."
-                NEXT_VERSION="v${MAJOR}.$((MINOR + 1)).0"
+                minor=$((minor + 1))
+                patch=0
                 ;;
+
+              patch)
+                patch=$((patch + 1))
+                ;;
+
               *)
-                echo "No feat/major commit found -> bumping patch."
-                NEXT_VERSION="v${MAJOR}.${MINOR}.$((PATCH + 1))"
+                echo "::error::Invalid release type: $release_type"
+                exit 1
                 ;;
+
             esac
+
+
+            echo "v${major}.${minor}.${patch}"
+          }
+
+
+          # ==========================================================
+          # Determine target commit
+          # ==========================================================
+
+          if [[ "${{ github.event_name }}" == "workflow_run" ]]; then
+
+            TARGET_SHA="${{ github.event.workflow_run.head_sha }}"
+
+          else
+
+            TARGET_SHA="$(git rev-parse main)"
+
           fi
 
-          # ----------------------------------------------------------
-          # 防止重複 tag
-          # ----------------------------------------------------------
 
-          if git rev-parse "$NEXT_VERSION" >/dev/null 2>&1; then
-            echo "::error::Tag $NEXT_VERSION already exists."
+          echo "Target commit: $TARGET_SHA"
+
+
+          # ==========================================================
+          # Ensure target commit exists locally
+          # ==========================================================
+
+          git fetch origin "$TARGET_SHA"
+
+
+          # ==========================================================
+          # Find latest release tag
+          # ==========================================================
+
+          LATEST_TAG="$(get_latest_tag)"
+
+
+          if [[ -n "$LATEST_TAG" ]]; then
+
+            echo "Latest release tag: $LATEST_TAG"
+
+          else
+
+            echo "Latest release tag: none"
+
+          fi
+
+
+          # ==========================================================
+          # Determine commit range
+          #
+          # Existing release:
+          #
+          #   latest_tag..target_sha
+          #
+          # First release:
+          #
+          #   target_sha
+          # ==========================================================
+
+          if [[ -n "$LATEST_TAG" ]]; then
+
+            COMMIT_RANGE="${LATEST_TAG}..${TARGET_SHA}"
+
+          else
+
+            COMMIT_RANGE="$TARGET_SHA"
+
+          fi
+
+
+          echo "Commit range: $COMMIT_RANGE"
+
+
+          # ==========================================================
+          # Determine release bump
+          # ==========================================================
+
+          RELEASE_TYPE="$(
+            get_release_bump "$COMMIT_RANGE" |
+            tail -n 1
+          )"
+
+
+          # ==========================================================
+          # Calculate next version
+          # ==========================================================
+
+          NEXT_VERSION="$(
+            calculate_next_version \
+              "$LATEST_TAG" \
+              "$RELEASE_TYPE"
+          )"
+
+
+          # ==========================================================
+          # Validate generated version
+          # ==========================================================
+
+          if ! printf '%s\n' "$NEXT_VERSION" |
+            grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+
+            echo "::error::Invalid generated version: $NEXT_VERSION"
             exit 1
+
           fi
 
-          echo "Next version: $NEXT_VERSION"
-          echo "VERSION=${NEXT_VERSION}" >> "$GITHUB_OUTPUT"
 
-      # ==============================================================
-      # Download firmware artifact from Build workflow
-      # ==============================================================
+          # ==========================================================
+          # Prevent duplicate tag
+          # ==========================================================
+
+          if git tag --list "$NEXT_VERSION" |
+            grep -Fxq "$NEXT_VERSION"; then
+
+            echo "::error::Tag $NEXT_VERSION already exists locally."
+            exit 1
+
+          fi
+
+
+          if git ls-remote \
+            --tags \
+            origin \
+            "refs/tags/$NEXT_VERSION" |
+            grep -q "refs/tags/$NEXT_VERSION"; then
+
+            echo "::error::Tag $NEXT_VERSION already exists on origin."
+            exit 1
+
+          fi
+
+
+          # ==========================================================
+          # Release information
+          # ==========================================================
+
+          echo ""
+          echo "========================================"
+          echo "Release information"
+          echo "========================================"
+          echo "Latest tag : ${LATEST_TAG:-none}"
+          echo "Release    : $RELEASE_TYPE"
+          echo "Version    : ${NEXT_VERSION#v}"
+          echo "Tag        : $NEXT_VERSION"
+          echo "Commit     : $TARGET_SHA"
+          echo "========================================"
+
+
+          # ==========================================================
+          # GitHub Actions outputs
+          # ==========================================================
+
+          {
+            echo "release_type=$RELEASE_TYPE"
+            echo "version=${NEXT_VERSION#v}"
+            echo "tag=$NEXT_VERSION"
+            echo "target_sha=$TARGET_SHA"
+          } >> "$GITHUB_OUTPUT"
+
+
+      # ============================================================
+      # Download firmware artifact
+      #
+      # workflow_run：
+      #   使用觸發本次 Release 的 Build workflow
+      #
+      # workflow_dispatch：
+      #   沒有 workflow_run.id，因此無法下載 Build artifact。
+      #
+      # 因此手動觸發時必須另外處理 artifact 來源。
+      # ============================================================
 
       - name: Download firmware
+        if: github.event_name == 'workflow_run'
         uses: actions/download-artifact@v8
         with:
           name: firmware
@@ -152,42 +668,69 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
 
-      # ==============================================================
+
+      # ============================================================
       # Show firmware files
-      # ==============================================================
+      # ============================================================
 
       - name: Show firmware files
+        if: github.event_name == 'workflow_run'
         shell: bash
         run: |
+          set -euo pipefail
+
           echo "Firmware files:"
           find firmware -type f -print
 
-      # ==============================================================
+
+      # ============================================================
       # Create firmware ZIP
-      # ==============================================================
+      # ============================================================
 
       - name: Create firmware ZIP
+        if: github.event_name == 'workflow_run'
         shell: bash
         run: |
+          set -euo pipefail
+
           cd firmware
+
           zip -r "../firmware.zip" .
+
           cd ..
 
           echo "Created firmware.zip:"
           ls -lh firmware.zip
 
-      # ==============================================================
-      # Create Release and Push Tag
-      # ==============================================================
+
+      # ============================================================
+      # Create GitHub Release
+      # ============================================================
 
       - name: Create Release and Push Tag
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.version.outputs.VERSION }}
-          name: ${{ steps.version.outputs.VERSION }}
-          commit: main
-          artifacts: firmware.zip
+          tag: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+
+          # --------------------------------------------------------
+          # Release 綁定實際 Build 的 commit。
+          #
+          # 不使用：
+          #
+          #   commit: main
+          #
+          # 避免 main 在 Build 完成後又往前移動。
+          # --------------------------------------------------------
+
+          commit: ${{ steps.version.outputs.target_sha }}
+
+          # --------------------------------------------------------
+          # workflow_run 才有 firmware.zip
+          # --------------------------------------------------------
+
+          artifacts: ${{ github.event_name == 'workflow_run' && 'firmware.zip' || '' }}
+
           generateReleaseNotes: true
+
           token: ${{ secrets.GITHUB_TOKEN }}
-
-
