@@ -23,10 +23,10 @@
 #define Game     9
 #define System   10
 
-/ {
-    #define MACRO_WAIT_MS 30
-    #define MACRO_TAP_MS  30
+#define MACRO_WAIT_MS 30
+#define MACRO_TAP_MS  30
 
+/ {
     macros {
         zen: zen_browser {
             compatible = "zmk,behavior-macro";
