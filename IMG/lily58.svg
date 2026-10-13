@@ -299,11 +299,11 @@ path.combo {
 </g>
 <g transform="translate(364, 182)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&amp;twinp</text>
+<text x="0" y="0" class="key tap">&amp;tomc</text>
 </g>
 <g transform="translate(560, 182)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&amp;ptr</text>
+<text x="0" y="0" class="key tap">&amp;omenu</text>
 </g>
 <g transform="translate(616, 210)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -331,7 +331,7 @@ path.combo {
 </g>
 <g transform="translate(168, 259)" class="key keypos-50">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">LWIN</text>
+<text x="0" y="0" class="key tap">LMETA</text>
 </g>
 <g transform="translate(224, 260)" class="key keypos-51">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -340,8 +340,8 @@ path.combo {
 </g>
 <g transform="translate(280, 266)" class="key keypos-52">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#WinCode">
-<text x="0" y="0" class="key tap layer-activator">WinCode</text>
+<a href="#OmcCode">
+<text x="0" y="0" class="key tap layer-activator">OmcCode</text>
 </a></g>
 <g transform="translate(350, 266) rotate(30.0)" class="key keypos-53">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
@@ -467,15 +467,15 @@ path.combo {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">F12</text>
 </g>
-<g transform="translate(28, 168)" class="key trans keypos-24">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(28, 168)" class="key keypos-24">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">Alt+</tspan><tspan x="0" dy="1.2em">PSCRN</tspan>
+</text>
 </g>
 <g transform="translate(84, 161)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Gui+Sft</tspan><tspan x="0" dy="1.2em">+S</tspan>
-</text>
+<text x="0" y="0" class="key tap">PSCRN</text>
 </g>
 <g transform="translate(140, 147)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -531,7 +531,7 @@ path.combo {
 </g>
 <g transform="translate(84, 217)" class="key keypos-37">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&amp;twin</text>
+<text x="0" y="0" class="key tap">&amp;tomc</text>
 </g>
 <g transform="translate(140, 203)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -626,8 +626,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 745)" class="layer-WinCode">
-<text x="0" y="28" class="label" id="WinCode">WinCode:</text>
+<g transform="translate(30, 745)" class="layer-OmcCode">
+<text x="0" y="28" class="label" id="OmcCode">OmcCode:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -865,8 +865,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 1117)" class="layer-WinFunc">
-<text x="0" y="28" class="label" id="WinFunc">WinFunc:</text>
+<g transform="translate(30, 1117)" class="layer-OmcFunc">
+<text x="0" y="28" class="label" id="OmcFunc">OmcFunc:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
