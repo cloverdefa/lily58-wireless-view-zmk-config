@@ -124,8 +124,8 @@ path.combo {
 }
 /* End Tabler Icons Cleanup */
 </style>
-<g transform="translate(30, 0)" class="layer-Windows">
-<text x="0" y="28" class="label" id="Windows">Windows:</text>
+<g transform="translate(30, 0)" class="layer-Omarchy">
+<text x="0" y="28" class="label" id="Omarchy">Omarchy:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -356,8 +356,8 @@ path.combo {
 <g transform="translate(644, 266)" class="key keypos-55">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">BSPC</text>
-<a href="#WinNAV">
-<text x="0" y="24" class="key hold layer-activator">WinNAV</text>
+<a href="#OmcNAV">
+<text x="0" y="24" class="key hold layer-activator">OmcNAV</text>
 </a></g>
 <g transform="translate(700, 260)" class="key keypos-56">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -368,8 +368,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 372)" class="layer-WinNAV">
-<text x="0" y="28" class="label" id="WinNAV">WinNAV:</text>
+<g transform="translate(30, 372)" class="layer-OmcNAV">
+<text x="0" y="28" class="label" id="OmcNAV">OmcNAV:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -516,13 +516,13 @@ path.combo {
 <g transform="translate(840, 161)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Gui+Sft</tspan><tspan x="0" dy="1.2em">+LEFT</tspan>
+<tspan x="0" dy="-0.6em">Gui+</tspan><tspan x="0" dy="1.2em">LEFT</tspan>
 </text>
 </g>
 <g transform="translate(896, 168)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Gui+Sft</tspan><tspan x="0" dy="1.2em">+RIGHT</tspan>
+<tspan x="0" dy="-0.6em">Gui+</tspan><tspan x="0" dy="1.2em">RIGHT</tspan>
 </text>
 </g>
 <g transform="translate(28, 224)" class="key trans keypos-36">
@@ -2282,8 +2282,8 @@ path.combo {
 </g>
 <g transform="translate(350, 266) rotate(30.0)" class="key keypos-53">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<a href="#Windows">
-<text x="0" y="0" class="key tap layer-activator">Windows</text>
+<a href="#Omarchy">
+<text x="0" y="0" class="key tap layer-activator">Omarchy</text>
 </a><text x="0" y="38" class="key hold">toggle</text>
 </g>
 <g transform="translate(574, 266) rotate(-30.0)" class="key keypos-54">
@@ -2511,8 +2511,8 @@ path.combo {
 </g>
 <g transform="translate(574, 266) rotate(-30.0)" class="key keypos-54">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<a href="#Windows">
-<text x="0" y="0" class="key tap layer-activator">Windows</text>
+<a href="#Omarchy">
+<text x="0" y="0" class="key tap layer-activator">Omarchy</text>
 </a><text x="0" y="38" class="key hold">toggle</text>
 </g>
 <g transform="translate(644, 266)" class="key keypos-55">
@@ -2722,8 +2722,8 @@ path.combo {
 </g>
 <g transform="translate(350, 266) rotate(30.0)" class="key keypos-53">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<a href="#Windows">
-<text x="0" y="0" class="key tap layer-activator">Windows</text>
+<a href="#Omarchy">
+<text x="0" y="0" class="key tap layer-activator">Omarchy</text>
 </a><text x="0" y="38" class="key hold">toggle</text>
 </g>
 <g transform="translate(574, 266) rotate(-30.0)" class="key keypos-54">
