@@ -61,14 +61,14 @@
             tap-ms = <MACRO_TAP_MS>;
             bindings =
                 <&macro_press>,
-                <&kp LMETA>,
+                <&kp LCTRL>,
                 <&kp LSHFT>,
                 
                 <&macro_tap>,
                 <&kp SPACE>,
                 
                 <&macro_release>,
-                <&kp LMETA>,
+                <&kp LCTRL>,
                 <&kp LSHFT>;
         };
 
