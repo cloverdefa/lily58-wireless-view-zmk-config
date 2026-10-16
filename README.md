@@ -1,103 +1,81 @@
 # Lily58 Wireless ZMK Config
 
-此倉庫為 Lily58 無線鍵盤的 ZMK 設定，包含多層 keymap、無線設定與 GitHub Actions CI 自動化建置流程。
+這是 Lily58 無線分體鍵盤的 [ZMK](https://zmk.dev/) 設定。韌體目標為左右兩側的 nice!nano v2，並搭配 nice!view 顯示器。
 
-鍵盤圖片
+<p align="center">
+  <img src="IMG/lily58.jpg" width="80%" alt="Lily58 鍵盤">
+</p>
 
-<div style="width: 80%; margin: auto;">
-  <img src="IMG/lily58.jpg" style="width: 100%; height: auto;" alt="Lily58 Keyboard">
-  <img src="IMG/lily58.svg" style="width: 100%; height: auto;" alt="Lily58 Keyboard">
-  
-</div>
+## Keymap
 
-## 專案結構
+`config/lily58.keymap` 定義 11 個鍵盤層：
 
-- `config/`: 主要設定（`lily58.keymap`、`lily58.conf`、`west.yml`）。
-- `IMG/`: 鍵盤/佈局相關圖片資產。
-- `.github/workflows/`: CI 建置流程。
-- `build.yaml`: CI 建置矩陣（左右半部與顯示模組）。
+| 層 | 用途 |
+| --- | --- |
+| Omarchy | Omarchy/Linux 日常輸入與快捷鍵 |
+| OmcNav | 導航、功能鍵、媒體控制與滑鼠層入口 |
+| OmcCode | 符號、tmux 快捷鍵 |
+| OmcFunc | 功能鍵與系統／滑鼠層入口 |
+| MacOS | macOS 日常輸入與快捷鍵 |
+| MacNav | 導航、功能鍵、媒體控制與滑鼠層入口 |
+| MacCode | 符號、tmux 與視窗快捷鍵 |
+| MacFunc | 功能鍵與系統／滑鼠層入口 |
+| Mouse | 指標移動、捲動、滑鼠按鍵 |
+| Game | 遊戲用按鍵配置 |
+| System | 藍牙配對槽、清除配對、重啟與 bootloader |
 
-## 功能特色
+Nav 和 Code 層同時啟用時，會自動啟用對應的 Func 層。拇指鍵提供層切換、修飾鍵與常用按鍵。Keymap 也包含中文輸入法、終端機、視窗管理及 tmux 等快捷鍵巨集；部分巨集依賴主機端的作業系統或軟體快捷鍵設定。
 
-- 多層鍵盤映射：支援 Windows / macOS / 遊戲等層。
-- 無線配置：支援 Nice!Nano V2 與 Nice!View 顯示模組。
-- 省電：深度睡眠，預設 30 分鐘後進入。
-- ZMK Studio：支援即時 Keymap 更新（左側以 USB-UART Snippet）。
-- CI 自動化：透過 GitHub Actions 自動建置並產出左右半部的 `zmk.uf2` 韌體。
+## 無線、睡眠與指標設定
 
-## 使用 GitHub Actions 取得韌體
+`config/lily58.conf` 設定裝置名稱為 `Lily58`、啟用 ZMK sleep 與 pointing，並調整藍牙連線間隔、背景掃描及按鍵去彈跳時間。閒置 900,000 毫秒（15 分鐘）後進入睡眠。
 
-本專案已設定 GitHub Actions CI，每當你推送（Push）變更或發起 Pull Request 時，系統會自動依照 `build.yaml` 的矩陣設定編譯韌體。
+ZMK Studio 目前未啟用；`CONFIG_ZMK_STUDIO` 與 Studio USB-UART snippet 都是註解狀態。
 
-1. **推送到倉庫**：將修改後的 `config/lily58.keymap` 或其他設定推送到 GitHub。
-2. **前往 Actions 頁面**：進入你的 GitHub 倉庫頁面，點選上方的 **Actions** 分頁。
-3. **下載 Artifacts**：點開最新一次成功執行（Green Check）的工作流程，在頁面下方找到 **Artifacts** 區塊，即可下載包含左右半部韌體的壓縮檔（內含 `zmk.uf2`）。
-4. **燒錄韌體**：將下載解壓縮後的 `zmk.uf2` 分別燒錄到左右半部的 Nice!Nano V2。
+## 專案檔案
 
-## 本機開發與除錯（選用）
+- `config/lily58.keymap`：layers、behaviors 與快捷鍵巨集。
+- `config/lily58.conf`：ZMK Kconfig 設定。
+- `config/west.yml`：West manifest，使用 ZMK `v0.3`。
+- `build.yaml`：左右兩側的 nice!nano v2 建置目標，皆包含 nice!view adapter 與顯示器 shield。
+- `IMG/`：鍵盤照片與 keymap SVG。
+- `main.py`：使用 `keymap` CLI 從 keymap 產生 `IMG/lily58.svg`。
 
-若需要在本機測試建置（需先安裝好 ZMK 開發環境）：
+## 建置韌體
 
-初始化 ZMK 工作區（於此倉庫根目錄）：
-```bash
+在已安裝 ZMK 開發工具鏈的環境中，於 repo 根目錄初始化並更新 West workspace：
+
+```sh
 west init -l config
 west update
+```
 
-# 本機建置指令範例（含 Nice!View 與 ZMK Studio）：
+建置左右兩側：
 
-# 左半部
-west build -p=auto -d build/left  -b nice_nano_v2 -- \
-  -DSHIELD="lily58_left nice_view_adapter nice_view" \
-  -DSNIPPET=studio-rpc-usb-uart
+```sh
+west build -p=auto -d build/left -b nice_nano_v2 -- \
+  -DSHIELD="lily58_left nice_view_adapter nice_view"
 
-# 右半部
 west build -p=auto -d build/right -b nice_nano_v2 -- \
   -DSHIELD="lily58_right nice_view_adapter nice_view"
 ```
 
-## ZMK Studio（可選）
+建置產物位於各自的 build 目錄。也可以使用 repo 根目錄的 `build.yaml` 作為支援該設定檔的 ZMK 建置流程輸入。此 repo 目前沒有包含 `.github/workflows/`，因此韌體不會由本 repo 內的 GitHub Actions workflow 自動建置。
 
+## 更新鍵盤圖
 
-- 設定已於 config/lily58.conf:19 啟用 CONFIG_ZMK_STUDIO=y 並解鎖。
+`main.py` 需要 `keymap` CLI 可從 PATH 執行。安裝並設定好該工具後，在 repo 根目錄執行：
 
-- 左半部建置時加入 -DSNIPPET=studio-rpc-usb-uart（CI 已自動處理），以 USB 連線使用 Studio。
+```sh
+python3 main.py
+```
 
-- 右半部通常不需要加入該 Snippet。
+腳本會解析 `config/lily58.keymap`，更新 `IMG/lily58.svg`，並刪除中間產生的 YAML 檔案。
 
-## 測試與 CI
+## 系統層操作
 
-- 確認推送到 GitHub 後，CI 可以成功建置並產出 zmk.uf2。
+在 System 層可使用 `BT_CLR` 清除藍牙配對，使用 `BT_SEL 0` 至 `BT_SEL 4` 選擇配對槽；另有 `sys_reset` 重啟與 `bootloader` 進入 bootloader 的按鍵。
 
-- 重大變更請附 keymap 差異或對照圖（可放於 IMG/）。
+## 授權
 
-- 請勿提交產物與私密資料（build/、.uf2、序號/金鑰）。
-
-## 藍牙與系統層
-
-- 於 SYS 層可清除配對與選擇插槽：bt BT_CLR、bt BT_SEL 0..4。
-
-- 進入 Bootloader 與系統重啟：bootloader、sys_reset。
-
-- 相關配置可參考 config/lily58.keymap 的 SYS_layer。
-
-## AGENTS 指南摘要
-
-- 結構與資產：config/ 放置主要設定；IMG/ 放置圖片；建置矩陣由 build.yaml 管理。
-
-- 風格規範：YAML 與 .keymap/.conf 皆採 2 空白縮排；層名稱全大寫（如 BASE、NAV）；.conf 僅使用既有 CONFIG_ 開關。
-
-- 測試要求：確保 CI 順利建置產生 zmk.uf2；重大變更提供新舊層級對照或 keymap 差異。
-
-- 提交規範：建議使用 Conventional Commits；PR 需附變更摘要、影響層級、截圖/IMG/ 圖片（如有）。
-
-- 安全注意：勿提交產物與私密資料；變更 west.yml 或 build.yaml 前，確認 CI 矩陣仍涵蓋左右半部與顯示模組。
-
-## 貢獻
-
-- 建議採用 Conventional Commits（如 ci:、build:、refactor:）。
-
-- 送 PR 前，請確認 GitHub Actions CI 能夠正常通過。
-
-授權
-
-此專案採用 MIT 授權，詳見 LICENSE.md。
+本專案採用 MIT License，詳見 [LICENSE.md](LICENSE.md)。
