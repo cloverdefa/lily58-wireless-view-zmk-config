@@ -99,6 +99,24 @@
                 <&kp LMETA>;
         };
 
+        files: omarchy_files {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <MACRO_WAIT_MS>;
+            tap-ms = <MACRO_TAP_MS>;
+            bindings =
+                <&macro_press>,
+                <&kp LMETA>,
+                <&kp LSHFT>,
+
+                <&macro_tap>,
+                <&kp F>,
+                
+                <&macro_release>,
+                <&kp LMETA>,
+                <&kp LSHFT>;
+        };
+
         tmac: terminal_macos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -346,11 +364,11 @@
         OmcDef {
             display-name = "Omarchy";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                         &kp N6           &kp N7   &kp N8     &kp N9   &kp N0    &kp TAB
-&kp TAB    &kp Q   &kp W   &kp E      &kp R         &kp T                                          &kp Y            &kp U    &kp I      &kp O    &kp P     &kp LC(TAB)
-&kp LSHFT  &kp A   &kp S   &kp D      &kp F         &kp G                                          &kp H            &kp J    &kp K      &kp L    &kp SEMI  &kp C_PLAY_PAUSE
-&kp LCTRL  &kp Z   &kp X   &kp C      &kp V         &kp B        &zen               &omenu         &kp N            &kp M    &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                           &kp LMETA  &tm LALT ESC  &mo OmcCode  &tm LSHFT SPACE    &tm LCTRL RET  &lh OmcNav BSPC  &kp TAB  &none
+&kp ESC    &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                         &kp N6           &kp N7     &kp N8     &kp N9   &kp N0    &kp TAB
+&kp TAB    &kp Q   &kp W   &kp E      &kp R         &kp T                                          &kp Y            &kp U      &kp I      &kp O    &kp P     &kp LC(TAB)
+&kp LSHFT  &kp A   &kp S   &kp D      &kp F         &kp G                                          &kp H            &kp J      &kp K      &kp L    &kp SEMI  &kp C_PLAY_PAUSE
+&kp LCTRL  &kp Z   &kp X   &kp C      &kp V         &kp B        &files             &omenu         &kp N            &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+                           &kp LMETA  &tm LALT ESC  &mo OmcCode  &tm LSHFT SPACE    &tm LCTRL RET  &lh OmcNav BSPC  &kp RMETA  &zen
             >;
         };
 
