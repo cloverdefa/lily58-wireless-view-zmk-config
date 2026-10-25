@@ -8,6 +8,8 @@
 
 ## Keymap
 
+[查看 Lily58 Keymap SVG](https://raw.githubusercontent.com/cloverdefa/lily58-wireless-view-zmk-config/refs/heads/main/assets/lily58.svg)
+
 `config/lily58.keymap` 定義 11 個鍵盤層：
 
 | 層 | 用途 |
