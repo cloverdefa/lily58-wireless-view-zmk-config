@@ -3,7 +3,7 @@
 這是 Lily58 無線分體鍵盤的 [ZMK](https://zmk.dev/) 設定。韌體目標為左右兩側的 nice!nano v2，並搭配 nice!view 顯示器。
 
 <p align="center">
-  <img src="IMG/lily58.jpg" width="80%" alt="Lily58 鍵盤">
+  <img src="assets/lily58.jpg" width="80%" alt="Lily58 鍵盤">
 </p>
 
 ## Keymap
