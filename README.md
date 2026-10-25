@@ -38,8 +38,8 @@ ZMK Studio 目前未啟用；`CONFIG_ZMK_STUDIO` 與 Studio USB-UART snippet 都
 - `config/lily58.conf`：ZMK Kconfig 設定。
 - `config/west.yml`：West manifest，使用 ZMK `v0.3`。
 - `build.yaml`：左右兩側的 nice!nano v2 建置目標，皆包含 nice!view adapter 與顯示器 shield。
-- `IMG/`：鍵盤照片與 keymap SVG。
-- `main.py`：使用 `keymap` CLI 從 keymap 產生 `IMG/lily58.svg`。
+- `assets/`：鍵盤照片與 keymap SVG。
+- `main.py`：使用 `keymap` CLI 從 keymap 產生 `assets/lily58.svg`。
 
 ## 建置韌體
 
@@ -70,7 +70,7 @@ west build -p=auto -d build/right -b nice_nano_v2 -- \
 python3 main.py
 ```
 
-腳本會解析 `config/lily58.keymap`，更新 `IMG/lily58.svg`，並刪除中間產生的 YAML 檔案。
+腳本會解析 `config/lily58.keymap`，更新 `assets/lily58.svg`，並刪除中間產生的 YAML 檔案。
 
 ## 系統層操作
 
