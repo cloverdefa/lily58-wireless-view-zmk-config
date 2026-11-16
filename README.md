@@ -10,23 +10,29 @@
 
 [查看 Lily58 Keymap SVG](https://raw.githubusercontent.com/cloverdefa/lily58-wireless-view-zmk-config/refs/heads/main/assets/lily58.svg)
 
-`config/lily58.keymap` 定義 11 個鍵盤層：
+`config/lily58.keymap` 定義 7 個鍵盤層：
 
 | 層 | 用途 |
 | --- | --- |
-| Omarchy | Omarchy/Linux 日常輸入與快捷鍵 |
-| OmcNav | 導航、功能鍵、媒體控制與滑鼠層入口 |
-| OmcCode | 符號、tmux 快捷鍵 |
-| OmcFunc | 功能鍵與系統／滑鼠層入口 |
-| MacOS | macOS 日常輸入與快捷鍵 |
-| MacNav | 導航、功能鍵、媒體控制與滑鼠層入口 |
-| MacCode | 符號、tmux 與視窗快捷鍵 |
-| MacFunc | 功能鍵與系統／滑鼠層入口 |
-| Mouse | 指標移動、捲動、滑鼠按鍵 |
+| Omarchy | Omarchy/Linux 日常輸入與快捷鍵（預設層） |
+| Nav | 方向鍵、Home/End、翻頁、功能鍵、媒體控制、截圖與 Omarchy 快捷巨集，並提供滑鼠層入口 |
+| Code | 程式符號、括號與 tmux 快捷鍵巨集 |
+| Func | 功能鍵、視窗移動巨集，並提供滑鼠層與系統層入口 |
+| Mouse | 指標移動、捲動、滑鼠按鍵，並提供遊戲層入口 |
 | Game | 遊戲用按鍵配置 |
 | System | 藍牙配對槽、清除配對、重啟與 bootloader |
 
-Nav 和 Code 層同時啟用時，會自動啟用對應的 Func 層。拇指鍵提供層切換、修飾鍵與常用按鍵。Keymap 也包含中文輸入法、終端機、視窗管理及 tmux 等快捷鍵巨集；部分巨集依賴主機端的作業系統或軟體快捷鍵設定。
+Nav 和 Code 層同時啟用時，會自動啟用 Func 層。拇指鍵提供層切換、修飾鍵與常用按鍵。Keymap 也包含中文輸入法、終端機、檔案管理員、工作區切換、視窗移動及 tmux 等快捷鍵巨集；這些巨集針對 Omarchy 的快捷鍵設計，部分依賴主機端的作業系統或軟體快捷鍵設定。
+
+### 層切換
+
+| 來源 | 目標 | 方式 |
+| --- | --- | --- |
+| Omarchy | Nav / Code | 拇指鍵按住（`&lh Nav`、`&mo Code`） |
+| Nav、Func、System | Mouse | `&to Mouse` |
+| Mouse | Game | `&to Game` |
+| Func、Game | System | `&to System` |
+| Mouse、Game、System | Omarchy | `&to Def` |
 
 ## 無線、睡眠與指標設定
 
