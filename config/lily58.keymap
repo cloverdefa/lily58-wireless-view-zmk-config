@@ -11,17 +11,13 @@
 
 // Layers
 
-#define OmcDef   0
-#define OmcNav   1
-#define OmcCode  2
-#define OmcFunc  3
-#define MacDef   4
-#define MacNav   5
-#define MacCode  6
-#define MacFunc  7
-#define Mouse    8
-#define Game     9
-#define System   10
+#define Def      0
+#define Nav      1
+#define Code     2
+#define Func     3
+#define Mouse    4
+#define Game     5
+#define System   6
 
 // Macros
 
@@ -39,10 +35,10 @@
                 <&macro_press>,
                 <&kp LMETA>,
                 <&kp LSHFT>,
-                
+
                 <&macro_tap>,
                 <&kp ENTER>,
-                
+
                 <&macro_release>,
                 <&kp LMETA>,
                 <&kp LSHFT>;
@@ -56,10 +52,10 @@
             bindings =
                 <&macro_press>,
                 <&kp LMETA>,
-                
+
                 <&macro_tap>,
                 <&kp I>,
-                
+
                 <&macro_release>,
                 <&kp LMETA>;
         };
@@ -73,10 +69,10 @@
             bindings =
                 <&macro_press>,
                 <&kp LMETA>,
-                
+
                 <&macro_tap>,
                 <&kp ENTER>,
-                
+
                 <&macro_release>,
                 <&kp LMETA>;
         };
@@ -89,10 +85,10 @@
             bindings =
                 <&macro_press>,
                 <&kp LMETA>,
-                
+
                 <&macro_tap>,
                 <&kp SPACE>,
-                
+
                 <&macro_release>,
                 <&kp LMETA>;
         };
@@ -109,36 +105,10 @@
 
                 <&macro_tap>,
                 <&kp F>,
-                
+
                 <&macro_release>,
                 <&kp LMETA>,
                 <&kp LSHFT>;
-        };
-
-        tmac: terminal_macos {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <MACRO_WAIT_MS>;
-            tap-ms = <MACRO_TAP_MS>;
-            bindings =
-                <&macro_press>,
-                <&kp LCMD>,
-
-                <&macro_tap>,
-                <&kp SPACE>,
-
-                <&macro_wait_time 150>,
-                <&kp N1>,
-
-                <&macro_release>,
-                <&kp LCMD>,
-
-                <&macro_pause_for_release>,
-                <&macro_wait_time 150>,
-                <&macro_tap>,
-                <&kp G>,
-                <&kp H>,
-                <&kp ENTER>;
         };
 
         nwok: next_omarhy_workstab {
@@ -173,90 +143,6 @@
                 <&macro_release>,
                 <&kp LMETA>,
                 <&kp LSHFT>;
-        };
-
-        spot: spotlight {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <MACRO_WAIT_MS>;
-            tap-ms = <MACRO_TAP_MS>;
-            bindings =
-                <&macro_press>,
-                <&kp LCMD>,
-
-                <&macro_tap>,
-                <&kp SPACE>,
-
-                <&macro_release>,
-                <&kp LCMD>;
-        };
-
-        maxm: windowmax_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <MACRO_WAIT_MS>;
-            tap-ms = <MACRO_TAP_MS>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LCTRL)>,
-
-                <&macro_tap>,
-                <&kp F>,
-
-                <&macro_release>,
-                <&kp LG(LCTRL)>;
-        };
-
-        recm: screenrecord_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <MACRO_WAIT_MS>;
-            tap-ms = <MACRO_TAP_MS>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LSHFT)>,
-
-                <&macro_tap>,
-                <&kp N5>,
-
-                <&macro_release>,
-                <&kp LG(LSHFT)>;
-        };
-
-        wupm: windowup_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <MACRO_WAIT_MS>;
-            tap-ms = <MACRO_TAP_MS>;
-            bindings =
-                <&macro_press>,
-                <&kp GLOBE>,
-                <&kp LCTRL>,
-                
-                <&macro_tap>,
-                <&kp F>,
-                
-                <&macro_release>,
-                <&kp GLOBE>,
-                <&kp LCTRL>;
-        };
-
-        wdnm: windowdown_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <MACRO_WAIT_MS>;
-            tap-ms = <MACRO_TAP_MS>;
-            bindings =
-                <&macro_press>,
-                <&kp GLOBE>,
-                <&kp LCTRL>,
-                
-                <&macro_tap>,
-                <&kp C>,
-                
-                <&macro_release>,
-                <&kp GLOBE>,
-                <&kp LCTRL>;
         };
 
         mvu: move_up {
@@ -296,7 +182,7 @@
             #binding-cells = <0>;
             wait-ms = <MACRO_WAIT_MS>;
             tap-ms = <MACRO_TAP_MS>;
-            bindings = 
+            bindings =
                 <&macro_tap>,
                 <&kp LC(A)>,
                 <&kp PIPE>;
@@ -318,7 +204,7 @@
             #binding-cells = <0>;
             wait-ms = <MACRO_WAIT_MS>;
             tap-ms = <MACRO_TAP_MS>;
-            bindings = 
+            bindings =
                 <&macro_tap>,
                 <&kp LC(A)>,
                 <&kp W>;
@@ -329,7 +215,7 @@
             #binding-cells = <0>;
             wait-ms = <MACRO_WAIT_MS>;
             tap-ms = <MACRO_TAP_MS>;
-            bindings = 
+            bindings =
                 <&macro_tap>,
                 <&kp LC(A)>,
                 <&kp C>;
@@ -359,19 +245,19 @@
     keymap {
         compatible = "zmk,keymap";
 
-        OmcDef {
+        Def {
             display-name = "Omarchy";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                         &kp N6           &kp N7     &kp N8     &kp N9   &kp N0    &kp TAB
-&kp TAB    &kp Q   &kp W   &kp E      &kp R         &kp T                                          &kp Y            &kp U      &kp I      &kp O    &kp P     &kp LC(TAB)
-&kp LSHFT  &kp A   &kp S   &kp D      &kp F         &kp G                                          &kp H            &kp J      &kp K      &kp L    &kp SEMI  &kp C_PLAY_PAUSE
-&kp LCTRL  &kp Z   &kp X   &kp C      &kp V         &kp B        &files             &omenu         &kp N            &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                           &kp LMETA  &tm LALT ESC  &mo OmcCode  &tm LSHFT SPACE    &tm LCTRL RET  &lh OmcNav BSPC  &kp RMETA  &zen
+&kp ESC    &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                      &kp N6           &kp N7     &kp N8     &kp N9   &kp N0    &kp TAB
+&kp TAB    &kp Q   &kp W   &kp E      &kp R         &kp T                                       &kp Y            &kp U      &kp I      &kp O    &kp P     &kp LC(TAB)
+&kp LSHFT  &kp A   &kp S   &kp D      &kp F         &kp G                                       &kp H            &kp J      &kp K      &kp L    &kp SEMI  &kp C_PLAY_PAUSE
+&kp LCTRL  &kp Z   &kp X   &kp C      &kp V         &kp B     &files             &omenu         &kp N            &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+                           &kp LMETA  &tm LALT ESC  &mo Code  &tm LSHFT SPACE    &tm LCTRL RET  &lh Nav BSPC  &kp RMETA  &zen
             >;
         };
 
-        OmcNav {
-            display-name = "OmcNAV";
+        Nav {
+            display-name = "Nav";
             bindings = <
 &trans         &kp F1     &kp F2  &kp F3         &kp F4    &kp F5                          &kp F6        &kp F7        &kp F8      &kp F9      &kp F10  &kp F11
 &trans         &kp N1     &kp N2  &kp N3         &kp N4    &kp N5                          &kp N6        &kp N7        &kp N8      &kp N9      &kp N0   &kp F12
@@ -381,8 +267,8 @@
             >;
         };
 
-        OmcCode {
-            display-name = "OmcCode";
+        Code {
+            display-name = "Code";
             bindings = <
 &trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7    &kp F8    &kp F9    &kp F10    &kp F11
 &trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR   &kp F12
@@ -392,8 +278,8 @@
             >;
         };
 
-        OmcFunc {
-            display-name = "OmcFunc";
+        Func {
+            display-name = "Func";
             bindings = <
 &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                       &kp F6      &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
 &trans  &trans  &trans  &trans  &trans  &trans                       &trans      &trans  &trans  &trans  &trans   &kp F12
@@ -403,58 +289,14 @@
             >;
         };
 
-        MacDef {
-            display-name = "MacOS";
-            bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                         &kp N6           &kp N7   &kp N8     &kp N9   &kp N0    &kp TAB
-&kp TAB    &kp Q   &kp W   &kp E     &kp R         &kp T                                          &kp Y            &kp U    &kp I      &kp O    &kp P     &kp LC(TAB)
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F         &kp G                                          &kp H            &kp J    &kp K      &kp L    &kp SEMI  &kp C_PLAY_PAUSE
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V         &kp B        &tmac              &spot          &kp N            &kp M    &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                           &kp LALT  &tm LCMD ESC  &mo MacCode  &tm LSHFT SPACE    &tm LCTRL RET  &lh MacNav BSPC  &kp TAB  &none
-            >;
-        };
-
-        MacNav {
-            display-name = "MacNAV";
-            bindings = <
-&trans  &kp F1              &kp F2         &kp F3     &kp F4    &kp F5                          &kp F6        &kp F7        &kp F8      &kp F9      &kp F10             &kp F11
-&trans  &kp N1              &kp N2         &kp N3     &kp N4    &kp N5                          &kp N6        &kp N7        &kp N8      &kp N9      &kp N0              &kp F12
-&trans  &kp LG(LC(LS(N4)))  &kp CAPS       &maxm      &kp HOME  &kp PG_UP                       &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(LEFT)        &kp LC(RIGHT)
-&trans  &tmac               &kp LG(SPACE)  &kp LG(M)  &kp END   &kp PG_DN  &to Mouse    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))  &kp C_PLAY_PAUSE
-                                           &trans     &trans    &trans     &trans       &trans  &trans        &trans        &trans
-            >;
-        };
-
-        MacCode {
-            display-name = "MacCode";
-            bindings = <
-&trans  &kp F1    &kp F2  &kp F3     &kp F4     &kp F5                       &kp F6     &kp F7    &kp F8    &kp F9    &kp F10        &kp F11
-&trans  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR       &kp F12
-&trans  &lst      &col    &kp GRAVE  &kp MINUS  &kp EQUAL                    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LG(Q)      &kp LC(TAB)
-&trans  &ttab     &row    &kp TILDE  &kp PLUS   &kp UNDER  &wupm     &wdnm   &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp LG(SPACE)  &kp LG(LS(T))
-                          &trans     &trans     &trans     &trans    &trans  &trans     &trans    &trans
-            >;
-        };
-
-        MacFunc {
-            display-name = "MacFunc";
-            bindings = <
-&trans  &kp F1           &kp F2  &kp F3  &kp F4  &kp F5                       &kp F6      &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-&trans  &trans           &trans  &trans  &trans  &trans                       &trans      &trans  &trans  &trans  &trans   &kp F12
-&trans  &trans           &trans  &wupm   &trans  &trans                       &trans      &mvd    &mvu    &trans  &trans   &trans
-&trans  &kp LG(LA(ESC))  &trans  &wdnm   &trans  &to Mouse  &trans    &trans  &to System  &trans  &trans  &trans  &trans   &trans
-                                 &trans  &trans  &trans     &trans    &trans  &trans      &trans  &trans
-            >;
-        };
-
         Mouse {
             display-name = "Mouse";
             bindings = <
-&kp ESC  &none  &none  &none  &none     &none                                &none           &none           &none         &none            &none  &none
-&none    &none  &none  &none  &none     &none                                &none           &none           &none         &none            &none  &none
-&none    &none  &none  &none  &none     &none                                &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
-&none    &none  &none  &none  &none     &none       &none         &none      &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none  &none
-                       &none  &to Game  &to MacDef  &to OmcDef    &mkp LCLK  &mkp RCLK       &mkp MCLK       &none
+&kp ESC  &none  &none  &none  &none     &none                        &none           &none           &none         &none            &none  &none
+&none    &none  &none  &none  &none     &none                        &none           &none           &none         &none            &none  &none
+&none    &none  &none  &none  &none     &none                        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
+&none    &none  &none  &none  &none     &none  &none      &none      &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none  &none
+                       &none  &to Game  &none  &to Def    &mkp LCLK  &mkp RCLK       &mkp MCLK       &none
             >;
         };
 
@@ -465,18 +307,18 @@
 &none      &kp Q      &none   &kp W    &kp E   &kp R                            &none         &none         &none  &none  &none  &none
 &kp LCTRL  &kp LSHFT  &kp A   &kp S    &kp D   &none                            &none         &none         &none  &none  &none  &none
 &kp G      &kp N6     &kp N7  &kp N8   &kp N9  &kp N0  &kp B        &to System  &kp C_VOL_DN  &kp C_VOL_UP  &none  &none  &none  &none
-                              &kp TAB  &kp M   &kp Z   &kp SPACE    &to OmcDef  &to MacDef    &to Mouse     &none
+                              &kp TAB  &kp M   &kp Z   &kp SPACE    &to Def     &none         &to Mouse     &none
             >;
         };
 
         System {
             display-name = "System";
             bindings = <
-&none  &none  &none  &none  &none     &bt BT_CLR                            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
-&none  &none  &none  &none  &none     &none                                 &none         &none         &none         &none         &none         &none
-&none  &none  &none  &none  &none     &sys_reset                            &sys_reset    &none         &none         &none         &none         &none
-&none  &none  &none  &none  &none     &bootloader  &none         &to Mouse  &bootloader   &none         &none         &none         &none         &none
-                     &none  &to Game  &to MacDef   &to OmcDef    &none      &none         &none         &none
+&none  &none  &none  &none  &none     &bt BT_CLR                         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+&none  &none  &none  &none  &none     &none                              &none         &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none     &sys_reset                         &sys_reset    &none         &none         &none         &none         &none
+&none  &none  &none  &none  &none     &bootloader  &none      &to Mouse  &bootloader   &none         &none         &none         &none         &none
+                     &none  &to Game  &none        &to Def    &none      &none         &none         &none
             >;
         };
     };
@@ -487,11 +329,6 @@
         win_function {
             if-layers = <1 2>;
             then-layer = <3>;
-        };
-
-        mac_function {
-            if-layers = <5 6>;
-            then-layer = <7>;
         };
     };
 };
