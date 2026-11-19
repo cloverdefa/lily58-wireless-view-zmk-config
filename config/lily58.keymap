@@ -41,19 +41,19 @@
         tm: thumb_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <150>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            require-prior-idle-ms = <120>;  // 連打時 Space/Enter 一律當 tap，避免誤觸 Shift/Ctrl
+            require-prior-idle-ms = <100>;  // 連打時 Space/Enter 一律當 tap，避免誤觸 Shift/Ctrl
         };
 
         lh: layer_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
-            quick-tap-ms = <200>;
-            flavor = "balanced";
+            tapping-term-ms = <150>;
+            quick-tap-ms = <180>;
+            flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
         };
 
@@ -76,11 +76,11 @@
         Nav {
             display-name = "Nav";
             bindings = <
-&trans         &kp LG(N1)      &kp LG(N2)       &kp LG(N3)      &kp LG(N4)      &kp LG(N5)                           &kp LG(N6)    &kp LG(N7)    &kp LG(N8)  &kp LG(N9)  &kp LG(N0)   &trans
-&trans         &kp LG(LS(N1))  &kp LG(LS(N2))   &kp LG(LS(N3))  &kp LG(LS(N4))  &kp LG(LS(N5))                       &trans        &trans        &trans      &trans      &trans       &trans
-&kp LA(PSCRN)  &kp PSCRN       &kp LG(I)        &kp LG(F)       &kp HOME        &kp PG_UP                            &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LG(TAB)  &kp LG(LS(TAB))
-&trans         &kp LG(RET)     &kp LG(LS(RET))  &kp LG(LA(F))   &kp END         &kp PG_DN       &to Mouse    &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &trans       &trans
-                                                &trans          &trans          &trans          &trans       &trans  &trans        &trans        &trans
+&trans         &kp LG(N1)      &kp LG(N2)       &kp LG(N3)      &kp LG(N4)      &kp LG(N5)                           &kp LG(N6)      &kp LG(N7)      &kp LG(N8)      &kp LG(N9)      &kp LG(N0)      &trans
+&trans         &kp LG(LS(N1))  &kp LG(LS(N2))   &kp LG(LS(N3))  &kp LG(LS(N4))  &kp LG(LS(N5))                       &kp LG(LS(N6))  &kp LG(LS(N7))  &kp LG(LS(N8))  &kp LG(LS(N9))  &kp LG(LS(N0))  &trans
+&kp LA(PSCRN)  &kp PSCRN       &kp LG(I)        &kp LG(F)       &kp HOME        &kp PG_UP                            &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &kp LG(TAB)     &kp LG(LS(TAB))
+&trans         &kp LG(RET)     &kp LG(LS(RET))  &kp LG(LA(F))   &kp END         &kp PG_DN       &to Mouse    &trans  &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PREV      &kp C_NEXT      &trans          &trans
+                                                &trans          &trans          &trans          &trans       &trans  &trans          &trans          &trans
             >;
         };
 
