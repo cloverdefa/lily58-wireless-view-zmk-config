@@ -29,25 +29,11 @@
         tmx: tmux_prefix {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <15>;
+            tap-ms = <15>;
             bindings = <&macro_tap &kp LC(A)>,
                        <&macro_param_1to1>,
                        <&macro_tap &kp MACRO_PLACEHOLDER>;
-        };
-
-        vsave: vim_save {   // Esc :w Enter
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>; tap-ms = <10>;
-            bindings = <&macro_tap &kp ESC &kp COLON &kp W &kp ENTER>;
-        };
-
-        arw: arrow {        // ->
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <5>; tap-ms = <5>;
-            bindings = <&macro_tap &kp MINUS &kp GT>;
         };
     };
 
@@ -59,14 +45,14 @@
             quick-tap-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <120>;  // 連打時 Space/Enter 一律當 tap，避免誤觸 Shift/Ctrl
         };
 
         lh: layer_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <180>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <250>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
         };
