@@ -11,13 +11,13 @@
 
 // Layers
 
-#define Def      0
-#define Nav      1
-#define Code     2
-#define Func     3
-#define Mouse    4
-#define Game     5
-#define System   6
+#define Base       0
+#define Nav        1
+#define Symbols    2
+#define Functions  3
+#define Mouse      4
+#define Gameing    5
+#define System     6
 
 / {
     macros {
@@ -66,30 +66,30 @@
     keymap {
         compatible = "zmk,keymap";
 
-        Def {
-            display-name = "Def";
+        Base {
+            display-name = "Base";
             bindings = <
-                &kp ESC    &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                      &kp N6        &kp N7     &kp N8     &kp N9   &kp N0    &kp LG(ESC)
-                &kp TAB    &kp Q   &kp W   &kp E      &kp R         &kp T                                       &kp Y         &kp U      &kp I      &kp O    &kp P     &kp LC(TAB)
-                &kp LSHFT  &kp A   &kp S   &kp D      &kp F         &kp G                                       &kp H         &kp J      &kp K      &kp L    &kp SEMI  &kp C_PLAY_PAUSE
-                &kp LCTRL  &kp Z   &kp X   &kp C      &kp V         &kp B     &kp LG(LS(F))      &kp LG(SPACE)  &kp N         &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                                           &kp LMETA  &tm LALT ESC  &mo Code  &tm LSHFT SPACE    &em LCTRL RET  &lh Nav BSPC  &kp RMETA  &none
+                &kp ESC    &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                         &kp N6        &kp N7     &kp N8     &kp N9   &kp N0    &kp LG(ESC)
+                &kp TAB    &kp Q   &kp W   &kp E      &kp R         &kp T                                          &kp Y         &kp U      &kp I      &kp O    &kp P     &kp LC(TAB)
+                &kp LSHFT  &kp A   &kp S   &kp D      &kp F         &kp G                                          &kp H         &kp J      &kp K      &kp L    &kp SEMI  &kp C_PLAY_PAUSE
+                &kp LCTRL  &kp Z   &kp X   &kp C      &kp V         &kp B        &kp LG(LS(F))      &kp LG(SPACE)  &kp N         &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+                                           &kp LMETA  &tm LALT ESC  &mo Symbols  &tm LSHFT SPACE    &em LCTRL RET  &lh Nav BSPC  &kp RMETA  &none
             >;
         };
 
         Nav {
             display-name = "Nav";
             bindings = <
-                &trans         &kp LG(N1)      &kp LG(N2)       &kp LG(N3)      &kp LG(N4)      &kp LG(N5)                           &kp LG(N6)      &kp LG(N7)      &kp LG(N8)      &kp LG(N9)      &kp LG(N0)      &trans
-                &trans         &kp LG(LS(N1))  &kp LG(LS(N2))   &kp LG(LS(N3))  &kp LG(LS(N4))  &kp LG(LS(N5))                       &kp LG(LS(N6))  &kp LG(LS(N7))  &kp LG(LS(N8))  &kp LG(LS(N9))  &kp LG(LS(N0))  &trans
-                &kp LA(PSCRN)  &kp PSCRN       &kp LG(I)        &kp LG(F)       &kp HOME        &kp PG_UP                            &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &kp LG(TAB)     &kp LG(LS(TAB))
-                &trans         &kp LG(RET)     &kp LG(LS(RET))  &kp LG(LA(F))   &kp END         &kp PG_DN       &to Mouse    &trans  &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PREV      &kp C_NEXT      &trans          &trans
-                                                                &trans          &trans          &trans          &trans       &trans  &trans          &trans          &trans
+                &trans         &kp LG(N1)      &kp LG(N2)       &kp LG(N3)      &kp LG(N4)      &kp LG(N5)                        &kp LG(N6)      &kp LG(N7)      &kp LG(N8)      &kp LG(N9)      &kp LG(N0)      &trans
+                &trans         &kp LG(LS(N1))  &kp LG(LS(N2))   &kp LG(LS(N3))  &kp LG(LS(N4))  &kp LG(LS(N5))                    &kp LG(LS(N6))  &kp LG(LS(N7))  &kp LG(LS(N8))  &kp LG(LS(N9))  &kp LG(LS(N0))  &trans
+                &kp LA(PSCRN)  &kp PSCRN       &kp LG(I)        &kp LG(F)       &kp HOME        &kp PG_UP                         &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &kp LG(TAB)     &kp LG(LS(TAB))
+                &trans         &kp LG(RET)     &kp LG(LS(RET))  &kp LG(LA(F))   &kp END         &kp PG_DN       &trans    &trans  &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PREV      &kp C_NEXT      &trans          &trans
+                                                                &trans          &trans          &trans          &trans    &trans  &trans          &trans          &trans
             >;
         };
 
-        Code {
-            display-name = "Code";
+        Symbols {
+            display-name = "Symbols";
             bindings = <
                 &trans  &trans    &trans      &trans     &trans     &trans                       &trans     &trans    &trans    &trans    &trans         &trans
                 &trans  &kp EXCL  &kp AT      &kp HASH   &kp DLLR   &kp PRCNT                    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR       &trans
@@ -99,8 +99,8 @@
             >;
         };
 
-        Func {
-            display-name = "Func";
+        Functions {
+            display-name = "Functions";
             bindings = <
                 &trans  &kp F1  &kp F2   &kp F3   &kp F4  &kp F5                       &kp F6      &kp F7     &kp F8     &kp F9  &kp F10    &trans
                 &trans  &trans  &kp F11  &kp F12  &trans  &trans                       &trans      &trans     &trans     &trans  &trans     &trans
@@ -113,33 +113,33 @@
         Mouse {
             display-name = "Mouse";
             bindings = <
-                &kp ESC  &none  &none  &none  &none     &none                        &none           &none           &none         &none            &none  &none
-                &none    &none  &none  &none  &none     &none                        &none           &none           &none         &none            &none  &none
-                &none    &none  &none  &none  &none     &none                        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
-                &none    &none  &none  &none  &none     &none  &none      &none      &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none  &none
-                                       &none  &to Game  &none  &to Def    &mkp LCLK  &mkp RCLK       &mkp MCLK       &none
+                &kp ESC  &none  &none  &none  &none        &none                         &none           &none           &none         &none            &none  &none
+                &none    &none  &none  &none  &none        &none                         &none           &none           &none         &none            &none  &none
+                &none    &none  &none  &none  &none        &none                         &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
+                &none    &none  &none  &none  &none        &none  &none       &none      &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none  &none
+                                       &none  &to Gameing  &none  &to Base    &mkp LCLK  &mkp RCLK       &mkp MCLK       &none
             >;
         };
 
-        Game {
-            display-name = "Game";
+        Gameing {
+            display-name = "Gameing";
             bindings = <
                 &kp ESC    &kp N1     &kp N2  &kp N3   &kp N4  &kp N5                           &none         &none         &none  &none  &none  &none
                 &none      &kp Q      &none   &kp W    &kp E   &kp R                            &none         &none         &none  &none  &none  &none
                 &kp LCTRL  &kp LSHFT  &kp A   &kp S    &kp D   &none                            &none         &none         &none  &none  &none  &none
                 &kp G      &kp N6     &kp N7  &kp N8   &kp N9  &kp N0  &kp B        &to System  &kp C_VOL_DN  &kp C_VOL_UP  &none  &none  &none  &none
-                                              &kp TAB  &kp M   &kp Z   &kp SPACE    &to Def     &none         &to Mouse     &none
+                                              &kp TAB  &kp M   &kp Z   &kp SPACE    &to Base    &none         &to Mouse     &none
             >;
         };
 
         System {
             display-name = "System";
             bindings = <
-                &studio_unlock  &none  &none  &none  &none     &bt BT_CLR                         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
-                &none           &none  &none  &none  &none     &none                              &none         &none         &none         &none         &none         &none
-                &none           &none  &none  &none  &none     &sys_reset                         &sys_reset    &none         &none         &none         &kp LG(W)     &none
-                &none           &none  &none  &none  &none     &bootloader  &none      &to Mouse  &bootloader   &none         &none         &none         &none         &none
-                                              &none  &to Game  &none        &to Def    &none      &none         &none         &none
+                &studio_unlock  &none  &none  &none  &none        &bt BT_CLR                          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+                &none           &none  &none  &none  &none        &none                               &none         &none         &none         &none         &none         &none
+                &none           &none  &none  &none  &none        &sys_reset                          &sys_reset    &none         &none         &none         &kp LG(W)     &none
+                &none           &none  &none  &none  &none        &bootloader  &none       &to Mouse  &bootloader   &none         &none         &none         &none         &none
+                                              &none  &to Gameing  &none        &to Base    &none      &none         &none         &none
             >;
         };
     };
@@ -147,7 +147,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        function {
+        functions {
             if-layers = <1 2>;
             then-layer = <3>;
         };
