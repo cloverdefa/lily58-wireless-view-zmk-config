@@ -16,7 +16,7 @@
 #define Symbols    2
 #define Functions  3
 #define Mouse      4
-#define Gameing    5
+#define Gaming     5
 #define System     6
 
 / {
@@ -117,12 +117,12 @@
                 &none    &none  &none  &none  &none        &none                         &none           &none           &none         &none            &none  &none
                 &none    &none  &none  &none  &none        &none                         &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none  &none
                 &none    &none  &none  &none  &none        &none  &none       &none      &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none  &none
-                                       &none  &to Gameing  &none  &to Base    &mkp LCLK  &mkp RCLK       &mkp MCLK       &none
+                                       &none  &to Gaming   &none  &to Base    &mkp LCLK  &mkp RCLK       &mkp MCLK       &none
             >;
         };
 
-        Gameing {
-            display-name = "Gameing";
+        Gaming {
+            display-name = "Gaming";
             bindings = <
                 &kp ESC    &kp N1     &kp N2  &kp N3   &kp N4  &kp N5                           &none         &none         &none  &none  &none  &none
                 &none      &kp Q      &none   &kp W    &kp E   &kp R                            &none         &none         &none  &none  &none  &none
@@ -139,7 +139,7 @@
                 &none           &none  &none  &none  &none        &none                               &none         &none         &none         &none         &none         &none
                 &none           &none  &none  &none  &none        &sys_reset                          &sys_reset    &none         &none         &none         &kp LG(W)     &none
                 &none           &none  &none  &none  &none        &bootloader  &none       &to Mouse  &bootloader   &none         &none         &none         &none         &none
-                                              &none  &to Gameing  &none        &to Base    &none      &none         &none         &none
+                                              &none  &to Gaming   &none        &to Base    &none      &none         &none         &none
             >;
         };
     };
